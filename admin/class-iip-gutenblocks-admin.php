@@ -4,27 +4,38 @@ namespace IIP_Gutenblocks;
 
 class Admin {
 
-  // INSERT YOUR FRONTEND FUNCTIONS HERE
-  // THE BELOW INCLUDED FUNCTIONS ADD AN ADMIN METABOX AND ENQUEQUE ADMIN SCRIPTS
-  // FEEL FREE TO DELETE IF NOT NEEDED
+  // Registers all the custom Gutenberg blocks
+  public function register_iip_gutenblocks() {
 
-  public function enqueue_iip_gutenblocks_admin() {
-    wp_enqueue_script( 'iip-gutenblocks-admin-js', IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gutenblocks-admin.min.js', array(), null, true );
-  }
+    // Ensures that Gutenberg is active
+    if ( ! function_exists( 'register_block_type' ) ) {
+      return;
+    }
 
-  public function add_metabox() {
-    $post_type = array( 'post', 'page' );
-    add_meta_box(
-      'iip-gutenblocks-metabox',
-      __( 'IIP Gutenblocks Metabox', 'iip-gutenblocks' ),
-      array( $this, 'render_metabox' ),
-      $post_type,
-      'normal',
-      'low'
+    wp_register_script(
+      'iip-interactive-gutenblocks-js',
+      IIP_GUTENBLOCKS_URL . 'admin/interactive.js',
+      array( 'wp-blocks', 'wp-i18n', 'wp-element' )
     );
+
+    register_block_type( 'iip-gut/interactive', array(
+      'editor_script' => 'iip-interactive-gutenblocks-js',
+    ) );
   }
 
-  public function render_metabox() {
-    echo '<div id="iip-gutenblocks-admin"></div>';
+  public function register_custom_block_category( $categories, $post ) {
+    if ( $post->post_type !== 'post' ) {
+      return $categories;
+    }
+
+    return array_merge(
+      $categories,
+      array(
+        array(
+          'slug' => 'iip_custom_blocks',
+          'title' => __( 'IIP Custom Blocks', 'iip-gutenblocks' )
+        ),
+      )
+    );
   }
 }

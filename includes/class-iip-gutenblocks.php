@@ -72,9 +72,9 @@ class IIP_Gutenblocks {
     $plugin_admin = new IIP_Gutenblocks\Admin( $this->get_plugin_name(), $this->get_version() );
 
     // Admin hooks
-    $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_metabox' );
-    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_iip-gutenblocks_admin' );
-    $this->loader->add_action( 'INSERT_WP_HOOK', $plugin_admin, 'INSERT_CALLBACK' );
+    // $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_metabox' );
+    $this->loader->add_action( 'init', $plugin_admin, 'register_iip_gutenblocks' );
+    $this->loader->add_filter( 'block_categories', $plugin_admin, 'register_custom_block_category', 10, 2 );
   }
 
   // Register all of the hooks related to the public-facing functionality
