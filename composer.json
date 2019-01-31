@@ -1,0 +1,14 @@
+{
+  "name": "iip-design/iip-gutenblocks",
+  "type": "wordpress-plugin",
+  "description" : "Plugin providing custom content blocks for the WordPress Gutenberg editor",
+  "authors": [
+    {
+      "name": "Marek Rewers, U.S. Department of State, IIP Office of Design <designdevops@america.gov>"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
