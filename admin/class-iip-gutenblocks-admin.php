@@ -14,7 +14,7 @@ class Admin {
 
     wp_register_script(
       'iip-interactive-gutenblocks-js',
-      IIP_GUTENBLOCKS_URL . 'admin/interactive.js',
+      IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-element' )
     );
 

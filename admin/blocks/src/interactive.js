@@ -1,5 +1,6 @@
 const { __, setLocaleData } = wp.i18n;
 const { registerBlockType } = wp.blocks;
+const el = wp.element.createElement;
 
 registerBlockType( 'iip-gut/chatroll', {
   title: __( 'Chatroll', 'iip-gutenblocks' ),
@@ -10,14 +11,14 @@ registerBlockType( 'iip-gut/chatroll', {
 
   // },
   edit() {
-    return wp.element.createElement(
-      'p', 'Hello Editor'
+    return el(
+      'p', {}, 'Hello editor'
     );
   },
   save() {
-    // return wp.element.createElement(
-    //   <p>Saved content</p>
-    // )
+    return el(
+      'p', {}, 'Hello frontend'
+    )
   }
 } );
 
@@ -30,8 +31,8 @@ registerBlockType( 'iip-gut/add-to-calendar', {
 
   // },
   edit() {
-    return wp.element.createElement(
-      'p', 'Hello Editor'
+    return el(
+      'p', {}, 'Hello Editor'
     );
   },
   save() {
