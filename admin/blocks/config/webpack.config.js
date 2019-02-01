@@ -10,25 +10,25 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /.js$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-    ],
+        use: ['babel-loader', 'eslint-loader'],
+        exclude: /node_modules/
+      }
+    ]
   },
-  // optimization: {
-  //   minimizer: [
-  //     new UglifyJsPlugin ( {
-  //       sourceMap: true
-  //     } ),
-  //   ],
-  // },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin( {
+        sourceMap: true
+      } )
+    ]
+  },
   output: {
     path: paths.appDist,
     publicPath: '/',
     filename: 'interactive.min.js'
   }
-}
+};

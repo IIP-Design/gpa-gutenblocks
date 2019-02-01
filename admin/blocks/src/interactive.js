@@ -1,3 +1,4 @@
+const { wp } = window;
 const { __, setLocaleData } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const el = wp.element.createElement;
@@ -18,7 +19,7 @@ registerBlockType( 'iip-gut/chatroll', {
   save() {
     return el(
       'p', {}, 'Hello frontend'
-    )
+    );
   }
 } );
 
@@ -51,8 +52,8 @@ registerBlockType( 'iip-gut/countdown', {
 
   // },
   edit() {
-    return wp.element.createElement(
-      'p', 'Hello Editor'
+    return el(
+      'p', {}, 'Hello Editor'
     );
   },
   save() {
