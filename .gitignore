@@ -10,3 +10,4 @@ node_modules/
 npm-debug.log*
 
 #Development Build
+admin/js/dist/iip-gutenblocks-admin.js
