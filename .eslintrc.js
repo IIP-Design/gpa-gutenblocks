@@ -31,6 +31,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/jsx-curly-spacing': [2, { when: 'always', children: true }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 0,
     'space-in-parens': ['warn', 'always']
   },

@@ -1,3 +1,7 @@
+import AddToCalendar from './Components/Frontend/AddToCalendar';
+import FrontendChatroll from './Components/Frontend/Chatroll';
+import FrontendCountdown from './Components/Frontend/Countdown';
+
 const { wp } = window;
 const { __, setLocaleData } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -12,13 +16,13 @@ registerBlockType( 'iip-gut/chatroll', {
 
   // },
   edit() {
-    return el(
-      'p', {}, 'Hello editor'
+    return (
+      <p>Hello chatroll</p>
     );
   },
   save() {
-    return el(
-      'p', {}, 'Hello frontend'
+    return (
+      <FrontendChatroll />
     );
   }
 } );
@@ -37,9 +41,9 @@ registerBlockType( 'iip-gut/add-to-calendar', {
     );
   },
   save() {
-    // return wp.element.createElement(
-    //   <p>Saved content</p>
-    // )
+    return (
+      <AddToCalendar />
+    );
   }
 } );
 
@@ -52,13 +56,10 @@ registerBlockType( 'iip-gut/countdown', {
 
   // },
   edit() {
-    return el(
-      'p', {}, 'Hello Editor'
-    );
   },
   save() {
-    // return wp.element.createElement(
-    //   <p>Saved content</p>
-    // )
+    return (
+      <FrontendCountdown />
+    );
   }
 } );

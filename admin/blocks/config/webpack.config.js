@@ -30,5 +30,10 @@ module.exports = {
     path: paths.appDist,
     publicPath: '/',
     filename: 'interactive.min.js'
+  },
+  resolve: {
+    extensions: [
+      '*', '.js', '.jsx'
+    ]
   }
 };
