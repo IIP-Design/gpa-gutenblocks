@@ -8,9 +8,9 @@ const FrontendChatroll = ( {
   <Fragment>
     <div
       className="iip_chatroll"
-      style={ `${alignment}: ${offsetX}px, bottom: ${offsetY}px;` }
+      style={ `${alignment}: ${offsetX}px; bottom: ${offsetY}px;` }
     >
-      <div className="chatroll_topbar" style={ { width: '100px' } }>
+      <div className="chatroll_topbar" style={ `width: ${width}px` }>
         { title }
         <div className="iip_toggle">
           <div className="iip_one" />

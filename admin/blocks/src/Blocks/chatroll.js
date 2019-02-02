@@ -30,7 +30,7 @@ registerBlockType( 'iip-gut/chatroll', {
       type: 'string'
     },
     offsetX: {
-      type: 'int'
+      type: 'number'
     },
     offsetY: {
       type: 'int'
@@ -63,7 +63,7 @@ registerBlockType( 'iip-gut/chatroll', {
           <p>Use block settings in the sidebar to configure</p>
         </div>
         <InspectorControls>
-          <label htmlFor="iip-chatroll-title-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-title-input">
             Window title:
             <input
               id="iip-chatroll-title-input"
@@ -74,7 +74,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ title }
             />
           </label>
-          <label htmlFor="iip-chatroll-width-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-width-input">
             Width:
             <input
               id="iip-chatroll-width-input"
@@ -85,7 +85,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ width }
             />
           </label>
-          <label htmlFor="iip-chatroll-height-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-height-input">
             Height:
             <input
               id="iip-chatroll-height-input"
@@ -96,7 +96,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ height }
             />
           </label>
-          <label htmlFor="iip-chatroll-id-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-id-input">
             ID:
             <input
               id="iip-chatroll-id-input"
@@ -106,7 +106,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ id }
             />
           </label>
-          <label htmlFor="iip-chatroll-name-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-name-input">
             Name:
             <input
               id="iip-chatroll-name-input"
@@ -116,7 +116,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ name }
             />
           </label>
-          <label htmlFor="iip-chatroll-domain-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-domain-input">
             Domain:
             <input
               id="iip-chatroll-domain-input"
@@ -126,7 +126,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ domain }
             />
           </label>
-          <label htmlFor="iip-chatroll-alignment-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-alignment-input">
             Alignment:
             <input
               id="iip-chatroll-alignment-input"
@@ -136,7 +136,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ alignment }
             />
           </label>
-          <label htmlFor="iip-chatroll-offsetX-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-offsetX-input">
             Offset X
             <input
               id="iip-chatroll-offsetX-input"
@@ -146,7 +146,7 @@ registerBlockType( 'iip-gut/chatroll', {
               value={ offsetX }
             />
           </label>
-          <label htmlFor="iip-chatroll-offsetY-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-offsetY-input">
             Offset Y:
             <input
               id="iip-chatroll-offsetY-input"
@@ -163,15 +163,18 @@ registerBlockType( 'iip-gut/chatroll', {
   save( props ) {
     const {
       attributes: {
-        domain, height, id, name, title, width
+        alignment, domain, height, id, name, offsetX, offsetY, title, width
       }
     } = props;
     return (
       <FrontendChatroll
+        alignment={ alignment }
         domain={ domain }
         height={ height }
         id={ id }
         name={ name }
+        offsetX={ offsetX }
+        offsetY={ offsetY }
         title={ title }
         width={ width }
       />

@@ -18,7 +18,7 @@ registerBlockType( 'iip-gut/countdown', {
       type: 'string'
     },
     text: {
-      type: 'bool'
+      type: 'boolean'
     },
     time: {
       type: 'string'
@@ -54,54 +54,50 @@ registerBlockType( 'iip-gut/countdown', {
           width={ width }
         />
         <InspectorControls>
-          <label htmlFor="iip-chatroll-date-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-date-input">
             Date:
             <input
-              id="iip-chatroll-date-input"
+              id="iip-countdown-date-input"
               name="date"
               onChange={ updateValue }
               type="text"
               value={ date }
             />
           </label>
-          <label htmlFor="iip-chatroll-time-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-time-input">
             Time:
             <input
-              id="iip-chatroll-time-input"
+              id="iip-countdown-time-input"
               name="time"
               onChange={ updateValue }
               type="text"
               value={ time }
             />
           </label>
-          <label htmlFor="iip-chatroll-timezone-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-timezone-input">
             Timezone:
             <input
-              id="iip-chatroll-timezone-input"
+              id="iip-countdown-timezone-input"
               name="timezone"
               onChange={ updateValue }
               type="text"
               value={ timezone }
             />
           </label>
-          <label htmlFor="iip-chatroll-width-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-width-input">
             Width (in px):
             <input
-              id="iip-chatroll-width-input"
+              id="iip-countdown-width-input"
               name="width"
               onChange={ updateValue }
               type="text"
               value={ width }
             />
           </label>
-          <label htmlFor="iip-chatroll-text-input">
+          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-text-input">
             Date Text:
-            <select id="iip-chatroll-text-input" name="text" onChange={ updateValue }>
-              { text ? (
-                <option value={ text }>{ text }</option>
-              ) : (
-                <option value>Show</option>
-              ) }
+            <select id="iip-countdown-text-input" name="text" onChange={ updateValue }>
+              <option value>Show</option>
               <option value={ false }>Hide</option>
             </select>
           </label>
@@ -109,9 +105,21 @@ registerBlockType( 'iip-gut/countdown', {
       </Fragment>
     );
   },
-  save() {
+  save( props ) {
+    const {
+      attributes: {
+        date, text, time, timezone, width
+      }
+    } = props;
+
     return (
-      <FrontendCountdown />
+      <FrontendCountdown
+        date={ date }
+        text={ text }
+        time={ time }
+        timezone={ timezone }
+        width={ width }
+      />
     );
   }
 } );
