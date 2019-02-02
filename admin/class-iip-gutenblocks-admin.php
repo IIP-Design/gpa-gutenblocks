@@ -19,7 +19,15 @@ class Admin {
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.js' )
     );
 
+    wp_register_style(
+      'iip-interactive-gutenblocks-css',
+      IIP_GUTENBLOCKS_URL . 'admin/blocks/interactive.css',
+      array(),
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/interactive.css' )
+    );
+
     register_block_type( 'iip-gut/interactive', array(
+      'editor_style'  => 'iip-interactive-gutenblocks-css',
       'editor_script' => 'iip-interactive-gutenblocks-js',
     ) );
   }
