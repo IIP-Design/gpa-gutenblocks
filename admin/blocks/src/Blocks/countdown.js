@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
 import FrontendCountdown from '../Components/Frontend/Countdown';
+import { getLocale, twelveHoursCheck } from '../utils/time';
 
 const { wp } = window;
 const { __, setLocaleData } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
+const { DateTimePicker } = wp.components;
 
 registerBlockType( 'iip-gut/countdown', {
   title: __( 'Countdown', 'iip-gutenblocks' ),
@@ -20,9 +22,6 @@ registerBlockType( 'iip-gut/countdown', {
     text: {
       type: 'boolean'
     },
-    time: {
-      type: 'string'
-    },
     timezone: {
       type: 'string'
     },
@@ -33,7 +32,7 @@ registerBlockType( 'iip-gut/countdown', {
   edit( props ) {
     const {
       attributes: {
-        date, text, time, timezone, width
+        date, text, timezone, width
       },
       setAttributes
     } = props;
@@ -44,36 +43,27 @@ registerBlockType( 'iip-gut/countdown', {
       } );
     };
 
+    const updateDate = ( e ) => {
+      setAttributes( {
+        date: e
+      } );
+    };
+
     return (
       <Fragment>
         <FrontendCountdown
           date={ date }
           text={ text }
-          time={ time }
           timezone={ timezone }
           width={ width }
         />
         <InspectorControls>
-          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-date-input">
-            Date:
-            <input
-              id="iip-countdown-date-input"
-              name="date"
-              onChange={ updateValue }
-              type="text"
-              value={ date }
-            />
-          </label>
-          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-time-input">
-            Time:
-            <input
-              id="iip-countdown-time-input"
-              name="time"
-              onChange={ updateValue }
-              type="text"
-              value={ time }
-            />
-          </label>
+          <DateTimePicker
+            currentDate={ date }
+            is12Hour={ twelveHoursCheck }
+            locale={ getLocale }
+            onChange={ updateDate }
+          />
           <label className="iip-gut-inspector-label" htmlFor="iip-countdown-timezone-input">
             Timezone:
             <input
@@ -108,7 +98,7 @@ registerBlockType( 'iip-gut/countdown', {
   save( props ) {
     const {
       attributes: {
-        date, text, time, timezone, width
+        date, text, timezone, width
       }
     } = props;
 
@@ -116,7 +106,6 @@ registerBlockType( 'iip-gut/countdown', {
       <FrontendCountdown
         date={ date }
         text={ text }
-        time={ time }
         timezone={ timezone }
         width={ width }
       />
