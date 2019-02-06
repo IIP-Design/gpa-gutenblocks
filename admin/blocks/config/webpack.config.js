@@ -1,4 +1,6 @@
 const webpack = require( 'webpack' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 
 const paths = require( './paths' );
@@ -16,6 +18,16 @@ module.exports = {
         test: /.js$/,
         use: ['babel-loader', 'eslint-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -23,7 +35,8 @@ module.exports = {
     minimizer: [
       new UglifyJsPlugin( {
         sourceMap: true
-      } )
+      } ),
+      new OptimizeCSSAssetsPlugin( {} )
     ]
   },
   output: {
@@ -31,6 +44,11 @@ module.exports = {
     publicPath: '/',
     filename: 'interactive.min.js'
   },
+  plugins: [
+    new MiniCssExtractPlugin( {
+      filename: 'interactive.min.css'
+    } )
+  ],
   resolve: {
     extensions: [
       '*', '.js', '.jsx'

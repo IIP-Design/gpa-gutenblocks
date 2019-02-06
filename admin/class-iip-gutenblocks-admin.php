@@ -21,14 +21,15 @@ class Admin {
 
     wp_register_style(
       'iip-interactive-gutenblocks-css',
-      IIP_GUTENBLOCKS_URL . 'admin/blocks/interactive.css',
+      IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.css',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/interactive.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.css' )
     );
 
     register_block_type( 'iip-gut/interactive', array(
       'editor_style'  => 'iip-interactive-gutenblocks-css',
       'editor_script' => 'iip-interactive-gutenblocks-js',
+      'style'  => 'iip-interactive-gutenblocks-css',
     ) );
   }
 
