@@ -19,6 +19,13 @@ class Admin {
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.js' )
     );
 
+    wp_register_script(
+      'iip-interactive-js',
+      IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/front.min.js',
+      array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/front.min.js' )
+    );
+
     wp_register_style(
       'iip-interactive-gutenblocks-css',
       IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.css',
@@ -29,6 +36,7 @@ class Admin {
     register_block_type( 'iip-gut/interactive', array(
       'editor_style'  => 'iip-interactive-gutenblocks-css',
       'editor_script' => 'iip-interactive-gutenblocks-js',
+      'script' => 'iip-interactive-js',
       'style'  => 'iip-interactive-gutenblocks-css',
     ) );
   }

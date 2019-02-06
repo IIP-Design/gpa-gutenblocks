@@ -6,7 +6,10 @@ const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 const paths = require( './paths' );
 
 module.exports = {
-  entry: paths.appIndex,
+  entry: {
+    interactive: `${paths.appSrc}/interactive.js`,
+    front: `${paths.appSrc}/front.js`
+  },
   module: {
     rules: [
       {
@@ -42,7 +45,7 @@ module.exports = {
   output: {
     path: paths.appDist,
     publicPath: '/',
-    filename: 'interactive.min.js'
+    filename: '[name].min.js'
   },
   plugins: [
     new MiniCssExtractPlugin( {

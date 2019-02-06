@@ -3,11 +3,11 @@ import { bool, string } from 'prop-types';
 const { wp } = window;
 const { __, setLocaleData } = wp.i18n;
 
-const FrontendCountdown = ( {
-  date, text, time, timezone, width
+const Countdown = ( {
+  date, text, timezone, width
 } ) => (
   <div className="iip_countdown">
-    <input type="hidden" id="countdatetime" value={ `${date} ${time} ${timezone}` } />
+    <input type="hidden" id="countdatetime" value={ `${date}` } />
     <div id="clockwrap">
       <div id="clockdiv" style={ { width: `${width}px` } }>
         { text && (
@@ -42,12 +42,11 @@ const FrontendCountdown = ( {
   </div>
 );
 
-FrontendCountdown.propTypes = {
+Countdown.propTypes = {
   date: string,
   text: bool,
-  time: string,
   timezone: string,
   width: string
 };
 
-export default FrontendCountdown;
+export default Countdown;

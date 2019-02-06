@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
-import FrontendCountdown from '../Components/Frontend/Countdown';
-import { getLocale, twelveHoursCheck } from '../utils/time';
+import Countdown from './frontend';
+import attributes from './attributes';
+import { initializeClock } from './logic';
+import { getLocale, twelveHoursCheck } from '../../utils/time';
 
 const { wp } = window;
 const { __, setLocaleData } = wp.i18n;
@@ -15,20 +17,7 @@ registerBlockType( 'iip-gut/countdown', {
   description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'clock',
-  attributes: {
-    date: {
-      type: 'string'
-    },
-    text: {
-      type: 'boolean'
-    },
-    timezone: {
-      type: 'string'
-    },
-    width: {
-      type: 'string'
-    }
-  },
+  attributes,
   edit( props ) {
     const {
       attributes: {
@@ -49,13 +38,15 @@ registerBlockType( 'iip-gut/countdown', {
       } );
     };
 
+    initializeClock();
+
     return (
       <Fragment>
-        <FrontendCountdown
+        <Countdown
           date={ date }
           text={ text }
           timezone={ timezone }
-          width={ width }
+          width="500"
         />
         <InspectorControls>
           <DateTimePicker
@@ -103,7 +94,7 @@ registerBlockType( 'iip-gut/countdown', {
     } = props;
 
     return (
-      <FrontendCountdown
+      <Countdown
         date={ date }
         text={ text }
         timezone={ timezone }

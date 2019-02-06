@@ -1,0 +1,48 @@
+#clockwrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#clockdiv {
+
+  color: #FFFFFF;
+  display: block;
+  font-family: sans-serif;
+  font-weight: 100;
+  line-height: 1;
+  margin: 0 auto;
+  text-align: center;
+
+  h1 {
+    color: #333333;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 20px 0px 10px;
+  }
+
+  > div {
+    background: #333333;
+    border-radius: 0.3em;
+    display: inline-block;
+    padding: 0.8em;
+  
+    > span {
+      background: #777777;
+      border-radius: 0.3em;
+      display: inline-block;
+      font-size: 1em;
+      padding: 1em;
+    }
+  }
+
+  .smalltext {
+    font-size: 0.8em;
+    padding-top: 8px;
+  }
+
+  @media (max-width: 782px) {
+    width: 100%!important;
+  }
+}
+
