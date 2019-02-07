@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import FrontendChatroll from '../Components/Frontend/Chatroll';
+import FrontendChatroll from './frontend';
+
+import attributes from './attributes';
 
 const { wp } = window;
-const { __, setLocaleData } = wp.i18n;
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
@@ -13,35 +15,7 @@ registerBlockType( 'iip-gut/chatroll', {
   description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'testimonial',
-  attributes: {
-    alignment: {
-      type: 'string'
-    },
-    domain: {
-      type: 'string'
-    },
-    height: {
-      type: 'string'
-    },
-    id: {
-      type: 'string'
-    },
-    name: {
-      type: 'string'
-    },
-    offsetX: {
-      type: 'number'
-    },
-    offsetY: {
-      type: 'int'
-    },
-    title: {
-      type: 'string'
-    },
-    width: {
-      type: 'string'
-    }
-  },
+  attributes,
   edit( props ) {
     const {
       attributes: {
@@ -80,7 +54,6 @@ registerBlockType( 'iip-gut/chatroll', {
               id="iip-chatroll-width-input"
               name="width"
               onChange={ updateValue }
-              placeholder="450"
               type="text"
               value={ width }
             />
@@ -91,7 +64,6 @@ registerBlockType( 'iip-gut/chatroll', {
               id="iip-chatroll-height-input"
               name="height"
               onChange={ updateValue }
-              placeholder="350"
               type="text"
               value={ height }
             />
