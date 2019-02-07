@@ -2,7 +2,7 @@
 
 namespace IIP_Gutenblocks;
 
-class Admin {
+class Interactive {
 
   // Registers all the custom Gutenberg blocks
   public function register_iip_gutenblocks() {
@@ -13,28 +13,28 @@ class Admin {
     }
 
     wp_register_script(
-      'iip-interactive-gutenblocks-js',
+      'iip-gut-interactive-admin-js',
       IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.js' )
     );
 
     wp_register_script(
-      'iip-interactive-js',
+      'iip-gut-interactive-js',
       IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/front.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/front.min.js' )
     );
 
     wp_register_style(
-      'iip-interactive-gutenblocks-css',
+      'iip-gut-interactive-css',
       IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.css',
       array(),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.css' )
     );
 
     wp_localize_script(
-      'iip-interactive-gutenblocks-js',
+      'iip-gut-interactive-admin-js',
       'iipGutenblocks',
       array(
         'pluginUrl' => IIP_GUTENBLOCKS_URL
@@ -42,10 +42,10 @@ class Admin {
     );
     
     register_block_type( 'iip-gut/interactive', array(
-      'editor_style'  => 'iip-interactive-gutenblocks-css',
-      'editor_script' => 'iip-interactive-gutenblocks-js',
-      'script' => 'iip-interactive-js',
-      'style'  => 'iip-interactive-gutenblocks-css',
+      'editor_style'  => 'iip-gut-interactive-css',
+      'editor_script' => 'iip-gut-interactive-admin-js',
+      'script' => 'iip-gut-interactive-js',
+      'style'  => 'iip-gut-interactive-css',
     ) );
   }
 

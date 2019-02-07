@@ -60,7 +60,7 @@ class IIP_Gutenblocks {
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-iip-gutenblocks-loader.php';
 
     // The class responsible for defining all actions that occur in the admin area.
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gutenblocks-admin.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gutenblocks-interactive.php';
 
     // The class responsible for defining all actions that occur in the public-facing side of the site.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-iip-gutenblocks-public.php';
@@ -69,12 +69,11 @@ class IIP_Gutenblocks {
 
   // Register all of the hooks related to the admin area functionality of the plugin.
   private function define_admin_hooks() {
-    $plugin_admin = new IIP_Gutenblocks\Admin( $this->get_plugin_name(), $this->get_version() );
+    $plugin_admin = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
 
     // Admin hooks
-    // $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_metabox' );
-    $this->loader->add_action( 'init', $plugin_admin, 'register_iip_gutenblocks' );
-    $this->loader->add_filter( 'block_categories', $plugin_admin, 'register_custom_block_category', 10, 2 );
+    $this->loader->add_action( 'init', $plugin_interactive, 'register_iip_gutenblocks' );
+    $this->loader->add_filter( 'block_categories', $plugin_interactive, 'register_custom_block_category', 10, 2 );
   }
 
   // Register all of the hooks related to the public-facing functionality
