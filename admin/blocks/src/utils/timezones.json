@@ -1,164 +1,293 @@
 {
   "timezones" : [
     {
-      "value": "Etc/GMT+12",
-      "gmtOffset": "-12:00",
-      "name": "International Date Line West"
+      "name": "International Date Line West",
+      "properties" : {
+        "abbreviation": "IDLW",
+        "commonName": "Yankee Time",
+        "gmtOffset": "-12:00",
+        "value": "Etc/GMT+12"
+      }
     },
     {
-      "value": "Pacific/Midway",
-      "gmtOffset": "-11:00",
-      "name": "Midway Island, Samoa"
+      "name": "Midway Island, Samoa",
+      "properties" : {
+        "abbreviation": "SST",
+        "commonName": "Samoa Standard Time",
+        "gmtOffset": "-11:00",
+        "value": "Pacific/Midway"
+      }
     },
     {
-      "value": "Pacific/Honolulu",
-      "gmtOffset": "-10:00",
-      "name": "Hawaii"
+      "name": "Hawaii",
+      "properties" : {
+        "abbreviation": "HST",
+        "commonName": "Hawaii Standard Time",
+        "gmtOffset": "-10:00",
+        "value": "Pacific/Honolulu"
+      }
     },
     {
-      "value": "US/Alaska",
-      "gmtOffset": "-09:00",
-      "name": "Alaska"
+      "name": "Alaska",
+      "properties" : {
+        "abbreviation": "AKST",
+        "commonName": "Alaska Standard Time",
+        "gmtOffset": "-09:00",
+        "value": "US/Alaska"
+      }
     },
     {
-      "value": "America/Los_Angeles",
-      "gmtOffset": "-08:00",
-      "name": "Pacific Time"
+      "name": "Pacific Time",
+      "properties" : {
+        "abbreviation": "PST",
+        "commonName": "Pacific Standard Time",
+        "gmtOffset": "-08:00",
+        "value": "America/Los_Angeles"
+      }
     },
     {
-      "value": "US/Mountain",
-      "gmtOffset": "-07:00",
-      "name": "Mountain Time"
+      "name": "Mountain Time",
+      "properties" : {
+        "abbreviation": "MST",
+        "commonName": "Mountain Standard Time",
+        "gmtOffset": "-07:00",
+        "value": "US/Mountain"
+      }
     },
     {
-      "value": "US/Central",
-      "gmtOffset": "-06:00",
-      "name": "Central Time"
+      "name": "Central Time",
+      "properties" : {
+        "abbreviation": "CST (US)",
+        "commonName": "Central Standard Time",
+        "gmtOffset": "-06:00",
+        "value": "US/Central"
+      }
     },
     {
-      "value": "US/Eastern",
-      "gmtOffset": "-05:00",
-      "name": "Eastern Time"
+      "name": "Eastern Time",
+      "properties" : {
+        "abbreviation": "EST",
+        "commonName": "Eastern Standard Time",
+        "gmtOffset": "-05:00",
+        "value": "US/Eastern"
+      }
     },
     {
-      "value": "Canada/Atlantic",
-      "gmtOffset": "-04:00",
-      "name": "Atlantic Time"
+      "name": "Atlantic Time",
+      "properties" : {
+        "abbreviation": "AST (America)",
+        "commonName": "Atlantic Standard Time",
+        "gmtOffset": "-04:00",
+        "value": "Canada/Atlantic"
+      }
     },
     {
-      "value": "Canada/Newfoundland",
-      "gmtOffset": "-03:30",
-      "name": "Newfoundland"
+      "name": "Newfoundland",
+      "properties" : {
+        "abbreviation": "NST",
+        "commonName": "Newfoundland Standard Time",
+        "gmtOffset": "-03:30",
+        "value": "Canada/Newfoundland"
+      }
     },
     {
-      "value": "America/Sao_Paulo",
-      "gmtOffset": "-03:00",
-      "name": "Brasilia"
+      "name": "Brasilia",
+      "properties" : {
+        "abbreviation": "BRT",
+        "commonName": "Brasilia Time",
+        "gmtOffset": "-03:00",
+        "value": "America/Sao_Paulo"
+      }
     },
     {
-      "value": "America/Noronha",
-      "gmtOffset": "-02:00",
-      "name": "Mid-Atlantic"
+      "name": "Mid-Atlantic",
+      "properties" : {
+        "abbreviation": "FNT",
+        "commonName": "Fernando de Noronha",
+        "gmtOffset": "-02:00",
+        "value": "America/Noronha"
+      }
     },
     {
-      "value": "Atlantic/Cape_Verde",
-      "gmtOffset": "-01:00",
-      "name": "Cape Verde Is."
+      "name": "Cape Verde Is.",
+      "properties" : {
+        "abbreviation": "CVT",
+        "commonName": "Cape Verde Time",
+        "gmtOffset": "-01:00",
+        "value": "Atlantic/Cape_Verde"
+      }
     },
     {
-      "value": "Etc/Greenwich",
-      "gmtOffset": "+00:00",
-      "name": "Dublin, Lisbon, London"
+      "name": "Greenwich Mean Time",
+      "properties" : {
+        "abbreviation": "UTC",
+        "commonName": "Greenwich Mean Time",
+        "gmtOffset": "+00:00",
+        "value": "Etc/Greenwich"
+      }
     },
     {
-      "value": "Europe/Amsterdam",
-      "gmtOffset": "+01:00",
-      "name": "Amsterdam, Berlin, Rome, Vienna"
+      "name": "Amsterdam, Berlin, Rome, Vienna",
+      "properties" : {
+        "abbreviation": "CET",
+        "commonName": "Central European Time",
+        "gmtOffset": "+01:00",
+        "value": "Europe/Amsterdam"
+      }
     },
     {
-      "value": "Europe/Athens",
-      "gmtOffset": "+02:00",
-      "name": "Athens, Bucharest, Istanbul"
+      "name": "Athens, Bucharest, Istanbul",
+      "properties" : {
+        "abbreviation": "EET",
+        "commonName": "Eastern European Time",
+        "gmtOffset": "+02:00",
+        "value": "Europe/Athens"
+      }
     },
     {
-      "value": "Asia/Kuwait",
-      "gmtOffset": "+03:00",
-      "name": "Kuwait, Riyadh, Baghdad"
+      "name": "Kuwait, Riyadh, Baghdad",
+      "properties" : {
+        "abbreviation": "AST (Arab)",
+        "commonName": "Arab Standard Time",
+        "gmtOffset": "+03:00",
+        "value": "Asia/Kuwait"
+      }
     },
     {
-      "value": "Asia/Baku",
-      "gmtOffset": "+04:00",
-      "name": "Baku"
+      "name": "Baku",
+      "properties" : {
+        "abbreviation": "AZT",
+        "commonName": "Azerbaijan Time",
+        "gmtOffset": "+04:00",
+        "value": "Asia/Baku"
+      }
     },
     {
-      "value": "Asia/Kabul",
-      "gmtOffset": "+04:30",
-      "name": "Kabul"
+      "name": "Kabul",
+      "properties" : {
+        "abbreviation": "AFT",
+        "commonName": "Afghanistan Time",
+        "gmtOffset": "+04:30",
+        "value": "Asia/Kabul"
+      }
     },
     {
-      "value": "Asia/Karachi",
-      "gmtOffset": "+05:00",
-      "name": "Islamabad, Karachi, Tashkent"
+      "name": "Islamabad, Karachi, Tashkent",
+      "properties" : {
+        "abbreviation": "PKT",
+        "commonName": "Pakistan Standard Time",
+        "gmtOffset": "+05:00",
+        "value": "Asia/Karachi"
+      }
     },
     {
-      "value": "Asia/Calcutta",
-      "gmtOffset": "+05:30",
-      "name": "Kolkata, Mumbai, New Delhi"
+      "name": "Kolkata, Mumbai, New Delhi",
+      "properties" : {
+        "abbreviation": "IST",
+        "commonName": "India Standard Time",
+        "gmtOffset": "+05:30",
+        "value": "Asia/Calcutta"
+      }
     },
     {
-      "value": "Asia/Katmandu",
-      "gmtOffset": "+05:45",
-      "name": "Kathmandu"
+      "name": "Kathmandu",
+      "properties" : {
+        "abbreviation": "NPT",
+        "commonName": "Nepal Time",
+        "gmtOffset": "+05:45",
+        "value": "Asia/Katmandu"
+      }
     },
     {
-      "value": "Asia/Dhaka",
-      "gmtOffset": "+06:00",
-      "name": "Astana, Dhaka"
+      "name": "Astana, Dhaka",
+      "properties" : {
+        "abbreviation": "BST",
+        "commonName": "Bangladesh Standard Time",
+        "gmtOffset": "+06:00",
+        "value": "Asia/Dhaka"
+      }
     },
     {
-      "value": "Asia/Rangoon",
-      "gmtOffset": "+06:30",
-      "name": "Yangon (Rangoon)"
+      "name": "Yangon (Rangoon)",
+      "properties" : {
+        "abbreviation": "MMT",
+        "commonName": "Myanmar Time",
+        "gmtOffset": "+06:30",
+        "value": "Asia/Rangoon"
+      }
     },
     {
-      "value": "Asia/Bangkok",
-      "gmtOffset": "+07:00",
-      "name": "Bangkok, Hanoi, Jakarta"
+      "name": "Bangkok, Hanoi, Jakarta",
+      "properties" : {
+        "abbreviation": "ICT",
+        "commonName": "Indochina Time",
+        "gmtOffset": "+07:00",
+        "value": "Asia/Bangkok"
+      }
     },
     {
-      "value": "Asia/Hong_Kong",
-      "gmtOffset": "+08:00",
-      "name": "Beijing, Hong Kong"
+      "name": "Beijing, Hong Kong",
+      "properties" : {
+        "abbreviation": "CST (China)",
+        "commonName": "China Standard Time",
+        "gmtOffset": "+08:00",
+        "value": "Asia/Hong_Kong"
+      }
     },
     {
-      "value": "Asia/Tokyo",
-      "gmtOffset": "+09:00",
-      "name": "Osaka, Sapporo, Tokyo"
+      "name": "Osaka, Sapporo, Tokyo",
+      "properties" : {
+        "abbreviation": "JST",
+        "commonName": "Japan Standard Time",
+        "gmtOffset": "+09:00",
+        "value": "Asia/Tokyo"
+      
+      }
     },
     {
-      "value": "Australia/Darwin",
-      "gmtOffset": "+09:30",
-      "name": "Darwin"
+      "name": "Darwin",
+      "properties" : {
+        "abbreviation": "ACST",
+        "commonName": "Australian Central Standard Time",
+        "gmtOffset": "+09:30",
+        "value": "Australia/Darwin"
+      }
     },
     {
-      "value": "Australia/Brisbane",
-      "gmtOffset": "+10:00",
-      "name": "Brisbane"
+      "name": "Brisbane",
+      "properties" : {
+        "abbreviation": "AEST",
+        "commonName": "Australian Eastern Standard Time",
+        "gmtOffset": "+10:00",
+        "value": "Australia/Brisbane"
+      }
     },
     {
-      "value": "Asia/Magadan",
-      "gmtOffset": "+11:00",
-      "name": "Magadan, New Caledonia"
+      "name": "Magadan, New Caledonia",
+      "properties" : {
+        "abbreviation": "MAGT",
+        "commonName": "Magadan Time",
+        "gmtOffset": "+11:00",
+        "value": "Asia/Magadan"
+      }
     },
     {
-      "value": "Pacific/Auckland",
-      "gmtOffset": "+12:00",
-      "name": "Auckland, Wellington"
+      "name": "Auckland, Wellington",
+      "properties" : {
+        "abbreviation": "NZST",
+        "commonName": "New Zealand Standard Time",
+        "gmtOffset": "+12:00",
+        "value": "Pacific/Auckland"
+      }
     },
     {
-      "value": "Pacific/Tongatapu",
-      "gmtOffset": "+13:00",
-      "name": "Nuku'alofa"
+      "name": "Nuku'alofa",
+      "properties" : {
+        "abbreviation": "TOT",
+        "commonName": "Tonga Time",
+        "gmtOffset": "+13:00",
+        "value": "Pacific/Tongatapu"
+      }
     }
   ]
 }

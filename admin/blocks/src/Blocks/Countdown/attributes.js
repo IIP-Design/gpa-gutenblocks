@@ -1,20 +1,27 @@
-const attributes = {
+import { getUtcDate } from '../../utils/time';
+
+const defaultDate = getUtcDate( new Date() );
+
+export const attributes = {
   date: {
     type: 'string',
-    default: new Date()
+    default: defaultDate
   },
   text: {
     type: 'string',
     default: 'true'
   },
   timezone: {
-    type: 'string',
-    default: '+00:00'
+    type: 'object',
+    default: {
+      abbreviation: 'EST',
+      commonName: 'Eastern Standard Time',
+      gmtOffset: '-05:00',
+      value: 'US/Eastern'
+    }
   },
   width: {
     type: 'string',
-    default: '1000'
+    default: '750'
   }
 };
-
-export default attributes;

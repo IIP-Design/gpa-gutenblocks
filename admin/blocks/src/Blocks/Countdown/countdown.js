@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import Countdown from './frontend';
-import attributes from './attributes';
 import timezones from '../../utils/timezones.json';
 
+import { attributes } from './attributes';
 import { initializeClock } from './logic';
 import { getLocale, getTimezones, twelveHoursCheck } from '../../utils/time';
 
@@ -42,6 +42,14 @@ registerBlockType( 'iip-gut/countdown', {
       } );
     };
 
+    const updateTimeZone = ( e ) => {
+      const zoneValues = JSON.parse( e.target.value );
+
+      setAttributes( {
+        timezone: zoneValues
+      } );
+    };
+
     initializeClock();
 
     return (
@@ -59,22 +67,32 @@ registerBlockType( 'iip-gut/countdown', {
             locale={ getLocale }
             onChange={ updateDate }
           />
-          <label htmlFor="iip_event_timezone">
+          <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
             Timezone:
-            <select id="iip_event_timezone" name="timezone" onChange={ updateValue }>
+            <select
+              className="iip-gut-inspector-input"
+              id="iip_event_timezone"
+              name="timezone"
+              onChange={ updateTimeZone }
+            >
               { timezone ? (
-                <option value={ timezone }>{ timezone }</option>
+                <option value={ JSON.stringify( timezone ) }>
+                  { `${timezone.abbreviation} (GMT${timezone.gmtOffset})` }
+                </option>
               ) : (
                 <option value="">Select timezone</option>
               ) }
               { zones.map( zone => (
-                <option value={ zone.gmtOffset }>{ `${zone.name} (GMT${zone.gmtOffset})` }</option>
+                <option value={ JSON.stringify( zone.properties ) }>
+                  { `${zone.name} (GMT${zone.properties.gmtOffset})` }
+                </option>
               ) ) }
             </select>
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-countdown-width-input">
             Width (in px):
             <input
+              className="iip-gut-inspector-input"
               id="iip-countdown-width-input"
               name="width"
               onChange={ updateValue }
@@ -84,7 +102,12 @@ registerBlockType( 'iip-gut/countdown', {
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-countdown-text-input">
             Date Text:
-            <select id="iip-countdown-text-input" name="text" onChange={ updateValue }>
+            <select
+              className="iip-gut-inspector-input"
+              id="iip-countdown-text-input"
+              name="text"
+              onChange={ updateValue }
+            >
               <option value="true">Show</option>
               <option value="false">Hide</option>
             </select>

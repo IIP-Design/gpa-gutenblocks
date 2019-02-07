@@ -54,11 +54,11 @@ export const initializeClock = () => {
       secondsSpan.innerHTML = ( time.seconds <= 0 ) ? '00' : ( `0${time.seconds}` ).slice( -2 );
 
       if ( time.delta <= 0 ) {
-        clearInterval( interval ); // eslint-disable-line no-use-before-define
+        clearInterval( countdownInterval ); // eslint-disable-line no-use-before-define
       }
     }
 
-    const interval = setInterval( updateClock, 1000 );
+    const countdownInterval = setInterval( updateClock, 1000 );
     resizeClock( clockId );
   }
 };
