@@ -21,3 +21,64 @@ export const getLocale = () => {
 
   return locale;
 };
+
+export const replaceGmtUtc = ( string ) => {
+  let utcString;
+
+  if ( string.includes( 'GMT' ) ) {
+    utcString = string.replace( /GMT/gi, 'UTC' );
+    return utcString;
+  }
+
+  return string;
+};
+
+export const getTimezones = ( input ) => {
+  const { timezones } = input;
+
+  return timezones;
+};
+
+export const getDateFromIso = ( isoString ) => {
+  const date = new Date( isoString );
+
+  return date;
+};
+
+export const getLocaleDate = ( date, locale ) => {
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+    timeZoneName: 'short'
+  };
+
+  const localeString = date.toLocaleString( locale, options );
+
+  return localeString;
+};
+
+export const getUtcDate = ( date ) => {
+  const utcString = date.toUTCString();
+
+  return utcString;
+};
+
+export const convertIsoToLocale = ( isoString, locale ) => {
+  const dateFormat = getDateFromIso( isoString );
+  const localeString = getLocaleDate( dateFormat, locale );
+
+  return localeString;
+};
+
+export const convertUtcString = ( isoString ) => {
+  const dateFormat = getDateFromIso( isoString );
+  const gmtString = getUtcDate( dateFormat );
+  const utcString = replaceGmtUtc( gmtString );
+
+  return utcString;
+};

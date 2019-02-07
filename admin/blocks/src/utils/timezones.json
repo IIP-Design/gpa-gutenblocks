@@ -1,0 +1,164 @@
+{
+  "timezones" : [
+    {
+      "value": "Etc/GMT+12",
+      "gmtOffset": "-12:00",
+      "name": "International Date Line West"
+    },
+    {
+      "value": "Pacific/Midway",
+      "gmtOffset": "-11:00",
+      "name": "Midway Island, Samoa"
+    },
+    {
+      "value": "Pacific/Honolulu",
+      "gmtOffset": "-10:00",
+      "name": "Hawaii"
+    },
+    {
+      "value": "US/Alaska",
+      "gmtOffset": "-09:00",
+      "name": "Alaska"
+    },
+    {
+      "value": "America/Los_Angeles",
+      "gmtOffset": "-08:00",
+      "name": "Pacific Time"
+    },
+    {
+      "value": "US/Mountain",
+      "gmtOffset": "-07:00",
+      "name": "Mountain Time"
+    },
+    {
+      "value": "US/Central",
+      "gmtOffset": "-06:00",
+      "name": "Central Time"
+    },
+    {
+      "value": "US/Eastern",
+      "gmtOffset": "-05:00",
+      "name": "Eastern Time"
+    },
+    {
+      "value": "Canada/Atlantic",
+      "gmtOffset": "-04:00",
+      "name": "Atlantic Time"
+    },
+    {
+      "value": "Canada/Newfoundland",
+      "gmtOffset": "-03:30",
+      "name": "Newfoundland"
+    },
+    {
+      "value": "America/Sao_Paulo",
+      "gmtOffset": "-03:00",
+      "name": "Brasilia"
+    },
+    {
+      "value": "America/Noronha",
+      "gmtOffset": "-02:00",
+      "name": "Mid-Atlantic"
+    },
+    {
+      "value": "Atlantic/Cape_Verde",
+      "gmtOffset": "-01:00",
+      "name": "Cape Verde Is."
+    },
+    {
+      "value": "Etc/Greenwich",
+      "gmtOffset": "+00:00",
+      "name": "Dublin, Lisbon, London"
+    },
+    {
+      "value": "Europe/Amsterdam",
+      "gmtOffset": "+01:00",
+      "name": "Amsterdam, Berlin, Rome, Vienna"
+    },
+    {
+      "value": "Europe/Athens",
+      "gmtOffset": "+02:00",
+      "name": "Athens, Bucharest, Istanbul"
+    },
+    {
+      "value": "Asia/Kuwait",
+      "gmtOffset": "+03:00",
+      "name": "Kuwait, Riyadh, Baghdad"
+    },
+    {
+      "value": "Asia/Baku",
+      "gmtOffset": "+04:00",
+      "name": "Baku"
+    },
+    {
+      "value": "Asia/Kabul",
+      "gmtOffset": "+04:30",
+      "name": "Kabul"
+    },
+    {
+      "value": "Asia/Karachi",
+      "gmtOffset": "+05:00",
+      "name": "Islamabad, Karachi, Tashkent"
+    },
+    {
+      "value": "Asia/Calcutta",
+      "gmtOffset": "+05:30",
+      "name": "Kolkata, Mumbai, New Delhi"
+    },
+    {
+      "value": "Asia/Katmandu",
+      "gmtOffset": "+05:45",
+      "name": "Kathmandu"
+    },
+    {
+      "value": "Asia/Dhaka",
+      "gmtOffset": "+06:00",
+      "name": "Astana, Dhaka"
+    },
+    {
+      "value": "Asia/Rangoon",
+      "gmtOffset": "+06:30",
+      "name": "Yangon (Rangoon)"
+    },
+    {
+      "value": "Asia/Bangkok",
+      "gmtOffset": "+07:00",
+      "name": "Bangkok, Hanoi, Jakarta"
+    },
+    {
+      "value": "Asia/Hong_Kong",
+      "gmtOffset": "+08:00",
+      "name": "Beijing, Hong Kong"
+    },
+    {
+      "value": "Asia/Tokyo",
+      "gmtOffset": "+09:00",
+      "name": "Osaka, Sapporo, Tokyo"
+    },
+    {
+      "value": "Australia/Darwin",
+      "gmtOffset": "+09:30",
+      "name": "Darwin"
+    },
+    {
+      "value": "Australia/Brisbane",
+      "gmtOffset": "+10:00",
+      "name": "Brisbane"
+    },
+    {
+      "value": "Asia/Magadan",
+      "gmtOffset": "+11:00",
+      "name": "Magadan, New Caledonia"
+    },
+    {
+      "value": "Pacific/Auckland",
+      "gmtOffset": "+12:00",
+      "name": "Auckland, Wellington"
+    },
+    {
+      "value": "Pacific/Tongatapu",
+      "gmtOffset": "+13:00",
+      "name": "Nuku'alofa"
+    }
+  ]
+}

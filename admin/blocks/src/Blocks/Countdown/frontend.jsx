@@ -1,17 +1,19 @@
 import { bool, string } from 'prop-types';
 
+import { convertUtcString } from '../../utils/time';
+
 const { wp } = window;
-const { __, setLocaleData } = wp.i18n;
+const { __ } = wp.i18n;
 
 const Countdown = ( {
   date, text, timezone, width
 } ) => (
   <div className="iip_countdown">
-    <input type="hidden" id="countdatetime" value={ `${date}` } />
+    <input type="hidden" id="countdatetime" value={ `${date}${timezone}` } />
     <div id="clockwrap">
       <div id="clockdiv" style={ { width: `${width}px` } }>
-        { text && (
-          <h1>$display</h1>
+        { ( text === 'true' ) && (
+          <h1>{ convertUtcString( `${date}${timezone}`, 'en-US' ) }</h1>
         ) }
         <div>
           <span className="days" />

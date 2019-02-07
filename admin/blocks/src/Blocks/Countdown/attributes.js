@@ -1,12 +1,15 @@
 const attributes = {
   date: {
-    type: 'string'
+    type: 'string',
+    default: new Date()
   },
   text: {
-    type: 'boolean'
+    type: 'string',
+    default: 'true'
   },
   timezone: {
-    type: 'string'
+    type: 'string',
+    default: '+00:00'
   },
   width: {
     type: 'string',

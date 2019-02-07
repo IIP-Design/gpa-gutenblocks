@@ -2,11 +2,13 @@
 
 import Countdown from './frontend';
 import attributes from './attributes';
+import timezones from '../../utils/timezones.json';
+
 import { initializeClock } from './logic';
-import { getLocale, twelveHoursCheck } from '../../utils/time';
+import { getLocale, getTimezones, twelveHoursCheck } from '../../utils/time';
 
 const { wp } = window;
-const { __, setLocaleData } = wp.i18n;
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
@@ -25,6 +27,8 @@ registerBlockType( 'iip-gut/countdown', {
       },
       setAttributes
     } = props;
+
+    const zones = getTimezones( timezones );
 
     const updateValue = ( e ) => {
       setAttributes( {
@@ -55,15 +59,18 @@ registerBlockType( 'iip-gut/countdown', {
             locale={ getLocale }
             onChange={ updateDate }
           />
-          <label className="iip-gut-inspector-label" htmlFor="iip-countdown-timezone-input">
+          <label htmlFor="iip_event_timezone">
             Timezone:
-            <input
-              id="iip-countdown-timezone-input"
-              name="timezone"
-              onChange={ updateValue }
-              type="text"
-              value={ timezone }
-            />
+            <select id="iip_event_timezone" name="timezone" onChange={ updateValue }>
+              { timezone ? (
+                <option value={ timezone }>{ timezone }</option>
+              ) : (
+                <option value="">Select timezone</option>
+              ) }
+              { zones.map( zone => (
+                <option value={ zone.gmtOffset }>{ `${zone.name} (GMT${zone.gmtOffset})` }</option>
+              ) ) }
+            </select>
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-countdown-width-input">
             Width (in px):
@@ -78,8 +85,8 @@ registerBlockType( 'iip-gut/countdown', {
           <label className="iip-gut-inspector-label" htmlFor="iip-countdown-text-input">
             Date Text:
             <select id="iip-countdown-text-input" name="text" onChange={ updateValue }>
-              <option value>Show</option>
-              <option value={ false }>Hide</option>
+              <option value="true">Show</option>
+              <option value="false">Hide</option>
             </select>
           </label>
         </InspectorControls>
