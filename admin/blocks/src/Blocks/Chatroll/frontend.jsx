@@ -7,27 +7,27 @@ const FrontendChatroll = ( {
 } ) => (
   <Fragment>
     <div
-      className="iip_chatroll"
+      className="iip-chatroll"
       style={ `${alignment}: ${offsetX}px; bottom: ${offsetY}px;` }
     >
-      <div className="chatroll_topbar" style={ `width: ${width}px` }>
+      <div className="iip-chatroll-topbar" style={ `width: ${width}px` }>
         { title }
-        <div className="iip_toggle">
-          <div className="iip_one" />
-          <div className="iip_two" />
+        <div className="iip-chatroll-toggle">
+          <div className="iip-chatroll-dash" />
+          <div className="iip-chatroll-minimize" />
         </div>
       </div>
       <iframe
-        className=""
-        width={ width }
-        height={ height }
+        allowTransparency="true"
+        className="iip-chatroll-iframe"
         frameBorder="0"
-        scrolling="no"
+        height={ height }
         marginHeight="0"
         marginWidth="0"
-        allowTransparency="true"
+        scrolling="no"
         src={ `https://${domain}/embed/chat/${name}?id=${id}&platform=html` }
         title="IIP Chatroll"
+        width={ width }
       />
     </div>
   </Fragment>

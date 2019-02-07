@@ -1,0 +1,94 @@
+.iip {
+  
+  &-chatroll {
+    background: #FFFFFF;
+    border: 1px solid #262626;
+    position: fixed;
+    z-index: 100001;
+
+    &-iframe {
+      display: inline;
+    }
+
+    &-topbar {
+      background: #222222;
+      color: #FFFFFF;
+      cursor: pointer;
+      padding: 4px 8px;
+
+      &.reduced {
+        border: 1px solid #777777;
+        border-bottom: none;
+        width: 200px!important;
+      }
+    }
+
+    &-dash,
+    &-toggle,
+    &-minimize {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    &-dash,
+    &-minimize {
+      background: #FFFFFF;
+      border-radius: 3px;
+      height: 3px;
+      left: 3px;
+      position: absolute;
+      right: 3px;
+      top: 11px;
+      transform: rotate(0deg);
+      transition: 400ms all ease-out;
+      -webkit-transform: rotate(0deg);
+      -webkit-transition: 400ms all ease-out;
+    }
+
+    &-toggle {
+      float: right;
+      height: 25px;
+      position: relative;
+      width: 25px;
+    }
+
+    &-minimize .minimized {
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+    }
+  }
+}
+
+@media (max-width: 782px) {
+  
+  .iip-chatroll {
+    position: relative;
+    left: inherit!important;
+    right: inherit!important;
+    bottom: inherit!important;
+    z-index: 1;
+  }
+
+  .chatroll-topbar,
+  .iip-chatroll-iframe,
+  .reduced {
+    width: 100%!important;
+  }
+}
+
+// Admin representation
+.iip-gut-chatbox {
+
+  &-mock-topbar {
+    background: #222222;
+    color: #FFFFFF;
+    margin: -5px -5px 10px;
+    padding: 4px 8px;
+  }
+
+  &-notice {
+    border: 1px solid #777777;
+    padding: 5px;
+  }
+}
