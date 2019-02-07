@@ -3,12 +3,14 @@
 import FrontendChatroll from './frontend';
 
 import attributes from './attributes';
+import chatroll from './assets/chatroll-logo.png';
 
 const { wp } = window;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
+const { pluginUrl } = window.iipGutenblocks;
 
 registerBlockType( 'iip-gut/chatroll', {
   title: __( 'Chatroll', 'iip-gutenblocks' ),
@@ -30,11 +32,15 @@ registerBlockType( 'iip-gut/chatroll', {
       } );
     };
 
+    const logoSrc = `${pluginUrl}admin/blocks/dist${chatroll}`;
+
     return (
       <Fragment>
-        <div>
-          <h4>Chatroll inserted</h4>
-          <p>Use block settings in the sidebar to configure</p>
+        <div className="iip-gut-chatbox-notice">
+          <h4 className="iip-gut-chatbox-mock-topbar">Chatroll Added</h4>
+          <div className="iip-gut-image-container">
+            <img src={ logoSrc } alt="" />
+          </div>
         </div>
         <InspectorControls>
           <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-title-input">

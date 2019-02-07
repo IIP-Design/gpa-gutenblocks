@@ -33,6 +33,14 @@ class Admin {
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.css' )
     );
 
+    wp_localize_script(
+      'iip-interactive-gutenblocks-js',
+      'iipGutenblocks',
+      array(
+        'pluginUrl' => IIP_GUTENBLOCKS_URL
+      )
+    );
+    
     register_block_type( 'iip-gut/interactive', array(
       'editor_style'  => 'iip-interactive-gutenblocks-css',
       'editor_script' => 'iip-interactive-gutenblocks-js',
