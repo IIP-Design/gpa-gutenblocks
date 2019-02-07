@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 
-import AddToCalendar from '../Components/Frontend/AddToCalendar';
+import AddToCalendar from './frontend';
+import attributes from './attributes';
 
 const { wp } = window;
-const { __, setLocaleData } = wp.i18n;
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
@@ -13,32 +14,7 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'calendar-alt',
-  attributes: {
-    address: {
-      type: 'string'
-    },
-    date: {
-      type: 'string'
-    },
-    description: {
-      type: 'string'
-    },
-    duration: {
-      type: 'string'
-    },
-    text: {
-      type: 'string'
-    },
-    time: {
-      type: 'string'
-    },
-    timezone: {
-      type: 'string'
-    },
-    title: {
-      type: 'string'
-    }
-  },
+  attributes,
   edit( props ) {
     const {
       attributes: {
