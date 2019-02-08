@@ -1,27 +1,39 @@
-const { __experimentalGetSettings } = window.wp.date;
+import { trimString } from './helpers';
 
+const { __experimentalGetSettings } = window.wp.date;
 const settings = __experimentalGetSettings();
 
-export const twelveHoursCheck = () => {
-  // Checks if current timezone is a 12 hour time by looking for an "a" in the time format.
-  // We also make sure this a is not escaped by a "/".
-  const is12HourTime = /a(?!\\)/i.test(
-    settings.formats.time
-      .toLowerCase() // Test only the lower case a
-      .replace( /\\\\/g, '' ) // Replace "//" with empty strings
-      .split( '' ).reverse()
-      .join( '' ) // Reverse the string and test for "a" not followed by a slash
-  );
 
-  return is12HourTime;
-};
-
+// Get's the browser locale using WordPress's built-in l10n package
 export const getLocale = () => {
   const { locale } = settings.l10n;
 
   return locale;
 };
 
+// Returns a list of timezones from a input object that contains a timezones object
+export const getTimezones = ( input ) => {
+  const { timezones } = input;
+
+  return timezones;
+};
+
+// ------ Datetime Manipulation Helper Functions ------ //
+
+// Checks if current time is a 12 hour time by looking for an 'a' in the time format.
+export const twelveHoursCheck = () => {
+  const is12HourTime = /a(?!\\)/i.test(
+    settings.formats.time
+      .toLowerCase()
+      .replace( /\\\\/g, '' )
+      .split( '' ).reverse()
+      .join( '' )
+  );
+
+  return is12HourTime;
+};
+
+// Replaces 'GMT' with 'UTC' in a string
 export const replaceGmtUtc = ( string ) => {
   let utcString;
 
@@ -33,18 +45,54 @@ export const replaceGmtUtc = ( string ) => {
   return string;
 };
 
-export const getTimezones = ( input ) => {
-  const { timezones } = input;
+// Adds given number of minutes to existing date object
+export const addMinutes = ( date, minutes ) => {
+  const newDateObj = new Date( date.getTime() + minutes * 60000 );
 
-  return timezones;
+  return newDateObj;
 };
 
+// ------ End Datetime Manipulation Helper Functions ------ //
+
+// ------ Date Conversions ------ //
+
+// Converts date from ISO string format (2019-02-09T20:25:41-05:00) to
+// Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
 export const getDateFromIso = ( isoString ) => {
   const date = new Date( isoString );
 
   return date;
 };
 
+// Converts date from Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
+// to ISO string format (2019-02-09T20:25:41-05:00)
+export const getIsoDate = ( date ) => {
+  const isoString = date.toISOString();
+
+  return isoString;
+};
+
+// Converts date from Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
+// to UTC string format (Sat, 09 Feb 2019 20:25:41 GMT)
+export const getUtcDate = ( date ) => {
+  const utcString = date.toUTCString();
+
+  return utcString;
+};
+
+// Converts date from ISO string format (2019-02-09T20:25:41-05:00) to
+// UTC string format (Sun, 10 Feb 2019 01:25:41 UTC)
+export const convertUtcString = ( isoString ) => {
+  const dateFormat = getDateFromIso( isoString );
+  const gmtString = getUtcDate( dateFormat );
+  const utcString = replaceGmtUtc( gmtString );
+
+  return utcString;
+};
+
+// Converts date from Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time)) to
+// a localized date string with full weekday, month, and year; 12-hour time; and timzone abbreviation
+// Example: For locale 'en-US', would return 'Friday, February 08, 2019, 12:45 PM EST'
 export const getLocaleDate = ( date, locale ) => {
   const options = {
     weekday: 'long',
@@ -62,12 +110,9 @@ export const getLocaleDate = ( date, locale ) => {
   return localeString;
 };
 
-export const getUtcDate = ( date ) => {
-  const utcString = date.toUTCString();
-
-  return utcString;
-};
-
+// Converts an ISO string format date (2019-02-09T20:25:41-05:00) to a localized date
+// string with full weekday, month, and year; 12-hour time; and timzone abbreviation
+// Example: For locale 'en-US', would return 'Friday, February 08, 2019, 12:45 PM EST'
 export const convertIsoToLocale = ( isoString, locale ) => {
   const dateFormat = getDateFromIso( isoString );
   const localeString = getLocaleDate( dateFormat, locale );
@@ -75,10 +120,22 @@ export const convertIsoToLocale = ( isoString, locale ) => {
   return localeString;
 };
 
-export const convertUtcString = ( isoString ) => {
-  const dateFormat = getDateFromIso( isoString );
-  const gmtString = getUtcDate( dateFormat );
-  const utcString = replaceGmtUtc( gmtString );
+// ------ End Date Conversions ------ //
 
-  return utcString;
+// ------ Plugin-Specific Datetime Transformations ------ //
+
+// Takes a date in ISO format (2019-02-09T20:25:41-05:00) adds a given
+// duration in minutes, and returns the resulting date in ISO format
+export const getEndDate = ( date, duration ) => {
+  // Converts ISO string to more workable (faux) UTC date
+  const convertedDate = getDateFromIso( `${date}.000Z` );
+
+  // Adds duration
+  const newDate = addMinutes( convertedDate, duration );
+
+  // Converts newDate back into ISO string and removes the timezone
+  const isoDate = getIsoDate( newDate );
+  const trimTimezone = trimString( isoDate, 5 );
+
+  return trimTimezone;
 };
