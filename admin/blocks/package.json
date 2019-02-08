@@ -30,6 +30,7 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react-add-to-calendar-hoc": "^1.0.7"
   }
 }

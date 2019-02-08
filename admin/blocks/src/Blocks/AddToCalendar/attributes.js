@@ -1,28 +1,39 @@
-const attributes = {
+import { getIsoDate } from '../../utils/time';
+
+const defaultDate = getIsoDate( new Date() );
+
+export const attributes = {
   address: {
     type: 'string'
   },
+  buttonText: {
+    type: 'string',
+    default: 'Add to Calendar'
+  },
   date: {
-    type: 'string'
+    type: 'string',
+    default: defaultDate
   },
   description: {
     type: 'string'
   },
   duration: {
-    type: 'string'
+    type: 'int',
+    default: 60
   },
-  text: {
-    type: 'string'
-  },
-  time: {
+  location: {
     type: 'string'
   },
   timezone: {
-    type: 'string'
+    type: 'object',
+    default: {
+      abbreviation: 'EST',
+      commonName: 'Eastern Standard Time',
+      gmtOffset: '-05:00',
+      value: 'US/Eastern'
+    }
   },
   title: {
     type: 'string'
   }
 };
-
-export default attributes;

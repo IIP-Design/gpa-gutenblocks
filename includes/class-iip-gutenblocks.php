@@ -69,7 +69,7 @@ class IIP_Gutenblocks {
 
   // Register all of the hooks related to the admin area functionality of the plugin.
   private function define_admin_hooks() {
-    $plugin_admin = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
+    $plugin_interactive = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
 
     // Admin hooks
     $this->loader->add_action( 'init', $plugin_interactive, 'register_iip_gutenblocks' );

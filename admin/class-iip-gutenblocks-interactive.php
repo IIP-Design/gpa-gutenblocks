@@ -29,7 +29,7 @@ class Interactive {
     wp_register_style(
       'iip-gut-interactive-css',
       IIP_GUTENBLOCKS_URL . 'admin/blocks/dist/interactive.min.css',
-      array(),
+      array( 'wp-edit-blocks' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.css' )
     );
 

@@ -1,13 +1,19 @@
 /* eslint-disable react/prop-types */
+import { AddToCalendarDropdown } from './frontend';
+import { attributes } from './attributes';
 
-import AddToCalendar from './frontend';
-import attributes from './attributes';
+import timezones from '../../utils/timezones.json';
+import { stripSpecialChars } from '../../utils/helpers';
+import {
+  getEndDate, getLocale, getTimezones, twelveHoursCheck
+} from '../../utils/time';
 
 const { wp } = window;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
+const { DateTimePicker } = wp.components;
 
 registerBlockType( 'iip-gut/add-to-calendar', {
   title: __( 'Add to Calendar', 'iip-gutenblocks' ),
@@ -18,7 +24,7 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   edit( props ) {
     const {
       attributes: {
-        address, date, description, duration, text, time, timezone, title
+        buttonText, date, description, duration, location, timezone, title
       },
       setAttributes
     } = props;
@@ -29,22 +35,46 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       } );
     };
 
+    const updateDate = ( e ) => {
+      setAttributes( {
+        date: e
+      } );
+    };
+
+    const zones = getTimezones( timezones );
+
+    const updateTimeZone = ( e ) => {
+      const zoneValues = JSON.parse( e.target.value );
+
+      setAttributes( {
+        timezone: zoneValues
+      } );
+    };
+
+    const startDatetime = stripSpecialChars( `${date}` );
+    const endDatetime = stripSpecialChars( getEndDate( date, duration, timezone.gmtOffset ) );
+
+    const event = {
+      description,
+      duration,
+      endDatetime,
+      location,
+      startDatetime,
+      timezone: timezone.value,
+      title
+    };
+
     return (
       <Fragment>
-        <AddToCalendar
-          address={ address }
-          date={ date }
-          description={ description }
-          duration={ duration }
-          text={ text }
-          time={ time }
-          timezone={ timezone }
-          title={ title }
+        <AddToCalendarDropdown
+          buttonText={ buttonText }
+          event={ event }
         />
         <InspectorControls>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-title-input">
-            Event title:
+            Title:
             <input
+              className="iip-gut-inspector-input medium"
               id="iip-calendar-title-input"
               name="title"
               onChange={ updateValue }
@@ -53,8 +83,9 @@ registerBlockType( 'iip-gut/add-to-calendar', {
             />
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-duration-input">
-            Duration (in minutes):
+            Duration (in min):
             <input
+              className="iip-gut-inspector-input medium"
               id="iip-calendar-duration-input"
               name="duration"
               onChange={ updateValue }
@@ -65,16 +96,18 @@ registerBlockType( 'iip-gut/add-to-calendar', {
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-address-input">
             Address/URL:
             <input
+              className="iip-gut-inspector-input medium"
               id="iip-calendar-address-input"
-              name="address"
+              name="location"
               onChange={ updateValue }
               type="text"
-              value={ address }
+              value={ location }
             />
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-description-input">
-            Event description:
+            Description:
             <input
+              className="iip-gut-inspector-input medium"
               id="iip-calendar-description-input"
               name="description"
               onChange={ updateValue }
@@ -85,42 +118,41 @@ registerBlockType( 'iip-gut/add-to-calendar', {
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-text-input">
             Button text:
             <input
+              className="iip-gut-inspector-input medium"
               id="iip-calendar-text-input"
-              name="text"
+              name="buttonText"
               onChange={ updateValue }
               type="text"
-              value={ text }
+              value={ buttonText }
             />
           </label>
-          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-date-input">
-            Date:
-            <input
-              id="iip-chatroll-date-input"
-              name="date"
-              onChange={ updateValue }
-              type="text"
-              value={ date }
-            />
-          </label>
-          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-time-input">
-            Time:
-            <input
-              id="iip-chatroll-time-input"
-              name="time"
-              onChange={ updateValue }
-              type="text"
-              value={ time }
-            />
-          </label>
-          <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-timezone-input">
+          <DateTimePicker
+            currentDate={ date }
+            is12Hour={ twelveHoursCheck }
+            locale={ getLocale }
+            onChange={ updateDate }
+          />
+          <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
             Timezone:
-            <input
-              id="iip-chatroll-timezone-input"
+            <select
+              className="iip-gut-inspector-input"
+              id="iip_event_timezone"
               name="timezone"
-              onChange={ updateValue }
-              type="text"
-              value={ timezone }
-            />
+              onChange={ updateTimeZone }
+            >
+              { timezone ? (
+                <option value={ JSON.stringify( timezone ) }>
+                  { `${timezone.abbreviation} (GMT${timezone.gmtOffset})` }
+                </option>
+              ) : (
+                <option value="">Select timezone</option>
+              ) }
+              { zones.map( zone => (
+                <option value={ JSON.stringify( zone.properties ) }>
+                  { `${zone.name} (GMT${zone.properties.gmtOffset})` }
+                </option>
+              ) ) }
+            </select>
           </label>
         </InspectorControls>
       </Fragment>
@@ -129,20 +161,27 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   save( props ) {
     const {
       attributes: {
-        address, date, description, duration, text, time, timezone, title
+        buttonText, date, description, duration, location, timezone, title
       }
     } = props;
 
+    const startDatetime = stripSpecialChars( `${date}` );
+    const endDatetime = stripSpecialChars( getEndDate( date, duration, timezone.gmtOffset ) );
+
+    const event = {
+      description,
+      duration,
+      endDatetime,
+      location,
+      startDatetime,
+      timezone: timezone.value,
+      title
+    };
+
     return (
-      <AddToCalendar
-        address={ address }
-        date={ date }
-        description={ description }
-        duration={ duration }
-        text={ text }
-        time={ time }
-        timezone={ timezone }
-        title={ title }
+      <AddToCalendarDropdown
+        buttonText={ buttonText }
+        event={ event }
       />
     );
   }
