@@ -49,6 +49,17 @@ class Interactive {
     ) );
   }
 
+  public function register_custom_meta() {
+    register_meta(
+      'post',
+      'iip_gut_atc_event',
+      array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ) );
+  }
+
   public function register_custom_block_category( $categories, $post ) {
     if ( $post->post_type !== 'post' ) {
       return $categories;

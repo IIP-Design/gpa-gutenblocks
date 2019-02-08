@@ -33,6 +33,31 @@ export const twelveHoursCheck = () => {
   return is12HourTime;
 };
 
+export const covertMinToHr = ( minutes ) => {
+  const type = typeof ( minutes );
+
+  switch ( type ) {
+    case 'number': {
+      const hours = minutes / 60;
+      return hours;
+    }
+    case 'string': {
+      let hours;
+      if ( Number.isNaN( minutes ) ) {
+        hours = 1;
+      } else {
+        const number = Number( minutes );
+        hours = number / 60;
+      }
+      return hours;
+    }
+    default: {
+      const hours = 1;
+      return hours;
+    }
+  }
+};
+
 // Replaces 'GMT' with 'UTC' in a string
 export const replaceGmtUtc = ( string ) => {
   let utcString;

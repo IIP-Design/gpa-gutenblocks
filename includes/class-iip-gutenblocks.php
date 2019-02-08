@@ -73,6 +73,7 @@ class IIP_Gutenblocks {
 
     // Admin hooks
     $this->loader->add_action( 'init', $plugin_interactive, 'register_iip_gutenblocks' );
+    $this->loader->add_action( 'init', $plugin_interactive, 'register_custom_meta' );
     $this->loader->add_filter( 'block_categories', $plugin_interactive, 'register_custom_block_category', 10, 2 );
   }
 
@@ -81,7 +82,7 @@ class IIP_Gutenblocks {
     $plugin_frontend = new IIP_Gutenblocks\Frontend( $this->get_plugin_name(), $this->get_version() );
 
     // Frontend hooks
-    $this->loader->add_action( 'INSERT_WP_HOOK', $plugin_frontend, 'INSERT_CALLBACK' );
+    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_iip_gutenblocks_frontend' );
   }
 
   /**

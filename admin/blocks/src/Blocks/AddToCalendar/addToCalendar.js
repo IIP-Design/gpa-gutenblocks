@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import { AddToCalendarDropdown } from './frontend';
 import { attributes } from './attributes';
+import { setEventMeta } from './logic';
 
 import timezones from '../../utils/timezones.json';
-import { stripSpecialChars } from '../../utils/helpers';
 import {
-  getEndDate, getLocale, getTimezones, twelveHoursCheck
+  getLocale, getTimezones, covertMinToHr, twelveHoursCheck
 } from '../../utils/time';
 
 const { wp } = window;
@@ -29,16 +28,44 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       setAttributes
     } = props;
 
+    const updateEvent = () => {
+      const eventMeta = setEventMeta( date, description, duration, location, timezone, title );
+
+      setAttributes( {
+        event: eventMeta
+      } );
+    };
+
     const updateValue = ( e ) => {
       setAttributes( {
         [e.target.name]: e.target.value
       } );
+
+      updateEvent();
+    };
+
+    const updateDuration = ( e ) => {
+      const min = e.target.value;
+      const hrs = covertMinToHr( min );
+
+      const newDuration = {
+        min,
+        hrs
+      };
+
+      setAttributes( {
+        duration: newDuration
+      } );
+
+      updateEvent();
     };
 
     const updateDate = ( e ) => {
       setAttributes( {
         date: e
       } );
+
+      updateEvent();
     };
 
     const zones = getTimezones( timezones );
@@ -49,27 +76,15 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       setAttributes( {
         timezone: zoneValues
       } );
-    };
 
-    const startDatetime = stripSpecialChars( `${date}` );
-    const endDatetime = stripSpecialChars( getEndDate( date, duration, timezone.gmtOffset ) );
-
-    const event = {
-      description,
-      duration,
-      endDatetime,
-      location,
-      startDatetime,
-      timezone: timezone.value,
-      title
+      updateEvent();
     };
 
     return (
       <Fragment>
-        <AddToCalendarDropdown
-          buttonText={ buttonText }
-          event={ event }
-        />
+        <button type="button">
+          { buttonText }
+        </button>
         <InspectorControls>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-title-input">
             Title:
@@ -88,9 +103,9 @@ registerBlockType( 'iip-gut/add-to-calendar', {
               className="iip-gut-inspector-input medium"
               id="iip-calendar-duration-input"
               name="duration"
-              onChange={ updateValue }
+              onChange={ updateDuration }
               type="text"
-              value={ duration }
+              value={ duration.min }
             />
           </label>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-address-input">
@@ -158,31 +173,9 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       </Fragment>
     );
   },
-  save( props ) {
-    const {
-      attributes: {
-        buttonText, date, description, duration, location, timezone, title
-      }
-    } = props;
-
-    const startDatetime = stripSpecialChars( `${date}` );
-    const endDatetime = stripSpecialChars( getEndDate( date, duration, timezone.gmtOffset ) );
-
-    const event = {
-      description,
-      duration,
-      endDatetime,
-      location,
-      startDatetime,
-      timezone: timezone.value,
-      title
-    };
-
+  save() {
     return (
-      <AddToCalendarDropdown
-        buttonText={ buttonText }
-        event={ event }
-      />
+      <div id="iip-gut-add-to-cal" />
     );
   }
 } );

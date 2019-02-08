@@ -1,10 +1,13 @@
+import { trimString } from '../../utils/helpers';
 import { getIsoDate } from '../../utils/time';
 
-const defaultDate = getIsoDate( new Date() );
+const isoDate = getIsoDate( new Date() );
+const defaultDate = trimString( isoDate, 5 );
 
 export const attributes = {
   address: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   buttonText: {
     type: 'string',
@@ -15,14 +18,24 @@ export const attributes = {
     default: defaultDate
   },
   description: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   duration: {
-    type: 'int',
-    default: 60
+    type: 'object',
+    default: {
+      min: 60,
+      hrs: 1
+    }
+  },
+  event: {
+    type: 'string',
+    source: 'meta',
+    meta: 'iip_gut_atc_event'
   },
   location: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   timezone: {
     type: 'object',
@@ -34,6 +47,7 @@ export const attributes = {
     }
   },
   title: {
-    type: 'string'
+    type: 'string',
+    default: ''
   }
 };
