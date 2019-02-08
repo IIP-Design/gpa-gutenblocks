@@ -1,15 +1,25 @@
-.iip-gut-inspector-label {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0;
-}
+.iip-gut {
+  
+  &-inspector {
+    
+    &-label {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
 
-.iip-gut-inspector-input {
-  width: 65%;
-}
+    &-input {
+      width: 65%;
 
-.iip-gut-image-container {
-  display: flex;
-  justify-content: center;
+      &.medium {
+        width: 50%;
+      }
+    }
+  }
+
+  &-image-container {
+    display: flex;
+    justify-content: center;
+  }
 }
