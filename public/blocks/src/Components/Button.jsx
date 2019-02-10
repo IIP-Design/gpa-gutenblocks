@@ -1,7 +1,8 @@
-import { element, func } from 'prop-types';
+import { element, func, string } from 'prop-types';
 
-const Button = ( { children, onClick } ) => (
+const Button = ( { children, classes, onClick } ) => (
   <button
+    className={ classes }
     onClick={ onClick }
     type="button"
   >
@@ -11,6 +12,7 @@ const Button = ( { children, onClick } ) => (
 
 Button.propTypes = {
   children: element,
+  classes: string,
   onClick: func
 };
 

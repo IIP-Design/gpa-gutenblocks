@@ -1,0 +1,44 @@
+.iip-gut-add-to-cal {
+  margin: 10px 0;
+  display: flex;
+  position: relative;
+
+  &-button {
+    background: #B80000;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    padding: 20px 40px;
+    width: 100%;
+  }
+
+  &-container {
+    width: 324px;
+  }
+
+  &-dropdown {
+    align-items: center;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: inherit;
+  }
+}
+
+a.iip-gut-add-to-cal-link {
+  border: #EEEEEE solid 1px;
+  border-top: none;
+  display: block;
+  font-size: 18px;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+
+  &:hover {
+    background-color: #F0F8FF;
+    border-bottom: none;
+    line-height: 1.7;
+  }
+}

@@ -1,13 +1,14 @@
-import { element } from 'prop-types';
+import { element, string } from 'prop-types';
 
-const Dropdown = ( { children } ) => (
-  <div>
+const Dropdown = ( { children, classes } ) => (
+  <div className={ classes }>
     { children }
   </div>
 );
 
 Dropdown.propTypes = {
-  children: element
+  children: element,
+  classes: string
 };
 
 export default Dropdown;

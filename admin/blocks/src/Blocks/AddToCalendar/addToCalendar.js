@@ -23,7 +23,7 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   edit( props ) {
     const {
       attributes: {
-        buttonText, date, description, duration, location, timezone, title
+        alignment, buttonText, date, description, duration, location, timezone, title
       },
       setAttributes
     } = props;
@@ -82,9 +82,13 @@ registerBlockType( 'iip-gut/add-to-calendar', {
 
     return (
       <Fragment>
-        <button type="button">
-          { buttonText }
-        </button>
+        <div className="iip-gut-add-to-cal" style={ { justifyContent: alignment } }>
+          <div className="iip-gut-add-to-cal-container">
+            <button className="iip-gut-add-to-cal-button" type="button">
+              { buttonText }
+            </button>
+          </div>
+        </div>
         <InspectorControls>
           <label className="iip-gut-inspector-label" htmlFor="iip-calendar-title-input">
             Title:
@@ -141,6 +145,20 @@ registerBlockType( 'iip-gut/add-to-calendar', {
               value={ buttonText }
             />
           </label>
+          <label className="iip-gut-inspector-label" htmlFor="iip-calendar-align-input">
+            Button alignment:
+            <select
+              className="iip-gut-inspector-input medium"
+              id="iip-calendar-align-input"
+              name="alignment"
+              onChange={ updateValue }
+              value={ alignment }
+            >
+              <option value="center">Center</option>
+              <option value="flex-start">Left</option>
+              <option value="flex-end">Right</option>
+            </select>
+          </label>
           <DateTimePicker
             currentDate={ date }
             is12Hour={ twelveHoursCheck }
@@ -154,14 +172,8 @@ registerBlockType( 'iip-gut/add-to-calendar', {
               id="iip_event_timezone"
               name="timezone"
               onChange={ updateTimeZone }
+              value={ JSON.stringify( timezone ) }
             >
-              { timezone ? (
-                <option value={ JSON.stringify( timezone ) }>
-                  { `${timezone.abbreviation} (GMT${timezone.gmtOffset})` }
-                </option>
-              ) : (
-                <option value="">Select timezone</option>
-              ) }
               { zones.map( zone => (
                 <option value={ JSON.stringify( zone.properties ) }>
                   { `${zone.name} (GMT${zone.properties.gmtOffset})` }
@@ -173,9 +185,15 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       </Fragment>
     );
   },
-  save() {
+  save( props ) {
+    const { attributes: { alignment } } = props;
+
     return (
-      <div id="iip-gut-add-to-cal" />
+      <div
+        className="iip-gut-add-to-cal"
+        id="iip-gut-add-to-cal"
+        style={ { justifyContent: alignment } }
+      />
     );
   }
 } );

@@ -9,6 +9,10 @@ export const attributes = {
     type: 'string',
     default: ''
   },
+  alignment: {
+    type: 'string',
+    default: 'center'
+  },
   buttonText: {
     type: 'string',
     default: 'Add to Calendar'

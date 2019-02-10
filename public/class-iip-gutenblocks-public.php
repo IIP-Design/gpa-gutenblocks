@@ -30,8 +30,7 @@ class Frontend {
       'iip-gutenblocks-frontend-js',
       'iipGutenblocks',
       array(
-        'addToCal' => $decoded,
-        'pluginUrl' => IIP_GUTENBLOCKS_URL
+        'addToCal' => $decoded
       )
     );
   }

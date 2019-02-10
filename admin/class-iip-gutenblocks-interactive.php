@@ -26,6 +26,14 @@ class Interactive {
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/blocks/dist/interactive.min.css' )
     );
     
+    wp_localize_script(
+      'iip-gut-interactive-admin-js',
+      'iipGutenblocks',
+      array(
+        'pluginUrl' => IIP_GUTENBLOCKS_URL
+      )
+    );
+    
     register_block_type( 'iip-gut/interactive', array(
       'editor_style'  => 'iip-gut-interactive-css',
       'editor_script' => 'iip-gut-interactive-admin-js',

@@ -74,14 +74,8 @@ registerBlockType( 'iip-gut/countdown', {
               id="iip_event_timezone"
               name="timezone"
               onChange={ updateTimeZone }
+              value={ JSON.stringify( timezone ) }
             >
-              { timezone ? (
-                <option value={ JSON.stringify( timezone ) }>
-                  { `${timezone.abbreviation} (GMT${timezone.gmtOffset})` }
-                </option>
-              ) : (
-                <option value="">Select timezone</option>
-              ) }
               { zones.map( zone => (
                 <option value={ JSON.stringify( zone.properties ) }>
                   { `${zone.name} (GMT${zone.properties.gmtOffset})` }
@@ -107,6 +101,7 @@ registerBlockType( 'iip-gut/countdown', {
               id="iip-countdown-text-input"
               name="text"
               onChange={ updateValue }
+              value={ text }
             >
               <option value="true">Show</option>
               <option value="false">Hide</option>

@@ -1,17 +1,15 @@
-import { object, string } from 'prop-types';
-
 import { AddToCalendarDropdown } from './AddToCalendar';
 
-const App = ( { buttonText, event } ) => (
+const { addToCal } = window.iipGutenblocks;
+
+const App = () => (
   <AddToCalendarDropdown
-    buttonText={ buttonText }
-    event={ event }
+    buttonProps={ { classes: 'iip-gut-add-to-cal-button' } }
+    className="iip-gut-add-to-cal-container"
+    dropdownProps={ { classes: 'iip-gut-add-to-cal-dropdown' } }
+    linkProps={ { class: 'iip-gut-add-to-cal-link' } }
+    event={ addToCal }
   />
 );
-
-App.propTypes = {
-  buttonText: string,
-  event: object
-};
 
 export default App;
