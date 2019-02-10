@@ -2,7 +2,7 @@ import { string } from 'prop-types';
 
 const { Fragment } = window.wp.element;
 
-const FrontendChatroll = ( {
+const ChatrollFrontend = ( {
   alignment, domain, height, id, name, offsetX, offsetY, title, width
 } ) => (
   <Fragment>
@@ -33,7 +33,7 @@ const FrontendChatroll = ( {
   </Fragment>
 );
 
-FrontendChatroll.propTypes = {
+ChatrollFrontend.propTypes = {
   alignment: string,
   domain: string,
   height: string,
@@ -45,4 +45,4 @@ FrontendChatroll.propTypes = {
   width: string
 };
 
-export default FrontendChatroll;
+export default ChatrollFrontend;

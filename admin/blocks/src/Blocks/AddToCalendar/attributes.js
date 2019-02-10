@@ -5,10 +5,6 @@ const isoDate = getIsoDate( new Date() );
 const defaultDate = trimString( isoDate, 5 );
 
 export const attributes = {
-  address: {
-    type: 'string',
-    default: ''
-  },
   alignment: {
     type: 'string',
     default: 'center'

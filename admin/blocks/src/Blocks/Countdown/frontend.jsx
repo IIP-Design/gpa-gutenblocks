@@ -5,7 +5,7 @@ import { convertUtcString } from '../../utils/time';
 const { wp } = window;
 const { __ } = wp.i18n;
 
-const Countdown = ( {
+const CountdownFrontend = ( {
   date, text, timezone, width
 } ) => (
   <div className="iip_countdown">
@@ -44,11 +44,11 @@ const Countdown = ( {
   </div>
 );
 
-Countdown.propTypes = {
+CountdownFrontend.propTypes = {
   date: string,
   text: bool,
   timezone: string,
   width: string
 };
 
-export default Countdown;
+export default CountdownFrontend;
