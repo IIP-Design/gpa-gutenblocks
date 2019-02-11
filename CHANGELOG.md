@@ -4,4 +4,9 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Initial Release
+## 1.0.0 (Initial Release) - 2019.02.11
+
+**Added:**
+
+- Three Gutenberg blocks, namely an add to calendar button, chatroll window, and countdown widget
+- Custom block category called 'IIP Custom Blocks' to hold IIP-specific blocks
