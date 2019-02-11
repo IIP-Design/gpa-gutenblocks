@@ -1,28 +1,42 @@
-import { func, string, object } from 'prop-types';
+import {
+  bool, func, string, object
+} from 'prop-types';
+
+import EditorModal from '../../Components/EditorModal';
 
 import timezones from '../../utils/timezones.json';
 import { getLocale, getTimezones, twelveHoursCheck } from '../../utils/time';
 
 const { wp } = window;
-const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
 const { DateTimePicker } = wp.components;
 
 const zones = getTimezones( timezones );
 
 const AddToCalEditor = ( {
-  alignment, buttonText, date, description, duration, location,
-  timezone, title, updateDate, updateDuration, updateTimezone, updateValue
+  alignment, buttonText, toggleModal, date, description, duration, isOpen, location,
+  timezone, title, updateDate, updateDuration, updateIsOpen, updateTimezone, updateValue
 } ) => (
   <Fragment>
-    <div className="iip-gut-add-to-cal" style={ { justifyContent: alignment } }>
+    <div
+      className="iip-gut-add-to-cal"
+      onClick={ updateIsOpen }
+      onKeyUp={ updateIsOpen }
+      role="button"
+      style={ { justifyContent: alignment } }
+      tabIndex={ 0 }
+    >
       <div className="iip-gut-add-to-cal-container">
         <button className="iip-gut-add-to-cal-button" type="button">
           { buttonText }
         </button>
       </div>
     </div>
-    <InspectorControls>
+    <EditorModal
+      isOpen={ isOpen }
+      onClick={ toggleModal }
+      title="Set calendar event"
+    >
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-title-input">
         Title:
         <input
@@ -92,12 +106,14 @@ const AddToCalEditor = ( {
           <option value="flex-end">Right</option>
         </select>
       </label>
-      <DateTimePicker
-        currentDate={ date }
-        is12Hour={ twelveHoursCheck }
-        locale={ getLocale }
-        onChange={ updateDate }
-      />
+      <div className="iip-gut-date-picker">
+        <DateTimePicker
+          currentDate={ date }
+          is12Hour={ twelveHoursCheck }
+          locale={ getLocale }
+          onChange={ updateDate }
+        />
+      </div>
       <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
         Timezone:
         <select
@@ -114,21 +130,24 @@ const AddToCalEditor = ( {
           ) ) }
         </select>
       </label>
-    </InspectorControls>
+    </EditorModal>
   </Fragment>
 );
 
 AddToCalEditor.propTypes = {
   alignment: string,
   buttonText: string,
+  toggleModal: func,
   date: string,
   description: string,
   duration: object,
+  isOpen: bool,
   location: string,
   timezone: object,
   title: string,
   updateDate: func,
   updateDuration: func,
+  updateIsOpen: func,
   updateTimezone: func,
   updateValue: func
 };

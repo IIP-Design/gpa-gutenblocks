@@ -33,6 +33,10 @@ export const attributes = {
     source: 'meta',
     meta: 'iip_gut_atc_event'
   },
+  isOpen: {
+    type: 'boolean',
+    default: false
+  },
   location: {
     type: 'string',
     default: ''

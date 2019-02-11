@@ -10,7 +10,7 @@ const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/chatroll', {
   title: __( 'Chatroll', 'iip-gutenblocks' ),
-  description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
+  description: __( 'Insert chatroll component', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'testimonial',
   attributes,

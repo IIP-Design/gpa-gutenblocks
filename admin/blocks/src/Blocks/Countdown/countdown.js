@@ -11,17 +11,25 @@ const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/countdown', {
   title: __( 'Countdown', 'iip-gutenblocks' ),
-  description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
+  description: __( 'Insert configurable countdown component', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'clock',
   attributes,
   edit( props ) {
     const {
       attributes: {
-        date, text, timezone, width
+        date, isOpen, text, timezone, width
       },
       setAttributes
     } = props;
+
+    const updateIsOpen = () => {
+      const newState = !isOpen;
+
+      setAttributes( {
+        isOpen: newState
+      } );
+    };
 
     const updateValue = ( e ) => {
       setAttributes( {
@@ -43,15 +51,21 @@ registerBlockType( 'iip-gut/countdown', {
       } );
     };
 
-    initializeClock();
+    const toggleModal = () => {
+      updateIsOpen();
+      initializeClock();
+    };
 
     return (
       <CountdownEditor
         date={ date }
+        isOpen={ isOpen }
         text={ text }
         timezone={ timezone }
         width={ width }
+        toggleModal={ toggleModal }
         updateDate={ updateDate }
+        updateIsOpen={ updateIsOpen }
         updateTimezone={ updateTimezone }
         updateValue={ updateValue }
       />

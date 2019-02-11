@@ -11,14 +11,14 @@ const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/add-to-calendar', {
   title: __( 'Add to Calendar', 'iip-gutenblocks' ),
-  description: __( 'Inserts chatroll iframe', 'iip-gutenblocks' ),
+  description: __( 'Inserts add to calendar button', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'calendar-alt',
   attributes,
   edit( props ) {
     const {
       attributes: {
-        alignment, buttonText, date, description, duration, location, timezone, title
+        alignment, buttonText, date, description, duration, isOpen, location, timezone, title
       },
       setAttributes
     } = props;
@@ -35,8 +35,6 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       setAttributes( {
         [e.target.name]: e.target.value
       } );
-
-      updateEvent();
     };
 
     const updateDuration = ( e ) => {
@@ -51,16 +49,20 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       setAttributes( {
         duration: newDuration
       } );
-
-      updateEvent();
     };
 
     const updateDate = ( e ) => {
       setAttributes( {
         date: e
       } );
+    };
 
-      updateEvent();
+    const updateIsOpen = () => {
+      const newState = !isOpen;
+
+      setAttributes( {
+        isOpen: newState
+      } );
     };
 
     const updateTimezone = ( e ) => {
@@ -69,7 +71,10 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       setAttributes( {
         timezone: zoneValues
       } );
+    };
 
+    const toggleModal = () => {
+      updateIsOpen();
       updateEvent();
     };
 
@@ -80,11 +85,14 @@ registerBlockType( 'iip-gut/add-to-calendar', {
         date={ date }
         description={ description }
         duration={ duration }
+        isOpen={ isOpen }
         location={ location }
         timezone={ timezone }
         title={ title }
+        toggleModal={ toggleModal }
         updateDate={ updateDate }
         updateDuration={ updateDuration }
+        updateIsOpen={ updateIsOpen }
         updateTimezone={ updateTimezone }
         updateValue={ updateValue }
       />

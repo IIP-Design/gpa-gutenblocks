@@ -1,33 +1,43 @@
-import { func, string, object } from 'prop-types';
+import {
+  bool, func, string, object
+} from 'prop-types';
 
 import CountdownFrontend from './frontend';
+import EditorModal from '../../Components/EditorModal';
 import timezones from '../../utils/timezones.json';
 import { getLocale, getTimezones, twelveHoursCheck } from '../../utils/time';
 
 const { wp } = window;
-const { InspectorControls } = wp.editor;
-const { Fragment } = wp.element;
 const { DateTimePicker } = wp.components;
+const { Fragment } = wp.element;
 
 const zones = getTimezones( timezones );
 
 const CountdownEditor = ( {
-  date, text, timezone, width, updateDate, updateTimezone, updateValue
+  date, isOpen, text, timezone, width, toggleModal,
+  updateDate, updateIsOpen, updateTimezone, updateValue
 } ) => (
   <Fragment>
     <CountdownFrontend
       date={ date }
+      onClick={ updateIsOpen }
       text={ text }
       timezone={ timezone }
       width="500"
     />
-    <InspectorControls>
-      <DateTimePicker
-        currentDate={ date }
-        is12Hour={ twelveHoursCheck }
-        locale={ getLocale }
-        onChange={ updateDate }
-      />
+    <EditorModal
+      isOpen={ isOpen }
+      onClick={ toggleModal }
+      title="Configure the countdown"
+    >
+      <div className="iip-gut-date-picker">
+        <DateTimePicker
+          currentDate={ date }
+          is12Hour={ twelveHoursCheck }
+          locale={ getLocale }
+          onChange={ updateDate }
+        />
+      </div>
       <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
         Timezone:
         <select
@@ -68,15 +78,18 @@ const CountdownEditor = ( {
           <option value="false">Hide</option>
         </select>
       </label>
-    </InspectorControls>
+    </EditorModal>
   </Fragment>
 );
 
 CountdownEditor.propTypes = {
   date: string,
+  isOpen: bool,
+  updateIsOpen: func,
   text: string,
   timezone: object,
   width: string,
+  toggleModal: func,
   updateDate: func,
   updateTimezone: func,
   updateValue: func

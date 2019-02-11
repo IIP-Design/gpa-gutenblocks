@@ -1,4 +1,4 @@
-import { bool, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 
 import { convertUtcString } from '../../utils/time';
 
@@ -6,9 +6,15 @@ const { wp } = window;
 const { __ } = wp.i18n;
 
 const CountdownFrontend = ( {
-  date, text, timezone, width
+  date, onClick, text, timezone, width
 } ) => (
-  <div className="iip_countdown">
+  <div
+    className="iip_countdown"
+    onClick={ () => onClick() }
+    onKeyUp={ () => onClick() }
+    role="button"
+    tabIndex={ 0 }
+  >
     <input type="hidden" id="countdatetime" value={ `${date}${timezone.gmtOffset}` } />
     <div id="clockwrap">
       <div id="clockdiv" style={ { width: `${width}px` } }>
@@ -46,6 +52,7 @@ const CountdownFrontend = ( {
 
 CountdownFrontend.propTypes = {
   date: string,
+  onClick: func,
   text: bool,
   timezone: string,
   width: string

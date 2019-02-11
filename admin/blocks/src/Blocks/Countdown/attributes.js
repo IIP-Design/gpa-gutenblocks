@@ -7,6 +7,10 @@ export const attributes = {
     type: 'string',
     default: defaultDate
   },
+  isOpen: {
+    type: 'boolean',
+    default: false
+  },
   text: {
     type: 'string',
     default: 'true'
