@@ -1,9 +1,9 @@
 {
-  "name": "iip-custom-blocks",
+  "name": "iip-gutenblocks-register",
   "version": "0.0.1",
   "private": true,
   "license": "GPL-2.0",
-  "main": "interactive.js",
+  "main": "src/interactive.js",
   "scripts": {
     "build": "webpack --config ./config/webpack.config.js --mode production"
   },

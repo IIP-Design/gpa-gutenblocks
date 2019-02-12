@@ -1,0 +1,12 @@
+{
+  "name": "iip-gutenblocks",
+  "version": "1.0.0",
+  "private": true,
+  "license": "GPL-2.0",
+  "scripts": {
+    "build:admin": "npm run build --prefix ./admin/blocks",
+    "build:front": "npm run build --prefix ./public/blocks",
+    "build": "npm run build:admin && npm run build:front",
+    "setup": "npm install --prefix ./public/blocks && npm install --prefix ./admin/blocks"
+  }
+}
