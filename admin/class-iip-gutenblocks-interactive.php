@@ -53,7 +53,9 @@ class Interactive {
   }
 
   public function register_custom_block_category( $categories, $post ) {
-    if ( $post->post_type !== 'post' ) {
+    $type = $post->post_type;
+
+    if ( $type !== 'post' && $type !== 'page' ) {
       return $categories;
     }
 
