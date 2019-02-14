@@ -6,9 +6,11 @@ const resolveApp = relativePath => path.resolve( appDirectory, relativePath );
 
 module.exports = {
   appDist: resolveApp( 'dist' ),
-  appIndex: resolveApp( 'src/interactive.js' ),
-  appPublic: resolveApp( 'public' ),
   appPackageJson: resolveApp( 'package.json' ),
-  appSrc: resolveApp( 'src' ),
+  appPublic: resolveApp( 'public' ),
+  blocksIndex: resolveApp( 'blocks/interactive.js' ),
+  blocksSrc: resolveApp( 'blocks' ),
+  interfaceIndex: resolveApp( 'admin-interface/index.js' ),
+  interfaceSrc: resolveApp( 'admin-interface' ),
   dotenv: resolveApp( '.env' )
 };

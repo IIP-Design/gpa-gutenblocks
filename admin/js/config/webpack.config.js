@@ -7,8 +7,9 @@ const paths = require( './paths' );
 
 module.exports = {
   entry: {
-    interactive: `${paths.appSrc}/interactive.js`,
-    front: `${paths.appSrc}/front.js`
+    admin: paths.interfaceIndex,
+    front: `${paths.blocksSrc}/front.js`,
+    interactive: `${paths.blocksSrc}/interactive.js`
   },
   module: {
     rules: [
@@ -53,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin( {
-      filename: 'interactive.min.css'
+      filename: '[name].min.css'
     } )
   ],
   resolve: {

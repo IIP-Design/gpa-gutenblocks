@@ -4,9 +4,11 @@
   "private": true,
   "license": "GPL-2.0",
   "scripts": {
-    "build:admin": "npm run build --prefix ./admin/blocks",
+    "build:admin": "npm run build --prefix ./admin/blocks && npm run build --prefix ./admin/interface",
     "build:front": "npm run build --prefix ./public/blocks",
     "build": "npm run build:admin && npm run build:front",
-    "setup": "npm install --prefix ./public/blocks && npm install --prefix ./admin/blocks"
+    "setup:admin": "npm install --prefix ./admin/js",
+    "setup:front": "npm install --prefix ./public/blocks",
+    "setup": "npm run setup:admin && npm run setup:front"
   }
 }
