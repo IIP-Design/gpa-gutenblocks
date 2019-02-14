@@ -7,7 +7,7 @@ const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
 const { pluginUrl } = window.iipGutenblocks;
 
-const logoSrc = `${pluginUrl}admin/blocks/dist${chatroll}`;
+const logoSrc = `${pluginUrl}admin/js/dist${chatroll}`;
 
 const ChatrollEditor = ( {
   alignment, domain, height, id, name, offsetX, offsetY, title, width, updateValue

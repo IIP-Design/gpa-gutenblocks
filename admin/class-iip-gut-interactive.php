@@ -5,7 +5,7 @@ namespace IIP_Gutenblocks;
 class Interactive {
 
   // Registers all the custom Gutenberg blocks
-  public function register_iip_gutenblocks() {
+  public function register_interactive_blocks() {
 
     // Ensures that Gutenberg is active
     if ( ! function_exists( 'register_block_type' ) ) {
