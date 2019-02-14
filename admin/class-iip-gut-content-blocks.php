@@ -2,10 +2,10 @@
 
 namespace IIP_Gutenblocks;
 
-class Interactive {
+class Content_Blocks {
 
   // Registers all the custom Gutenberg blocks
-  public function register_interactive_blocks() {
+  public function register_iip_gutenblocks() {
 
     // Ensures that Gutenberg is active
     if ( ! function_exists( 'register_block_type' ) ) {
@@ -22,7 +22,7 @@ class Interactive {
     wp_register_style(
       'iip-gut-interactive-css',
       IIP_GUTENBLOCKS_URL . 'admin/js/dist/interactive.min.css',
-      array(),
+      array( 'wp-edit-blocks' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/interactive.min.css' )
     );
     

@@ -61,7 +61,7 @@ class IIP_Gutenblocks {
 
     // The class responsible for defining all actions that occur in the admin area.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-content-blocks.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-iframe.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-embeds.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-interactive.php';
 
     // The class responsible for defining all actions that occur in the public-facing side of the site.
@@ -72,10 +72,11 @@ class IIP_Gutenblocks {
   // Register all of the hooks related to the admin area functionality of the plugin.
   private function define_admin_hooks() {
     $plugin_interactive = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
-    $plugin_iframe = new IIP_Gutenblocks\Iframe( $this->get_plugin_name(), $this->get_version() );
+    $plugin_embeds = new IIP_Gutenblocks\Embeds( $this->get_plugin_name(), $this->get_version() );
 
     // Admin hooks
     $this->loader->add_action( 'init', $plugin_interactive, 'register_interactive_blocks' );
+    $this->loader->add_action( 'init', $plugin_embeds, 'register_embed_blocks' );
     $this->loader->add_action( 'init', $plugin_interactive, 'register_custom_meta' );
     $this->loader->add_filter( 'block_categories', $plugin_interactive, 'register_custom_block_category', 10, 2 );
   }

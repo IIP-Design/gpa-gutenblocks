@@ -4,7 +4,7 @@
   "private": true,
   "license": "GPL-2.0",
   "scripts": {
-    "build:admin": "npm run build --prefix ./admin/blocks && npm run build --prefix ./admin/interface",
+    "build:admin": "npm run build --prefix ./admin/js",
     "build:front": "npm run build --prefix ./public/blocks",
     "build": "npm run build:admin && npm run build:front",
     "setup:admin": "npm install --prefix ./admin/js",

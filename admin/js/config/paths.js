@@ -10,6 +10,8 @@ module.exports = {
   appPublic: resolveApp( 'public' ),
   blocksIndex: resolveApp( 'blocks/interactive.js' ),
   blocksSrc: resolveApp( 'blocks' ),
+  embedsIndex: resolveApp( 'blocks/embeds.js' ),
+  embedsSrc: resolveApp( 'blocks' ),
   interfaceIndex: resolveApp( 'admin-interface/index.js' ),
   interfaceSrc: resolveApp( 'admin-interface' ),
   dotenv: resolveApp( '.env' )

@@ -8,6 +8,7 @@ const paths = require( './paths' );
 module.exports = {
   entry: {
     admin: paths.interfaceIndex,
+    embeds: paths.embedsIndex,
     front: `${paths.blocksSrc}/front.js`,
     interactive: `${paths.blocksSrc}/interactive.js`
   },
