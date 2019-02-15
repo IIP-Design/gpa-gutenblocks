@@ -5,9 +5,10 @@ import AdminPage from './AdminPage';
 
 import './admin-page.scss';
 
-render(
-  <AdminPage />,
-  document.getElementById( 'iip-gutenblocks-admin' )
-);
+const attachTo = document.getElementById( 'iip-gutenblocks-admin' );
+
+if ( attachTo ) {
+  render( <AdminPage />, attachTo );
+}
 
 if ( module.hot ) { module.hot.accept(); }

@@ -60,6 +60,9 @@ class IIP_Gutenblocks {
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-iip-gut-loader.php';
 
     // The class responsible for defining all actions that occur in the admin area.
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-admin.php';
+
+    // The classes responsible for defining all actions required by blocks.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-content-blocks.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-embeds.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-globals.php';
@@ -67,28 +70,43 @@ class IIP_Gutenblocks {
 
     // The class responsible for defining all actions that occur in the public-facing side of the site.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-iip-gut-public.php';
+    
+    // Loader
     $this->loader = new IIP_Gutenblocks\Loader();
   }
 
   // Register all of the hooks related to the admin area functionality of the plugin.
   private function define_admin_hooks() {
-    $plugin_interactive = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
+    // -------- Admin Hooks -------- //
+    $plugin_admin = new IIP_Gutenblocks\Admin( $this->get_plugin_name(), $this->get_version() );
+
+    $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_page' );
+    $this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_admin_page' );
+    
+    // -------- Block Hooks -------- //
+    // Embeds Blocks
     $plugin_embeds = new IIP_Gutenblocks\Embeds( $this->get_plugin_name(), $this->get_version() );
+
+    $this->loader->add_action( 'init', $plugin_embeds, 'register_embed_blocks' );
+
+    // Globals Blocks
     $plugin_globals = new IIP_Gutenblocks\Globals( $this->get_plugin_name(), $this->get_version() );
 
-    // Admin hooks
-    $this->loader->add_action( 'init', $plugin_interactive, 'register_interactive_blocks' );
-    $this->loader->add_action( 'init', $plugin_embeds, 'register_embed_blocks' );
-    $this->loader->add_action( 'init', $plugin_interactive, 'register_custom_meta' );
     $this->loader->add_action( 'enqueue_block_editor_assets', $plugin_globals, 'register_dequeue_blocks' );
+
+    // Interactive Blocks
+    $plugin_interactive = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );
+
+    $this->loader->add_action( 'init', $plugin_interactive, 'register_interactive_blocks' );
+    $this->loader->add_action( 'init', $plugin_interactive, 'register_custom_meta' );
     $this->loader->add_filter( 'block_categories', $plugin_interactive, 'register_custom_block_category', 10, 2 );
   }
 
   // Register all of the hooks related to the public-facing functionality
   private function define_public_hooks() {
+    // -------- Frontend hooks -------- //
     $plugin_frontend = new IIP_Gutenblocks\Frontend( $this->get_plugin_name(), $this->get_version() );
 
-    // Frontend hooks
     $this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_iip_gutenblocks_frontend' );
   }
 
