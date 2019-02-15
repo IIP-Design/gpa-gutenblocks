@@ -1,7 +1,7 @@
 const { wp } = window;
 const { render } = wp.element;
 
-import AdminPage from './AdminPage';
+import AdminPage from './Components/AdminPage';
 
 import './admin-page.scss';
 
