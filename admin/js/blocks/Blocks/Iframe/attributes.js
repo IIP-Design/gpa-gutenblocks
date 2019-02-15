@@ -7,7 +7,15 @@ const attributes = {
     type: 'string',
     default: ''
   },
+  outline: {
+    type: 'string',
+    default: ''
+  },
   output: {
+    type: 'string',
+    default: ''
+  },
+  shadow: {
     type: 'string',
     default: ''
   },

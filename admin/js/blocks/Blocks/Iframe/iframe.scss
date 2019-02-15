@@ -1,25 +1,27 @@
 .iip-gut {
 
-  &-video-container {
+  &-responsive-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%;
     margin-bottom: 25px;
 
+    // Container types/aspect ratios
+    &.calendar {
+      padding-top: 70.58%;
+    }
+
+    &.video {
+      padding-top: 56.25%;
+    }
+
+    // Optional styling
+    &.outline {
+      border: 1px solid #CCCCCC;
+    }
+    
     &.shadow {
       box-shadow: 1px 2px 1px rgba(0, 0, 0, .2);
-    
-      &.outline {
-        border: 1px solid #CCCCCC;
-      }
     }
-  }
-
-  &-calendar-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 70.58%;
-    margin-bottom: 25px;
   }
 
   &-responsive-iframe {

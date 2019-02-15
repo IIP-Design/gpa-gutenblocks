@@ -50,12 +50,12 @@ registerBlockType( 'iip-gut/iframe', {
   save( props ) {
     const {
       attributes: {
-        output, type
+        output, outline, shadow, type
       }
     } = props;
 
     return (
-      <div className={ `iip-gut-${type}-container` }>
+      <div className={ `iip-gut-responsive-container ${type} ${shadow} ${outline}` }>
         { ReactHtmlParser( output ) }
       </div>
     );

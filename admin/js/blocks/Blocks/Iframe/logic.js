@@ -8,7 +8,7 @@ export const removeIframeOpenTags = ( input ) => {
   const regex = /(?:<iframe[^>])/gi;
   let tagless;
 
-  if ( input.includes( regex ) ) {
+  if ( regex.test( input ) ) {
     tagless = input.replace( regex, '' );
   } else {
     tagless = input;
@@ -21,7 +21,7 @@ export const removeIframeCloseTags = ( input ) => {
   const regex = /(?:\/>)|(?:><\/iframe>)/gi;
   let tagless;
 
-  if ( input.includes( regex ) ) {
+  if ( regex.test( input ) ) {
     tagless = input.replace( regex, '' );
   } else {
     tagless = input;
