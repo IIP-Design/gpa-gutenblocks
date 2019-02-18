@@ -24,7 +24,7 @@
         grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
       }
     }
-    
+
     &-group {
       background-color: #FAFAFA;
       border: 1px solid #CCCCCC;
@@ -68,7 +68,7 @@
         
         &:focus,
         &:hover {
-          box-shadow: 0px 0px 10px #388E3C;
+          box-shadow: inset 0px 0px 10px #388E3C;
 
           > svg {
             fill: #444444;
@@ -93,6 +93,24 @@
           box-shadow: 0px 0px 10px #D32F2F;
         }
       }
+    }
+  }
+
+  &-floating-save {
+    background-color: #32373c;
+    bottom: 0;
+    box-shadow: -3px -1px 10px #494949;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 0 -16px;
+    padding: 10px 0;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+
+    > button {
+      margin-right: 3rem;
     }
   }
 }

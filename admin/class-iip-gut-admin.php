@@ -29,7 +29,7 @@ class Admin {
     wp_enqueue_style(
       'gutenberg-admin-css',
       IIP_GUTENBLOCKS_URL . 'admin/js/dist/admin.min.css',
-      array(),
+      array( 'wp-components' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/admin.min.css' )
     );
   }
