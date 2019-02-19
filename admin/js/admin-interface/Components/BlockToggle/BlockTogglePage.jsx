@@ -1,9 +1,10 @@
 import BlockToggleGroup from './BlockToggleGroup';
 import AdminBottomBar from '../AdminBottomBar';
-import { Provider } from '../EnabledContext';
+import { Consumer, Provider } from '../EnabledContext';
 
 import { getBlockSettings } from '../../utils/isEnabled';
-import { saveWithAjax } from '../../utils/saveEnabled';
+import { makeArrObj } from '../../utils/dataManipulation';
+
 
 const { wp } = window;
 const { Component } = wp.element;
@@ -58,7 +59,7 @@ class BlockTogglePage extends Component {
           } ) }
           <AdminBottomBar
             action="iip_gut_save"
-            callback={ saveWithAjax }
+            data={ makeArrObj( blockSettings ) }
             label="Save Selection"
           />
         </Provider>

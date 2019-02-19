@@ -1,32 +1,26 @@
-import { func, string } from 'prop-types';
-import { Consumer } from './EnabledContext';
-import { makeArrObj } from '../utils/saveEnabled';
+import { object, string } from 'prop-types';
+import { saveWithAjax } from '../utils/saveEnabled';
 
 const { wp } = window;
 const { Button } = wp.components;
 
-const AdminBottomBar = ( { action, callback, label } ) => (
+const AdminBottomBar = ( { action, data, label } ) => (
   <div className="iip-gut-floating-save">
-    <Consumer>
-      { context => (
-        <form action={ action } method="post">
-          { /* <input type="hidden" id="iip_gut_nonce" name="iip_gut_nonce" value={ window.iipGutenblocks.iipGutNonce } /> */ }
-          <Button
-            isLarge
-            isPrimary
-            onClick={ () => callback( action, makeArrObj( context.blockSettings ) ) }
-          >
-            { label }
-          </Button>
-        </form>
-      ) }
-    </Consumer>
+    <form action={ action } method="post">
+      <Button
+        isLarge
+        isPrimary
+        onClick={ () => saveWithAjax( action, data ) }
+      >
+        { label }
+      </Button>
+    </form>
   </div>
 );
 
 AdminBottomBar.propTypes = {
   action: string,
-  callback: func,
+  data: object,
   label: string
 };
 
