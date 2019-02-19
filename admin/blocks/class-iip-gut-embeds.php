@@ -26,7 +26,6 @@ class Embeds {
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/embeds.min.css' )
     );
     
-    
     register_block_type( 'iip-gut/embeds', array(
       'editor_script' => 'iip-gut-embeds-admin-js',
       'style'  => 'iip-gut-embeds-css'

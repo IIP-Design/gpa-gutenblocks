@@ -3,6 +3,7 @@ import AdminBottomBar from '../AdminBottomBar';
 import { Provider } from '../EnabledContext';
 
 import { getBlockSettings } from '../../utils/isEnabled';
+import { saveWithAjax } from '../../utils/saveEnabled';
 
 const { wp } = window;
 const { Component } = wp.element;
@@ -55,7 +56,11 @@ class BlockTogglePage extends Component {
               />
             );
           } ) }
-          <AdminBottomBar />
+          <AdminBottomBar
+            action="iip_gut_save"
+            callback={ saveWithAjax }
+            label="Save Selection"
+          />
         </Provider>
       </div>
     );

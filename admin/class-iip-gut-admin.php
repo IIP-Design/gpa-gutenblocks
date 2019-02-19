@@ -32,5 +32,18 @@ class Admin {
       array( 'wp-components' ),
       filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/admin.min.css' )
     );
+    
+    $enabled_blocks = get_option( 'iip_gut_enabled_blocks' ) ? get_option( 'iip_gut_enabled_blocks' ) : '';
+
+    wp_localize_script(
+      'gutenberg-admin-js',
+      'iipGutenblocks',
+      array(
+        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'iipGutNonce' => wp_create_nonce( 'iip_gut_save' ),
+        'enabledBlocks' => $enabled_blocks,
+        'pluginUrl' => IIP_GUTENBLOCKS_URL
+      )
+    );
   }
 }

@@ -82,8 +82,27 @@ const allEnabled = [
   }
 ];
 
+const makeObjArr = ( obj ) => {
+  const arr = [];
+  const entries = Object.entries( obj );
+
+  entries.map( ( entry ) => {
+    const key = entry[0];
+    const value = entry[1];
+    const subObj = Object.assign( { [key]: value } );
+    arr.push( subObj );
+    return arr;
+  } );
+
+  return arr;
+};
+
 export const getBlockSettings = () => {
-  const blockSettings = enabledBlocks || allEnabled;
+  const enabled = enabledBlocks ? makeObjArr( enabledBlocks ) : '';
+
+  // console.log( 'enabled:', enabled, 'all', allEnabled );
+
+  const blockSettings = enabled || allEnabled;
 
   return blockSettings;
 };

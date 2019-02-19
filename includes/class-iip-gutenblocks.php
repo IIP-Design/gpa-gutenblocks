@@ -59,14 +59,18 @@ class IIP_Gutenblocks {
     // The class responsible for orchestrating the actions and filters of the core plugin.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-iip-gut-loader.php';
 
+    // The classes responsible for orchestrating activation/deactivation of the plugin.
+    // require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-iip-gut-activator.php';    
+    
     // The class responsible for defining all actions that occur in the admin area.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-admin.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-ajax.php';
 
     // The classes responsible for defining all actions required by blocks.
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-content-blocks.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-embeds.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-globals.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-iip-gut-interactive.php';
+    // require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/blocks/class-iip-gut-content-blocks.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/blocks/class-iip-gut-embeds.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/blocks/class-iip-gut-globals.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/blocks/class-iip-gut-interactive.php';
 
     // The class responsible for defining all actions that occur in the public-facing side of the site.
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-iip-gut-public.php';
@@ -75,6 +79,11 @@ class IIP_Gutenblocks {
     $this->loader = new IIP_Gutenblocks\Loader();
   }
 
+  private function define_activation_hooks() {
+    // -------- Activation Hooks -------- //
+    // $plugin_admin = new IIP_Gutenblocks\Activation( $this->get_plugin_name(), $this->get_version() );
+  }
+  
   // Register all of the hooks related to the admin area functionality of the plugin.
   private function define_admin_hooks() {
     // -------- Admin Hooks -------- //
@@ -82,6 +91,11 @@ class IIP_Gutenblocks {
 
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_page' );
     $this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_admin_page' );
+
+    // -------- Admin Hooks -------- //
+    $plugin_ajax = new IIP_Gutenblocks\Ajax( $this->get_plugin_name(), $this->get_version() );
+    
+    $this->loader->add_action( 'wp_ajax_iip_gut_save', $plugin_ajax, 'save_enabled_blocks' );
     
     // -------- Block Hooks -------- //
     // Embeds Blocks
