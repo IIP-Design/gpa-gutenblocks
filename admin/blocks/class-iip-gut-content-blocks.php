@@ -14,16 +14,16 @@ class Content_Blocks {
 
     wp_register_script(
       'iip-gut-interactive-admin-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/interactive.min.js',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/interactive.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-interactive.min.js' )
     );
 
     wp_register_style(
       'iip-gut-interactive-css',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/interactive.min.css',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-interactive.min.css',
       array( 'wp-edit-blocks' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/interactive.min.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-interactive.min.css' )
     );
     
     wp_localize_script(

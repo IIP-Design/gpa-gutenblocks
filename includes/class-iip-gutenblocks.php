@@ -90,7 +90,8 @@ class IIP_Gutenblocks {
     $plugin_admin = new IIP_Gutenblocks\Admin( $this->get_plugin_name(), $this->get_version() );
 
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_page' );
-    $this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_admin_page' );
+    $this->loader->add_action( 'in_admin_header', $plugin_admin, 'enqueue_admin_page' );
+    $this->loader->add_action( 'init', $plugin_admin, 'enqueue_global_variables' );
 
     // -------- Admin Hooks -------- //
     $plugin_ajax = new IIP_Gutenblocks\Ajax( $this->get_plugin_name(), $this->get_version() );
@@ -106,7 +107,7 @@ class IIP_Gutenblocks {
     // Globals Blocks
     $plugin_globals = new IIP_Gutenblocks\Globals( $this->get_plugin_name(), $this->get_version() );
 
-    $this->loader->add_action( 'enqueue_block_editor_assets', $plugin_globals, 'register_dequeue_blocks' );
+    $this->loader->add_action( 'enqueue_block_assets', $plugin_globals, 'register_dequeue_blocks' );
 
     // Interactive Blocks
     $plugin_interactive = new IIP_Gutenblocks\Interactive( $this->get_plugin_name(), $this->get_version() );

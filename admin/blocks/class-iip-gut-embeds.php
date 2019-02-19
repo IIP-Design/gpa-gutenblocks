@@ -14,16 +14,16 @@ class Embeds {
 
     wp_register_script(
       'iip-gut-embeds-admin-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/embeds.min.js',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-embeds.min.js',
       array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-i18n' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/embeds.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-embeds.min.js' )
     );
 
     wp_register_style(
       'iip-gut-embeds-css',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/embeds.min.css',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-embeds.min.css',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/embeds.min.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-embeds.min.css' )
     );
     
     register_block_type( 'iip-gut/embeds', array(

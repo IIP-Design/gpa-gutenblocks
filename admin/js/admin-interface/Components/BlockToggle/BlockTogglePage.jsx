@@ -1,6 +1,6 @@
 import BlockToggleGroup from './BlockToggleGroup';
 import AdminBottomBar from '../AdminBottomBar';
-import { Consumer, Provider } from '../EnabledContext';
+import { Provider } from '../EnabledContext';
 
 import { getBlockSettings } from '../../utils/isEnabled';
 import { makeArrObj } from '../../utils/dataManipulation';

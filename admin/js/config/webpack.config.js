@@ -8,6 +8,7 @@ const paths = require( './paths' );
 module.exports = {
   entry: {
     admin: paths.interfaceIndex,
+    blockSettings: `${paths.interfaceSrc}/blockSettings.js`,
     embeds: paths.embedsIndex,
     front: `${paths.blocksSrc}/front.js`,
     interactive: `${paths.blocksSrc}/interactive.js`
@@ -58,11 +59,11 @@ module.exports = {
   output: {
     path: paths.appDist,
     publicPath: '/',
-    filename: '[name].min.js'
+    filename: 'iip-gut-[name].min.js'
   },
   plugins: [
     new MiniCssExtractPlugin( {
-      filename: '[name].min.css'
+      filename: 'iip-gut-[name].min.css'
     } )
   ],
   resolve: {

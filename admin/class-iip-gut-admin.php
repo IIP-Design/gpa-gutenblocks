@@ -21,22 +21,31 @@ class Admin {
   public function enqueue_admin_page() {
     wp_enqueue_script(
       'gutenberg-admin-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/admin.min.js',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-admin.min.js',
       array( 'wp-components', 'wp-element' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/admin.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-admin.min.js' )
     );
 
     wp_enqueue_style(
       'gutenberg-admin-css',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/admin.min.css',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-admin.min.css',
       array( 'wp-components' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/admin.min.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-admin.min.css' )
     );
-    
+  }
+
+  public function enqueue_global_variables() {
+    wp_enqueue_script(
+      'gutenberg-globals-js',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-globals.js',
+      array( 'wp-components', 'wp-element' ),
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-globals.js' )
+    );
+
     $enabled_blocks = get_option( 'iip_gut_enabled_blocks' ) ? get_option( 'iip_gut_enabled_blocks' ) : '';
 
     wp_localize_script(
-      'gutenberg-admin-js',
+      'gutenberg-globals-js',
       'iipGutenblocks',
       array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
