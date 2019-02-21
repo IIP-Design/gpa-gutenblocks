@@ -18,9 +18,9 @@ class Frontend {
 
     wp_enqueue_script(
       'iip-gut-interactive-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/front.min.js',
+      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-front.min.js',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/front.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-front.min.js' )
     );
 
     $add_to_cal = get_post_meta( $post->ID, 'iip_gut_atc_event', true );

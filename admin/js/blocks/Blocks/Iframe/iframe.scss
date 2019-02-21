@@ -3,7 +3,7 @@
   &-responsive-container {
     position: relative;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin-bottom: 0 auto 25px;
 
     // Container types/aspect ratios
     &.calendar {
@@ -11,7 +11,9 @@
     }
 
     &.video {
-      padding-top: 56.25%;
+      max-width: 80%;
+      max-height: 80%;
+      padding-top: 45%;
     }
 
     // Optional styling
