@@ -14,6 +14,11 @@ registerBlockType( 'iip-gut/countdown', {
   description: __( 'Insert configurable countdown component', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'clock',
+  keywords: [
+    __( 'interactive', 'iip-gutenblocks' ),
+    __( 'timer', 'iip-gutenblocks' ),
+    __( 'iip', 'iip-gutenblocks' )
+  ],
   attributes,
   edit( props ) {
     const {

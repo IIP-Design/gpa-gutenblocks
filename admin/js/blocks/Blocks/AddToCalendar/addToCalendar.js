@@ -14,6 +14,11 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   description: __( 'Inserts add to calendar button', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'calendar-alt',
+  keywords: [
+    __( 'interactive', 'iip-gutenblocks' ),
+    __( 'calendar', 'iip-gutenblocks' ),
+    __( 'iip', 'iip-gutenblocks' )
+  ],
   attributes,
   edit( props ) {
     const {

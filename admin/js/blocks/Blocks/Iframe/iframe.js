@@ -14,6 +14,11 @@ registerBlockType( 'iip-gut/iframe', {
   description: __( 'Insert responsive component', 'iip-gutenblocks' ),
   category: 'embed',
   icon: 'editor-code',
+  keywords: [
+    __( 'iframe', 'iip-gutenblocks' ),
+    __( 'embed', 'iip-gutenblocks' ),
+    __( 'iip', 'iip-gutenblocks' )
+  ],
   attributes,
   edit( props ) {
     const {

@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.1](https://github.com/IIP-Design/iip-gutenblocks/tree/v1.1.1) - 2019.02.21
 
+**Added:**
+- Keywords to all blocks to enable searching
+
 **Bug Fixed:**
 - Use proper file name when enqueueing front end scripts
 - Shrink down video embed container to better fit small screens

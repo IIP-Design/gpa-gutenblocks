@@ -13,6 +13,11 @@ registerBlockType( 'iip-gut/chatroll', {
   description: __( 'Insert chatroll component', 'iip-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'testimonial',
+  keywords: [
+    __( 'interactive', 'iip-gutenblocks' ),
+    __( 'chat', 'iip-gutenblocks' ),
+    __( 'iip', 'iip-gutenblocks' )
+  ],
   attributes,
   edit( props ) {
     const {
