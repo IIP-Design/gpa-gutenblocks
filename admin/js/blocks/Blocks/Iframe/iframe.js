@@ -23,7 +23,7 @@ registerBlockType( 'iip-gut/iframe', {
   edit( props ) {
     const {
       attributes: {
-        classes, input, type
+        classes, input, outline, shadow, type
       },
       setAttributes
     } = props;
@@ -47,6 +47,8 @@ registerBlockType( 'iip-gut/iframe', {
         classes={ classes }
         generateIframe={ generateIframe }
         input={ input }
+        outline={ outline }
+        shadow={ shadow }
         type={ type }
         updateValue={ updateValue }
       />
