@@ -1,6 +1,6 @@
 {
   "name": "iip-gutenblocks",
-  "version": "1.0.0",
+  "version": "v1.1.1",
   "private": true,
   "license": "GPL-2.0",
   "scripts": {
@@ -9,6 +9,13 @@
     "build": "npm run build:admin && npm run build:front",
     "setup:admin": "npm install --prefix ./admin/js",
     "setup:front": "npm install --prefix ./public/blocks",
-    "setup": "npm run setup:admin && npm run setup:front"
+    "setup": "npm run setup:admin && npm run setup:front",
+    "version": "node -e 'require(\"./version.js\").versionBump()'"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "git-rev-sync": "^1.12.0",
+    "replace": "^1.1.0",
+    "simple-git": "^1.107.0"
   }
 }

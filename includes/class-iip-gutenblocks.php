@@ -34,7 +34,7 @@ class IIP_Gutenblocks {
 
   public function __construct() {
     $this->plugin_name = 'iip-gutenblocks';
-    $this->version = '0.0.1';
+    $this->version = 'v1.1.1';
     $this->load_dependencies();
     $this->define_admin_hooks();
     $this->define_public_hooks();
