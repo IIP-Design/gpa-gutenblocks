@@ -55,4 +55,27 @@ class Admin {
       )
     );
   }
+
+  // Block data will not save in multisite unless user is a superadmin
+  // This subverts that security measure by allowing unfiltered HTML
+  // for administrators and editors
+  // Not an optimal solution, should be revisited
+  public function allow_unfiltered_html( $caps, $cap, $user_id ) {
+
+    if ( !is_multisite() ) {
+      return;
+    }
+    
+    if ( 'unfiltered_html' === $cap && user_can( $user_id, 'editor' ) ) {
+      
+      $caps = array( 'unfiltered_html' );
+    
+    } elseif ( 'unfiltered_html' === $cap && user_can( $user_id, 'administrator' ) ) {
+      
+      $caps = array( 'unfiltered_html' );
+    
+    }
+    
+    return $caps;
+  }
 }

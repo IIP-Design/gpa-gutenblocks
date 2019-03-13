@@ -92,6 +92,7 @@ class IIP_Gutenblocks {
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_page' );
     $this->loader->add_action( 'in_admin_header', $plugin_admin, 'enqueue_admin_page' );
     $this->loader->add_action( 'init', $plugin_admin, 'enqueue_global_variables' );
+    $this->loader->add_action( 'map_meta_cap', $plugin_admin, 'allow_unfiltered_html', 1, 3 );
 
     // -------- Admin Hooks -------- //
     $plugin_ajax = new IIP_Gutenblocks\Ajax( $this->get_plugin_name(), $this->get_version() );
