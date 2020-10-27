@@ -1,32 +1,53 @@
 {
-  "name": "iip-gutenblocks",
+  "name": "@gpa-lab/gutenblocks",
   "version": "v1.1.2",
   "private": true,
   "license": "GPL-2.0",
+  "author": "U.S. Department of State, Bureau of Global Public Affairs Digital Lab <gpa-lab@america.gov>",
+  "contributors": [
+    {
+      "name": "Marek Rewers"
+    }
+  ],
   "scripts": {
-    "build:admin": "npm run build --prefix ./admin/js",
-    "build:front": "npm run build --prefix ./public/blocks",
-    "build": "npm run build:admin && npm run build:front",
+    "build": "webpack --config config/webpack.config.js --mode production",
+    "dev": "webpack --config config/webpack.config.js --watch --mode development",
     "lint": "eslint --ext .js --quiet ./",
-    "setup:admin": "npm install --prefix ./admin/js",
-    "setup:front": "npm install --prefix ./public/blocks",
-    "setup": "npm run setup:admin && npm run setup:front",
     "version": "node -e 'require(\"./version.js\").versionBump()'"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
     "@gpa-lab/eslint-config": "^1.3.1",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "chalk": "^2.4.2",
+    "css-loader": "^5.0.0",
     "eslint": "^7.12.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
     "git-rev-sync": "^1.12.0",
     "jest": "^26.6.1",
+    "mini-css-extract-plugin": "^1.2.1",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "replace": "^1.1.0",
-    "simple-git": "^1.107.0"
+    "sass-loader": "^10.0.4",
+    "simple-git": "^1.107.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.1.0"
+  },
+  "dependencies": {
+    "react-add-to-calendar-hoc": "^1.0.10",
+    "react-html-parser": "^2.0.2"
   }
 }

@@ -1,16 +1,15 @@
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
-const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
-const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 
 const paths = require( './paths' );
 
 module.exports = {
   entry: {
-    admin: paths.interfaceIndex,
+    admin: `${paths.interfaceSrc}/index.js`,
     blockSettings: `${paths.interfaceSrc}/blockSettings.js`,
-    embeds: paths.embedsIndex,
-    front: `${paths.blocksSrc}/front.js`,
-    interactive: `${paths.blocksSrc}/interactive.js`,
+    embeds: `${paths.adminSrc}/embeds.js`,
+    front: `${paths.adminSrc}/front.js`,
+    interactive: `${paths.adminSrc}/interactive.js`,
+    interactiveFront: `${paths.publicSrc}/index.js`,
   },
   module: {
     rules: [
@@ -27,9 +26,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ],
@@ -47,22 +44,14 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin( {
-        sourceMap: true,
-      } ),
-      new OptimizeCSSAssetsPlugin( {} ),
-    ],
-  },
   output: {
-    path: paths.appDist,
+    path: paths.dist,
     publicPath: '/',
-    filename: 'iip-gut-[name].min.js',
+    filename: 'gpalab-gut-[name].min.js',
   },
   plugins: [
     new MiniCssExtractPlugin( {
-      filename: 'iip-gut-[name].min.css',
+      filename: 'gpalab-gut-[name].min.css',
     } ),
   ],
   resolve: {
