@@ -1,34 +1,40 @@
 <?php
 
-namespace IIP_Gutenblocks;
+namespace LAB_Gutenblocks;
 
 class Embeds {
 
-  // Registers all the custom Gutenberg blocks
+  /**
+   * Registers all the custom Gutenberg blocks.
+   */
   public function register_embed_blocks() {
 
-    // Ensures that Gutenberg is active
+    // Ensures that Gutenberg is active.
     if ( ! function_exists( 'register_block_type' ) ) {
       return;
     }
 
     wp_register_script(
-      'iip-gut-embeds-admin-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-embeds.min.js',
+      'gpalab-gut-embeds-admin-js',
+      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.js',
       array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-i18n' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-embeds.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-embeds.min.js' ),
+      true
     );
 
     wp_register_style(
-      'iip-gut-embeds-css',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-embeds.min.css',
+      'gpalab-gut-embeds-css',
+      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.css',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-embeds.min.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-embeds.min.css' )
     );
-    
-    register_block_type( 'iip-gut/embeds', array(
-      'editor_script' => 'iip-gut-embeds-admin-js',
-      'style'  => 'iip-gut-embeds-css'
-    ) );
+
+    register_block_type(
+      'iip-gut/embeds',
+      array(
+        'editor_script' => 'gpalab-gut-embeds-admin-js',
+        'style'         => 'gpalab-gut-embeds-css',
+      )
+    );
   }
 }

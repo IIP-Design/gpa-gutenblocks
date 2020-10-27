@@ -1,36 +1,47 @@
 <?php
+/**
+ * Registers the Interactive class.
+ *
+ * @package LAB_Gutenblocks\Interactive
+ */
 
-namespace IIP_Gutenblocks;
+namespace LAB_Gutenblocks;
 
 class Interactive {
 
-  // Registers all the custom Gutenberg blocks
+  /**
+   * Registers all the custom Gutenberg blocks
+   */
   public function register_interactive_blocks() {
 
-    // Ensures that Gutenberg is active
+    // Ensures that Gutenberg is active.
     if ( ! function_exists( 'register_block_type' ) ) {
       return;
     }
 
     wp_register_script(
-      'iip-gut-interactive-admin-js',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-interactive.min.js',
+      'gpalab-gut-interactive-admin-js',
+      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-interactive.min.js' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-interactive.min.js' ),
+      true
     );
 
     wp_register_style(
-      'iip-gut-interactive-css',
-      IIP_GUTENBLOCKS_URL . 'admin/js/dist/iip-gut-interactive.min.css',
+      'gpalab-gut-interactive-css',
+      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.css',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'admin/js/dist/iip-gut-interactive.min.css' )
+      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-interactive.min.css' )
     );
-    
-    register_block_type( 'iip-gut/interactive', array(
-      'editor_style'  => 'iip-gut-interactive-css',
-      'editor_script' => 'iip-gut-interactive-admin-js',
-      'style'  => 'iip-gut-interactive-css',
-    ) );
+
+    register_block_type(
+      'iip-gut/interactive',
+      array(
+        'editor_style'  => 'gpalab-gut-interactive-css',
+        'editor_script' => 'gpalab-gut-interactive-admin-js',
+        'style'         => 'gpalab-gut-interactive-css',
+      )
+    );
   }
 
   public function register_custom_meta() {
@@ -39,15 +50,16 @@ class Interactive {
       'iip_gut_atc_event',
       array(
         'show_in_rest' => true,
-        'single' => true,
-        'type' => 'string',
-    ) );
+        'single'       => true,
+        'type'         => 'string',
+      )
+    );
   }
 
   public function register_custom_block_category( $categories, $post ) {
     $type = $post->post_type;
 
-    if ( $type !== 'post' && $type !== 'page' ) {
+    if ( 'post' !== $type && 'page' !== $type ) {
       return $categories;
     }
 
@@ -55,8 +67,8 @@ class Interactive {
       $categories,
       array(
         array(
-          'slug' => 'iip_custom_blocks',
-          'title' => __( 'IIP Custom Blocks', 'iip-gutenblocks' )
+          'slug'  => 'iip_custom_blocks',
+          'title' => __( 'GPA/LAB Custom Blocks', 'iip-gutenblocks' ),
         ),
       )
     );
