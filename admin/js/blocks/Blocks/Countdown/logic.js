@@ -1,5 +1,5 @@
 // Return time remaining object from event date/time input
-export const getTimeRemaining = ( endTime ) => {
+export const getTimeRemaining = endTime => {
   const delta = Date.parse( endTime ) - Date.parse( new Date() );
   const seconds = Math.floor( ( delta / 1000 ) % 60 );
   const minutes = Math.floor( ( delta / 1000 / 60 ) % 60 );
@@ -11,14 +11,14 @@ export const getTimeRemaining = ( endTime ) => {
     days,
     hours,
     minutes,
-    seconds
+    seconds,
   };
 
   return timeRemaining;
 };
 
 // Resizes countdown to fit viewport
-export const resizeClock = ( id ) => {
+export const resizeClock = id => {
   const clock = document.getElementById( id );
 
   const clockWidth = clock.clientWidth;
@@ -59,6 +59,7 @@ export const initializeClock = () => {
     }
 
     const countdownInterval = setInterval( updateClock, 1000 );
+
     resizeClock( clockId );
   }
 };

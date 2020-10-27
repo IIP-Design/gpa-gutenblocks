@@ -1,5 +1,5 @@
 import {
-  bool, func, string, object
+  bool, func, string, object,
 } from 'prop-types';
 
 import CountdownFrontend from './frontend';
@@ -15,7 +15,7 @@ const zones = getTimezones( timezones );
 
 const CountdownEditor = ( {
   date, isOpen, text, timezone, width, toggleModal,
-  updateDate, updateIsOpen, updateTimezone, updateValue
+  updateDate, updateIsOpen, updateTimezone, updateValue,
 } ) => (
   <Fragment>
     <CountdownFrontend
@@ -39,23 +39,24 @@ const CountdownEditor = ( {
         />
       </div>
       <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
-        Timezone:
+        { 'Timezone: ' }
         <select
           className="iip-gut-inspector-input"
           id="iip_event_timezone"
           name="timezone"
+          onBlur={ updateTimezone }
           onChange={ updateTimezone }
           value={ JSON.stringify( timezone ) }
         >
           { zones.map( zone => (
-            <option value={ JSON.stringify( zone.properties ) }>
+            <option key={ zone.name } value={ JSON.stringify( zone.properties ) }>
               { `${zone.name} (GMT${zone.properties.gmtOffset})` }
             </option>
           ) ) }
         </select>
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-countdown-width-input">
-        Width (in px):
+        { 'Width (in px): ' }
         <input
           className="iip-gut-inspector-input"
           id="iip-countdown-width-input"
@@ -66,11 +67,12 @@ const CountdownEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-countdown-text-input">
-        Date Text:
+        { 'Date Text: ' }
         <select
           className="iip-gut-inspector-input"
           id="iip-countdown-text-input"
           name="text"
+          onBlur={ updateValue }
           onChange={ updateValue }
           value={ text }
         >
@@ -92,7 +94,7 @@ CountdownEditor.propTypes = {
   toggleModal: func,
   updateDate: func,
   updateTimezone: func,
-  updateValue: func
+  updateValue: func,
 };
 
 export default CountdownEditor;

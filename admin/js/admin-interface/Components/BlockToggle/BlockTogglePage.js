@@ -1,5 +1,5 @@
-import BlockToggleGroup from './BlockToggleGroup';
 import AdminBottomBar from '../AdminBottomBar';
+import BlockToggleGroup from './BlockToggleGroup';
 import { Provider } from '../EnabledContext';
 
 import { getBlockSettings } from '../../utils/isEnabled';
@@ -15,7 +15,7 @@ class BlockTogglePage extends Component {
 
     this.state = {
       blockSettings: [],
-      toggleBlock: this.toggleBlock // eslint-disable-line react/no-unused-state
+      toggleBlock: this.toggleBlock, // eslint-disable-line react/no-unused-state
     };
   }
 
@@ -23,7 +23,7 @@ class BlockTogglePage extends Component {
     const blockSettings = getBlockSettings();
 
     this.setState( {
-      blockSettings
+      blockSettings,
     } );
   }
 
@@ -33,24 +33,28 @@ class BlockTogglePage extends Component {
     const isEnabled = item[reference];
     const enabledState = ( isEnabled === 'enabled' ) ? 'disabled' : 'enabled';
 
-    const updatedSettings = Object.assign( {} );
+    const updatedSettings = { };
+
     updatedSettings.blockSettings = blockSettings;
     updatedSettings.blockSettings[groupIndex][group][blockIndex][reference] = enabledState;
 
     this.setState( {
-      blockSettings: updatedSettings.blockSettings
+      blockSettings: updatedSettings.blockSettings,
     } );
   };
 
   render() {
     const { blockSettings } = this.state;
+
     return (
       <div className="iip-gut-block-toggle-page">
         <Provider value={ this.state }>
           { blockSettings.map( ( group, groupIndex ) => {
             const groupName = Object.keys( group )[0];
+
             return (
               <BlockToggleGroup
+                key={ groupName }
                 blockGroup={ group[groupName] || [] }
                 groupIndex={ groupIndex }
                 groupName={ groupName || '' }

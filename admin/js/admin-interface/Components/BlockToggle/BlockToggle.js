@@ -8,15 +8,17 @@ const { Icon } = wp.components;
 const { blockType } = defaultBlocks;
 
 const BlockToggle = ( {
-  blockIndex, group, groupIndex, reference
+  blockIndex, group, groupIndex, reference,
 } ) => {
   const { icon } = blockType[group][reference] || {};
+
   return (
     <div className="iip-gut-block-toggle">
       <Consumer>
-        { ( context ) => {
+        { context => {
           const item = context.blockSettings[groupIndex][group][blockIndex];
           const isEnabled = item[reference];
+
           return (
             <div
               className={ `iip-gut-block-toggle-item ${isEnabled}` }
@@ -58,7 +60,7 @@ BlockToggle.propTypes = {
   blockIndex: number,
   group: string,
   groupIndex: number,
-  reference: string
+  reference: string,
 };
 
 export default BlockToggle;

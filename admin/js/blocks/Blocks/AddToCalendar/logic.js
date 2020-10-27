@@ -12,9 +12,10 @@ export const setEventMeta = ( date, description, duration, location, timezone, t
     location,
     startDatetime,
     timezone: timezone.value,
-    title
+    title,
   };
 
   const encodedEvent = JSON.stringify( event );
+
   return encodedEvent;
 };

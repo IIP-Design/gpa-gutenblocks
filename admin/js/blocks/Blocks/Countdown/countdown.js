@@ -17,42 +17,42 @@ registerBlockType( 'iip-gut/countdown', {
   keywords: [
     __( 'interactive', 'iip-gutenblocks' ),
     __( 'timer', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' )
+    __( 'iip', 'iip-gutenblocks' ),
   ],
   attributes,
   edit( props ) {
     const {
       attributes: {
-        date, isOpen, text, timezone, width
+        date, isOpen, text, timezone, width,
       },
-      setAttributes
+      setAttributes,
     } = props;
 
     const updateIsOpen = () => {
       const newState = !isOpen;
 
       setAttributes( {
-        isOpen: newState
+        isOpen: newState,
       } );
     };
 
-    const updateValue = ( e ) => {
+    const updateValue = e => {
       setAttributes( {
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       } );
     };
 
-    const updateDate = ( e ) => {
+    const updateDate = e => {
       setAttributes( {
-        date: e
+        date: e,
       } );
     };
 
-    const updateTimezone = ( e ) => {
+    const updateTimezone = e => {
       const zoneValues = JSON.parse( e.target.value );
 
       setAttributes( {
-        timezone: zoneValues
+        timezone: zoneValues,
       } );
     };
 
@@ -79,8 +79,8 @@ registerBlockType( 'iip-gut/countdown', {
   save( props ) {
     const {
       attributes: {
-        date, text, timezone, width
-      }
+        date, text, timezone, width,
+      },
     } = props;
 
     return (
@@ -91,5 +91,5 @@ registerBlockType( 'iip-gut/countdown', {
         width={ width }
       />
     );
-  }
+  },
 } );

@@ -17,28 +17,28 @@ registerBlockType( 'iip-gut/iframe', {
   keywords: [
     __( 'iframe', 'iip-gutenblocks' ),
     __( 'embed', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' )
+    __( 'iip', 'iip-gutenblocks' ),
   ],
   attributes,
   edit( props ) {
     const {
       attributes: {
-        classes, input, outline, shadow, type
+        classes, input, outline, shadow, type,
       },
-      setAttributes
+      setAttributes,
     } = props;
 
     const generateIframe = () => {
       const iframe = rewriteIframe( input, classes );
 
       setAttributes( {
-        output: iframe
+        output: iframe,
       } );
     };
 
-    const updateValue = ( e ) => {
+    const updateValue = e => {
       setAttributes( {
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       } );
     };
 
@@ -57,8 +57,8 @@ registerBlockType( 'iip-gut/iframe', {
   save( props ) {
     const {
       attributes: {
-        output, outline, shadow, type
-      }
+        output, outline, shadow, type,
+      },
     } = props;
 
     return (
@@ -66,5 +66,5 @@ registerBlockType( 'iip-gut/iframe', {
         { ReactHtmlParser( output ) }
       </div>
     );
-  }
+  },
 } );

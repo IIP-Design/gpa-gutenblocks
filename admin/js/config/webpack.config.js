@@ -1,4 +1,3 @@
-const webpack = require( 'webpack' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
@@ -11,29 +10,29 @@ module.exports = {
     blockSettings: `${paths.interfaceSrc}/blockSettings.js`,
     embeds: paths.embedsIndex,
     front: `${paths.blocksSrc}/front.js`,
-    interactive: `${paths.blocksSrc}/interactive.js`
+    interactive: `${paths.blocksSrc}/interactive.js`,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /.js$/,
         use: ['babel-loader', 'eslint-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -41,34 +40,34 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      }
-    ]
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     minimizer: [
       new UglifyJsPlugin( {
-        sourceMap: true
+        sourceMap: true,
       } ),
-      new OptimizeCSSAssetsPlugin( {} )
-    ]
+      new OptimizeCSSAssetsPlugin( {} ),
+    ],
   },
   output: {
     path: paths.appDist,
     publicPath: '/',
-    filename: 'iip-gut-[name].min.js'
+    filename: 'iip-gut-[name].min.js',
   },
   plugins: [
     new MiniCssExtractPlugin( {
-      filename: 'iip-gut-[name].min.css'
-    } )
+      filename: 'iip-gut-[name].min.css',
+    } ),
   ],
   resolve: {
     extensions: [
-      '*', '.js', '.jsx'
-    ]
-  }
+      '*', '.js', '.jsx',
+    ],
+  },
 };

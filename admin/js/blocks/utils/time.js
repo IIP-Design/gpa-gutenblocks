@@ -12,7 +12,7 @@ export const getLocale = () => {
 };
 
 // Returns a list of timezones from a input object that contains a timezones object
-export const getTimezones = ( input ) => {
+export const getTimezones = input => {
   const { timezones } = input;
 
   return timezones;
@@ -22,48 +22,55 @@ export const getTimezones = ( input ) => {
 
 // Checks if current time is a 12 hour time by looking for an 'a' in the time format.
 export const twelveHoursCheck = () => {
-  const is12HourTime = /a(?!\\)/i.test(
+  const is12HourTime = ( /a(?!\\)/i ).test(
     settings.formats.time
       .toLowerCase()
       .replace( /\\\\/g, '' )
-      .split( '' ).reverse()
-      .join( '' )
+      .split( '' )
+      .reverse()
+      .join( '' ),
   );
 
   return is12HourTime;
 };
 
-export const covertMinToHr = ( minutes ) => {
+export const covertMinToHr = minutes => {
   const type = typeof ( minutes );
 
   switch ( type ) {
     case 'number': {
       const hours = minutes / 60;
+
       return hours;
     }
     case 'string': {
       let hours;
+
       if ( Number.isNaN( minutes ) ) {
         hours = 1;
       } else {
         const number = Number( minutes );
+
         hours = number / 60;
       }
+
       return hours;
     }
     default: {
       const hours = 1;
+
       return hours;
     }
   }
 };
 
 // Replaces 'GMT' with 'UTC' in a string
-export const replaceGmtUtc = ( string ) => {
+export const replaceGmtUtc = string => {
   let utcString;
 
   if ( string.includes( 'GMT' ) ) {
     utcString = string.replace( /GMT/gi, 'UTC' );
+
     return utcString;
   }
 
@@ -83,7 +90,7 @@ export const addMinutes = ( date, minutes ) => {
 
 // Converts date from ISO string format (2019-02-09T20:25:41-05:00) to
 // Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
-export const getDateFromIso = ( isoString ) => {
+export const getDateFromIso = isoString => {
   const date = new Date( isoString );
 
   return date;
@@ -91,7 +98,7 @@ export const getDateFromIso = ( isoString ) => {
 
 // Converts date from Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
 // to ISO string format (2019-02-09T20:25:41-05:00)
-export const getIsoDate = ( date ) => {
+export const getIsoDate = date => {
   const isoString = date.toISOString();
 
   return isoString;
@@ -99,7 +106,7 @@ export const getIsoDate = ( date ) => {
 
 // Converts date from Date format (Sat Feb 09 2019 20:25:41 GMT-0500 (Eastern Standard Time))
 // to UTC string format (Sat, 09 Feb 2019 20:25:41 GMT)
-export const getUtcDate = ( date ) => {
+export const getUtcDate = date => {
   const utcString = date.toUTCString();
 
   return utcString;
@@ -107,7 +114,7 @@ export const getUtcDate = ( date ) => {
 
 // Converts date from ISO string format (2019-02-09T20:25:41-05:00) to
 // UTC string format (Sun, 10 Feb 2019 01:25:41 UTC)
-export const convertUtcString = ( isoString ) => {
+export const convertUtcString = isoString => {
   const dateFormat = getDateFromIso( isoString );
   const gmtString = getUtcDate( dateFormat );
   const utcString = replaceGmtUtc( gmtString );
@@ -127,7 +134,7 @@ export const getLocaleDate = ( date, locale ) => {
     hour: 'numeric',
     minute: 'numeric',
     hour12: true,
-    timeZoneName: 'short'
+    timeZoneName: 'short',
   };
 
   const localeString = date.toLocaleString( locale, options );

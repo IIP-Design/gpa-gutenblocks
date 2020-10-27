@@ -5,27 +5,27 @@ const defaultDate = getUtcDate( new Date() );
 export const attributes = {
   date: {
     type: 'string',
-    default: defaultDate
+    'default': defaultDate,
   },
   isOpen: {
     type: 'boolean',
-    default: false
+    'default': false,
   },
   text: {
     type: 'string',
-    default: 'true'
+    'default': 'true',
   },
   timezone: {
     type: 'object',
-    default: {
+    'default': {
       abbreviation: 'EST',
       commonName: 'Eastern Standard Time',
       gmtOffset: '-05:00',
-      value: 'US/Eastern'
-    }
+      value: 'US/Eastern',
+    },
   },
   width: {
     type: 'string',
-    default: '750'
-  }
+    'default': '750',
+  },
 };

@@ -21,7 +21,7 @@ const AdminBottomBar = ( { action, data, label } ) => (
 AdminBottomBar.propTypes = {
   action: string,
   data: object,
-  label: string
+  label: string,
 };
 
 export default AdminBottomBar;

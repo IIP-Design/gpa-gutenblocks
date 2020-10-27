@@ -16,20 +16,20 @@ registerBlockType( 'iip-gut/chatroll', {
   keywords: [
     __( 'interactive', 'iip-gutenblocks' ),
     __( 'chat', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' )
+    __( 'iip', 'iip-gutenblocks' ),
   ],
   attributes,
   edit( props ) {
     const {
       attributes: {
-        alignment, domain, height, id, name, offsetX, offsetY, title, width
+        alignment, domain, height, id, name, offsetX, offsetY, title, width,
       },
-      setAttributes
+      setAttributes,
     } = props;
 
-    const updateValue = ( e ) => {
+    const updateValue = e => {
       setAttributes( {
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       } );
     };
 
@@ -51,9 +51,10 @@ registerBlockType( 'iip-gut/chatroll', {
   save( props ) {
     const {
       attributes: {
-        alignment, domain, height, id, name, offsetX, offsetY, title, width
-      }
+        alignment, domain, height, id, name, offsetX, offsetY, title, width,
+      },
     } = props;
+
     return (
       <ChatrollFrontend
         alignment={ alignment }
@@ -67,5 +68,5 @@ registerBlockType( 'iip-gut/chatroll', {
         width={ width }
       />
     );
-  }
+  },
 } );

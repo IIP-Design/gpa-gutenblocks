@@ -6,7 +6,7 @@ const { wp } = window;
 const { __ } = wp.i18n;
 
 const CountdownFrontend = ( {
-  date, onClick, text, timezone, width
+  date, onClick, text, timezone, width,
 } ) => (
   <div
     className="iip_countdown"
@@ -55,7 +55,7 @@ CountdownFrontend.propTypes = {
   onClick: func,
   text: bool,
   timezone: string,
-  width: string
+  width: string,
 };
 
 export default CountdownFrontend;

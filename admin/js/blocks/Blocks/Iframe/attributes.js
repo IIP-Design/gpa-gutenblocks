@@ -1,28 +1,28 @@
 const attributes = {
   classes: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   input: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   outline: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   output: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   shadow: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   type: {
     type: 'string',
-    default: 'video'
-  }
+    'default': 'video',
+  },
 };
 
 export default attributes;

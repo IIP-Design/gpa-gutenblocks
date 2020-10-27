@@ -10,7 +10,7 @@ const { pluginUrl } = window.iipGutenblocks;
 const logoSrc = `${pluginUrl}admin/js/dist${chatroll}`;
 
 const ChatrollEditor = ( {
-  alignment, domain, height, id, name, offsetX, offsetY, title, width, updateValue
+  alignment, domain, height, id, name, offsetX, offsetY, title, width, updateValue,
 } ) => (
   <Fragment>
     <div className="iip-gut-chatbox-notice">
@@ -21,7 +21,7 @@ const ChatrollEditor = ( {
     </div>
     <InspectorControls>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-title-input">
-        Window title:
+        { 'Window title: ' }
         <input
           id="iip-chatroll-title-input"
           name="title"
@@ -31,7 +31,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-width-input">
-        Width:
+        { 'Width: ' }
         <input
           id="iip-chatroll-width-input"
           name="width"
@@ -41,7 +41,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-height-input">
-        Height:
+        { 'Height: ' }
         <input
           id="iip-chatroll-height-input"
           name="height"
@@ -51,7 +51,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-id-input">
-        ID:
+        { 'ID: ' }
         <input
           id="iip-chatroll-id-input"
           name="id"
@@ -61,7 +61,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-name-input">
-        Name:
+        { 'Name: ' }
         <input
           id="iip-chatroll-name-input"
           name="name"
@@ -71,7 +71,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-domain-input">
-        Domain:
+        { 'Domain: ' }
         <input
           id="iip-chatroll-domain-input"
           name="domain"
@@ -81,7 +81,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-alignment-input">
-        Alignment:
+        { 'Alignment: ' }
         <input
           id="iip-chatroll-alignment-input"
           name="alignment"
@@ -91,7 +91,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-offsetX-input">
-        Offset X
+        { 'Offset X: ' }
         <input
           id="iip-chatroll-offsetX-input"
           name="offsetX"
@@ -101,7 +101,7 @@ const ChatrollEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-chatroll-offsetY-input">
-        Offset Y:
+        { 'Offset Y: ' }
         <input
           id="iip-chatroll-offsetY-input"
           name="offsetY"
@@ -124,7 +124,7 @@ ChatrollEditor.propTypes = {
   offsetY: int,
   title: string,
   width: string,
-  updateValue: func
+  updateValue: func,
 };
 
 export default ChatrollEditor;

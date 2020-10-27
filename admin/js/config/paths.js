@@ -14,5 +14,5 @@ module.exports = {
   embedsSrc: resolveApp( 'blocks' ),
   interfaceIndex: resolveApp( 'admin-interface/index.js' ),
   interfaceSrc: resolveApp( 'admin-interface' ),
-  dotenv: resolveApp( '.env' )
+  dotenv: resolveApp( '.env' ),
 };

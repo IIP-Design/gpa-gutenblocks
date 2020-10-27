@@ -3,7 +3,7 @@ const { createContext } = wp.element;
 
 const EnabledContext = createContext( {
   blockSettings: [],
-  toggleBlock() {}
+  toggleBlock() {},
 } );
 
 export const { Provider } = EnabledContext;

@@ -14,8 +14,8 @@ const allEnabled = [
       { list: 'enabled' },
       { paragraph: 'enabled' },
       { quote: 'enabled' },
-      { video: 'enabled' }
-    ]
+      { video: 'enabled' },
+    ],
   }, {
     formatting: [
       { code: 'enabled' },
@@ -24,8 +24,8 @@ const allEnabled = [
       { preformatted: 'enabled' },
       { pullquote: 'enabled' },
       { table: 'enabled' },
-      { verse: 'enabled' }
-    ]
+      { verse: 'enabled' },
+    ],
   }, {
     layout: [
       { button: 'enabled' },
@@ -34,16 +34,16 @@ const allEnabled = [
       { more: 'enabled' },
       { nextpage: 'enabled' },
       { separator: 'enabled' },
-      { spacer: 'enabled' }
-    ]
+      { spacer: 'enabled' },
+    ],
   }, {
     widgets: [
       { archives: 'enabled' },
       { categories: 'enabled' },
       { latestComments: 'enabled' },
       { latestPosts: 'enabled' },
-      { shortcode: 'enabled' }
-    ]
+      { shortcode: 'enabled' },
+    ],
   }, {
     embed: [
       { animoto: 'enabled' },
@@ -79,9 +79,9 @@ const allEnabled = [
       { vimeo: 'enabled' },
       { wordpress: 'enabled' },
       { wordpressTv: 'enabled' },
-      { youtube: 'enabled' }
-    ]
-  }
+      { youtube: 'enabled' },
+    ],
+  },
 ];
 
 export const getBlockSettings = () => {

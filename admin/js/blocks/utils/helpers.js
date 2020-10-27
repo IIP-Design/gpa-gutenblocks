@@ -1,5 +1,5 @@
 // Removes all non-alphanumeric characters from a string
-export const stripSpecialChars = ( string ) => {
+export const stripSpecialChars = string => {
   const alphaNumString = string.replace( /[^a-zA-Z0-9]/g, '' );
 
   return alphaNumString;

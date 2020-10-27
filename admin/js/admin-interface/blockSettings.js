@@ -14,14 +14,15 @@ const getHandle = ( group, reference ) => {
 wp.domReady( () => {
   const disabled = [];
   const groups = [
-    'common', 'embed', 'formatting', 'layout', 'widgets'
+    'common', 'embed', 'formatting', 'layout', 'widgets',
   ];
 
   groups.forEach( group => (
-    enabledBlocks[group].forEach( ( item ) => {
+    enabledBlocks[group].forEach( item => {
       if ( Object.values( item )[0] === 'disabled' ) {
         const disabledItem = Object.keys( item )[0];
         const handle = getHandle( group, disabledItem );
+
         disabled.push( handle );
       }
 

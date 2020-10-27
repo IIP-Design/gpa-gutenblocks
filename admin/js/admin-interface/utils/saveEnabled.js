@@ -8,10 +8,10 @@ export const saveWithAjax = ( action, dataObj ) => {
   const data = {
     action,
     payload,
-    security: iipGutNonce
+    security: iipGutNonce,
   };
 
-  const success = ( res ) => {
+  const success = res => {
     console.log( 'Block settings updated!' );
   };
 
@@ -26,7 +26,7 @@ export const saveWithAjax = ( action, dataObj ) => {
       url: ajaxUrl,
       data,
       success,
-      error
-    }
+      error,
+    },
   );
 };

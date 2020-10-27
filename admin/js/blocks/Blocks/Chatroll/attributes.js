@@ -1,38 +1,38 @@
 const attributes = {
   alignment: {
     type: 'string',
-    default: 'right'
+    'default': 'right',
   },
   domain: {
     type: 'string',
-    default: 'chatroll-cloud-1.com'
+    'default': 'chatroll-cloud-1.com',
   },
   height: {
     type: 'string',
-    default: '350'
+    'default': '350',
   },
   id: {
-    type: 'string'
+    type: 'string',
   },
   name: {
-    type: 'string'
+    type: 'string',
   },
   offsetX: {
     type: 'int',
-    default: 20
+    'default': 20,
   },
   offsetY: {
     type: 'int',
-    default: 0
+    'default': 0,
   },
   title: {
     type: 'string',
-    default: 'Chat'
+    'default': 'Chat',
   },
   width: {
     type: 'string',
-    default: '450'
-  }
+    'default': '450',
+  },
 };
 
 export default attributes;

@@ -1,7 +1,9 @@
-const chalk = require('chalk');
+/* eslint-disable node/no-unpublished-require */
+const chalk = require( 'chalk' );
 const git = require( 'simple-git' );
 const gitRev = require( 'git-rev-sync' );
 const replace = require( 'replace' );
+/* eslint-enable */
 
 module.exports.versionBump = () => {
   // Get the type of version bump (major, minor, patch) from command argument
@@ -16,15 +18,16 @@ module.exports.versionBump = () => {
     console.log(
       chalk.red( 'ERROR:' ),
       'You have uncommitted changes on your branch.',
-      '\nPlease commit all changes before attempting to version your plugin.\n'
+      '\nPlease commit all changes before attempting to version your plugin.\n',
     );
+
     return;
   }
-  
+
   // Split the git version into it's component parts
   const split = version.split( '.' );
-  let prefix = split[0].includes('v') ? 'v' : '';
-  let major = split[0].includes('v') ? split[0].slice(1) : split[0];
+  const prefix = split[0].includes( 'v' ) ? 'v' : '';
+  let major = split[0].includes( 'v' ) ? split[0].slice( 1 ) : split[0];
   let minor = split[1];
   let patch = split[2];
 
@@ -44,30 +47,27 @@ module.exports.versionBump = () => {
       'Please provide a valid version type as an argument.',
       '\n(For example: `npm run version patch`)',
       '\nAccepted values are "major", "minor", and "patch"',
-      '\nFor more information see https://semver.org/\n'
+      '\nFor more information see https://semver.org/\n',
     );
+
     return;
   }
-  const newVersion = `${prefix}${major}.${minor}.${patch}`
-  
+  const newVersion = `${prefix}${major}.${minor}.${patch}`;
+
   console.log( 'Updating the plugin version number in the following locations:' );
-  
+
   // Sets the new version in the plugin header
   replace( {
     regex: `Version: ${version}`,
     replacement: `Version: ${newVersion}`,
-    paths: [
-      './iip-gutenblocks.php'
-    ]
+    paths: ['./iip-gutenblocks.php'],
   } );
 
   // Sets the new version in hook registration
   replace( {
     regex: `version = '${version}'`,
     replacement: `version = '${newVersion}'`,
-    paths: [
-      './includes/class-iip-gutenblocks.php'
-    ]
+    paths: ['./includes/class-iip-gutenblocks.php'],
   } );
 
   // Sets the new version in the main, admin, and frontend package.json files
@@ -75,15 +75,12 @@ module.exports.versionBump = () => {
     regex: `"version": "${version}"`,
     replacement: `"version": "${newVersion}"`,
     paths: [
-      './package.json',
-      './admin/js/package.json',
-      './public/blocks/package.json'
-    ]
+      './package.json', './admin/js/package.json', './public/blocks/package.json',
+    ],
   } );
 
-  // Commit version bump and tag the branch 
-  git()
-    .add( './*' )
+  // Commit version bump and tag the branch
+  git().add( './*' )
     .commit( `${newVersion} Release` )
     .addTag( newVersion );
-}
+};

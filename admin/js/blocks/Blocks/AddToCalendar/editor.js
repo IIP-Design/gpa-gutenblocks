@@ -1,5 +1,5 @@
 import {
-  bool, func, string, object
+  bool, func, string, object,
 } from 'prop-types';
 
 import EditorModal from '../../Components/EditorModal';
@@ -15,7 +15,7 @@ const zones = getTimezones( timezones );
 
 const AddToCalEditor = ( {
   alignment, buttonText, toggleModal, date, description, duration, isOpen, location,
-  timezone, title, updateDate, updateDuration, updateIsOpen, updateTimezone, updateValue
+  timezone, title, updateDate, updateDuration, updateIsOpen, updateTimezone, updateValue,
 } ) => (
   <Fragment>
     <div
@@ -38,7 +38,7 @@ const AddToCalEditor = ( {
       title="Set calendar event"
     >
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-title-input">
-        Title:
+        { 'Title: ' }
         <input
           className="iip-gut-inspector-input medium"
           id="iip-calendar-title-input"
@@ -49,7 +49,7 @@ const AddToCalEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-duration-input">
-        Duration (in min):
+        { 'Duration (in min): ' }
         <input
           className="iip-gut-inspector-input medium"
           id="iip-calendar-duration-input"
@@ -60,7 +60,7 @@ const AddToCalEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-address-input">
-        Address/URL:
+        { 'Address/URL: ' }
         <input
           className="iip-gut-inspector-input medium"
           id="iip-calendar-address-input"
@@ -71,7 +71,7 @@ const AddToCalEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-description-input">
-        Description:
+        { 'Description: ' }
         <input
           className="iip-gut-inspector-input medium"
           id="iip-calendar-description-input"
@@ -82,7 +82,7 @@ const AddToCalEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-text-input">
-        Button text:
+        { 'Button text: ' }
         <input
           className="iip-gut-inspector-input medium"
           id="iip-calendar-text-input"
@@ -93,11 +93,12 @@ const AddToCalEditor = ( {
         />
       </label>
       <label className="iip-gut-inspector-label" htmlFor="iip-calendar-align-input">
-        Button alignment:
+        { 'Button alignment: ' }
         <select
           className="iip-gut-inspector-input medium"
           id="iip-calendar-align-input"
           name="alignment"
+          onBlur={ updateValue }
           onChange={ updateValue }
           value={ alignment }
         >
@@ -115,16 +116,17 @@ const AddToCalEditor = ( {
         />
       </div>
       <label className="iip-gut-inspector-label" htmlFor="iip_event_timezone">
-        Timezone:
+        { 'Timezone: ' }
         <select
           className="iip-gut-inspector-input"
           id="iip_event_timezone"
           name="timezone"
+          onBlur={ updateTimezone }
           onChange={ updateTimezone }
           value={ JSON.stringify( timezone ) }
         >
           { zones.map( zone => (
-            <option value={ JSON.stringify( zone.properties ) }>
+            <option key={ zone.name } value={ JSON.stringify( zone.properties ) }>
               { `${zone.name} (GMT${zone.properties.gmtOffset})` }
             </option>
           ) ) }
@@ -149,7 +151,7 @@ AddToCalEditor.propTypes = {
   updateDuration: func,
   updateIsOpen: func,
   updateTimezone: func,
-  updateValue: func
+  updateValue: func,
 };
 
 export default AddToCalEditor;

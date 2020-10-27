@@ -1,16 +1,15 @@
 import {
-  bool, element, func, string
+  bool, element, func, string,
 } from 'prop-types';
 
 const { wp } = window;
 const { Button, Modal } = wp.components;
-const { Fragment } = wp.element;
 
 const EditorModal = ( {
-  children, isOpen, onClick, title
-} ) => (
-  <Fragment>
-    { isOpen && (
+  children, isOpen, onClick, title,
+} ) => {
+  if ( isOpen ) {
+    return (
       <Modal
         onRequestClose={ () => onClick() }
         title={ title }
@@ -23,15 +22,17 @@ const EditorModal = ( {
           Save
         </Button>
       </Modal>
-    ) }
-  </Fragment>
-);
+    );
+  }
+
+  return null;
+};
 
 EditorModal.propTypes = {
   children: element,
   isOpen: bool,
   onClick: func,
-  title: string
+  title: string,
 };
 
 export default EditorModal;

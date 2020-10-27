@@ -7,6 +7,7 @@ const BlockToggleGroup = ( { blockGroup, groupIndex, groupName } ) => (
     <div className="iip-gut-block-toggle-grid">
       { blockGroup.map( ( block, blockIndex ) => (
         <BlockToggle
+          key={ groupName }
           group={ groupName }
           groupIndex={ groupIndex }
           blockIndex={ blockIndex }
@@ -20,7 +21,7 @@ const BlockToggleGroup = ( { blockGroup, groupIndex, groupName } ) => (
 BlockToggleGroup.propTypes = {
   blockGroup: array,
   groupIndex: number,
-  groupName: string
+  groupName: string,
 };
 
 export default BlockToggleGroup;

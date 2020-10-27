@@ -7,51 +7,51 @@ const defaultDate = trimString( isoDate, 5 );
 export const attributes = {
   alignment: {
     type: 'string',
-    default: 'center'
+    'default': 'center',
   },
   buttonText: {
     type: 'string',
-    default: 'Add to Calendar'
+    'default': 'Add to Calendar',
   },
   date: {
     type: 'string',
-    default: defaultDate
+    'default': defaultDate,
   },
   description: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   duration: {
     type: 'object',
-    default: {
+    'default': {
       min: 60,
-      hrs: 1
-    }
+      hrs: 1,
+    },
   },
   event: {
     type: 'string',
     source: 'meta',
-    meta: 'iip_gut_atc_event'
+    meta: 'iip_gut_atc_event',
   },
   isOpen: {
     type: 'boolean',
-    default: false
+    'default': false,
   },
   location: {
     type: 'string',
-    default: ''
+    'default': '',
   },
   timezone: {
     type: 'object',
-    default: {
+    'default': {
       abbreviation: 'EST',
       commonName: 'Eastern Standard Time',
       gmtOffset: '-05:00',
-      value: 'US/Eastern'
-    }
+      value: 'US/Eastern',
+    },
   },
   title: {
     type: 'string',
-    default: ''
-  }
+    'default': '',
+  },
 };

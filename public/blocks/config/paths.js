@@ -10,5 +10,5 @@ module.exports = {
   appPublic: resolveApp( 'public' ),
   appPackageJson: resolveApp( 'package.json' ),
   appSrc: resolveApp( 'src' ),
-  dotenv: resolveApp( '.env' )
+  dotenv: resolveApp( '.env' ),
 };

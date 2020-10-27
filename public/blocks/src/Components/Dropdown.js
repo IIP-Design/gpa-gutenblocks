@@ -8,7 +8,7 @@ const Dropdown = ( { children, classes } ) => (
 
 Dropdown.propTypes = {
   children: element,
-  classes: string
+  classes: string,
 };
 
 export default Dropdown;

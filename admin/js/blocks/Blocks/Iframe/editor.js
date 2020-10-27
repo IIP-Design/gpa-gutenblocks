@@ -4,12 +4,12 @@ const { wp } = window;
 const { Placeholder } = wp.components;
 
 const IframeEditor = ( {
-  classes, generateIframe, input, outline, shadow, type, updateValue
+  classes, generateIframe, input, outline, shadow, type, updateValue,
 } ) => (
   <Placeholder icon="editor-code" label="Responsive Iframe">
     <form className="iip-gut-flex-column">
       <label className="iip-gut-panel-label" htmlFor="iip-iframe-input">
-        Paste your iframe below:
+        { 'Paste your iframe below: ' }
         <textarea
           id="iip-iframe-input"
           name="input"
@@ -20,10 +20,11 @@ const IframeEditor = ( {
       </label>
       <div className="iip-gut-flex-row">
         <label className="iip-gut-panel-label half" htmlFor="iip-iframe-type-input">
-          Select Type:
+          { 'Select Type: ' }
           <select
             id="iip-iframe-type-input"
             name="type"
+            onBlur={ updateValue }
             onChange={ updateValue }
             value={ type }
           >
@@ -32,7 +33,7 @@ const IframeEditor = ( {
           </select>
         </label>
         <label className="iip-gut-panel-label half" htmlFor="iip-iframe-classes-input">
-          Add extra classes (optional):
+          { 'Add extra classes (optional): ' }
           <input
             id="iip-iframe-classes-input"
             name="classes"
@@ -44,10 +45,11 @@ const IframeEditor = ( {
       </div>
       <div className="iip-gut-flex-row">
         <label className="iip-gut-panel-label half" htmlFor="iip-iframe-shadow-input">
-          Add shadow?:
+          { 'Add shadow?: ' }
           <select
             id="iip-iframe-shadow-input"
             name="shadow"
+            onBlur={ updateValue }
             onChange={ updateValue }
             value={ shadow }
           >
@@ -56,10 +58,11 @@ const IframeEditor = ( {
           </select>
         </label>
         <label className="iip-gut-panel-label half" htmlFor="iip-iframe-outline-input">
-          Add outline?:
+          { 'Add outline?: ' }
           <select
             id="iip-iframe-outline-input"
             name="outline"
+            onBlur={ updateValue }
             onChange={ updateValue }
             value={ outline }
           >
@@ -87,7 +90,7 @@ IframeEditor.propTypes = {
   outline: string,
   shadow: string,
   type: string,
-  updateValue: func
+  updateValue: func,
 };
 
 export default IframeEditor;

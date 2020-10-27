@@ -1,9 +1,9 @@
-const { wp } = window;
-const { render } = wp.element;
-
 import AdminPage from './Components/AdminPage';
 
 import './admin-page.scss';
+
+const { wp } = window;
+const { render } = wp.element;
 
 const attachTo = document.getElementById( 'iip-gutenblocks-admin' );
 

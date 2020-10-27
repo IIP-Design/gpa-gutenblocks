@@ -17,48 +17,48 @@ registerBlockType( 'iip-gut/add-to-calendar', {
   keywords: [
     __( 'interactive', 'iip-gutenblocks' ),
     __( 'calendar', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' )
+    __( 'iip', 'iip-gutenblocks' ),
   ],
   attributes,
   edit( props ) {
     const {
       attributes: {
-        alignment, buttonText, date, description, duration, isOpen, location, timezone, title
+        alignment, buttonText, date, description, duration, isOpen, location, timezone, title,
       },
-      setAttributes
+      setAttributes,
     } = props;
 
     const updateEvent = () => {
       const eventMeta = setEventMeta( date, description, duration, location, timezone, title );
 
       setAttributes( {
-        event: eventMeta
+        event: eventMeta,
       } );
     };
 
-    const updateValue = ( e ) => {
+    const updateValue = e => {
       setAttributes( {
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       } );
     };
 
-    const updateDuration = ( e ) => {
+    const updateDuration = e => {
       const min = e.target.value;
       const hrs = covertMinToHr( min );
 
       const newDuration = {
         min,
-        hrs
+        hrs,
       };
 
       setAttributes( {
-        duration: newDuration
+        duration: newDuration,
       } );
     };
 
-    const updateDate = ( e ) => {
+    const updateDate = e => {
       setAttributes( {
-        date: e
+        date: e,
       } );
     };
 
@@ -66,15 +66,15 @@ registerBlockType( 'iip-gut/add-to-calendar', {
       const newState = !isOpen;
 
       setAttributes( {
-        isOpen: newState
+        isOpen: newState,
       } );
     };
 
-    const updateTimezone = ( e ) => {
+    const updateTimezone = e => {
       const zoneValues = JSON.parse( e.target.value );
 
       setAttributes( {
-        timezone: zoneValues
+        timezone: zoneValues,
       } );
     };
 
@@ -113,5 +113,5 @@ registerBlockType( 'iip-gut/add-to-calendar', {
         style={ { justifyContent: alignment } }
       />
     );
-  }
+  },
 } );

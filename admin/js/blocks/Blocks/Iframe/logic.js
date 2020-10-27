@@ -1,10 +1,10 @@
-export const isIframe = ( input ) => {
+export const isIframe = input => {
   const iframe = input.includes( '<iframe' );
 
   return iframe;
 };
 
-export const removeIframeOpenTags = ( input ) => {
+export const removeIframeOpenTags = input => {
   const regex = /(?:<iframe[^>])/gi;
   let tagless;
 
@@ -17,7 +17,7 @@ export const removeIframeOpenTags = ( input ) => {
   return tagless;
 };
 
-export const removeIframeCloseTags = ( input ) => {
+export const removeIframeCloseTags = input => {
   const regex = /(?:\/>)|(?:><\/iframe>)/gi;
   let tagless;
 
@@ -30,7 +30,7 @@ export const removeIframeCloseTags = ( input ) => {
   return tagless;
 };
 
-export const getIframeAtts = ( input ) => {
+export const getIframeAtts = input => {
   if ( !isIframe( input ) ) {
     return;
   }

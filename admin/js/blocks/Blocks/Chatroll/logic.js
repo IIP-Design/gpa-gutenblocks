@@ -6,7 +6,7 @@ const iipGutToggleClasses = ( className, element ) => {
   }
 };
 
-const iipGutToggleDisplay = ( element ) => {
+const iipGutToggleDisplay = element => {
   if ( element.style.display === 'none' ) {
     element.style.display = 'inline';
   } else {

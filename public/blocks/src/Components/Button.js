@@ -13,7 +13,7 @@ const Button = ( { children, classes, onClick } ) => (
 Button.propTypes = {
   children: element,
   classes: string,
-  onClick: func
+  onClick: func,
 };
 
 export default Button;
