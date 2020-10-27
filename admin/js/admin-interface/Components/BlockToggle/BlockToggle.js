@@ -31,13 +31,14 @@ const BlockToggle = ( {
                 icon={ (
                   <svg>
                     { icon.paths && (
-                      icon.paths.map( path => ( <path d={ path } /> ) )
+                      icon.paths.map( ( path, idx ) => ( <path key={ idx } d={ path } /> ) )
                     ) }
                     { icon.polygons && (
-                      icon.polygons.map( polygon => ( <polygon points={ `${polygon}` } /> ) )
+                      icon.polygons.map( ( polygon, idx ) => ( <polygon key={ idx } points={ `${polygon}` } /> ) )
                     ) }
-                    { icon.rects && ( icon.rects.map( rect => (
+                    { icon.rects && ( icon.rects.map( ( rect, idx ) => (
                       <rect
+                        key={ idx }
                         x={ rect.x }
                         y={ rect.y }
                         width={ rect.width }

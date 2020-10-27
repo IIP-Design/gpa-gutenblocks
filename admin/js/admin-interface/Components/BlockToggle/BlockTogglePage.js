@@ -22,6 +22,7 @@ class BlockTogglePage extends Component {
   componentDidMount() {
     const blockSettings = getBlockSettings();
 
+    // eslint-disable-next-line
     this.setState( {
       blockSettings,
     } );
