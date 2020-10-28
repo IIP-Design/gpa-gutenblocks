@@ -60,7 +60,7 @@ module.exports.versionBump = () => {
   replace( {
     regex: `Version: ${version}`,
     replacement: `Version: ${newVersion}`,
-    paths: ['./iip-gutenblocks.php'],
+    paths: ['./gpa-gutenblocks.php'],
   } );
 
   // Sets the new version in hook registration
