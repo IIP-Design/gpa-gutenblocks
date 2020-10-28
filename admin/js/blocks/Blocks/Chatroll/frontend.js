@@ -23,7 +23,7 @@ const ChatrollFrontend = ( {
       marginWidth="0"
       scrolling="no"
       src={ `https://${domain}/embed/chat/${name}?id=${id}&platform=html` }
-      title="GPA Chatroll"
+      title="IIP Chatroll"
       width={ width }
     />
   </div>
