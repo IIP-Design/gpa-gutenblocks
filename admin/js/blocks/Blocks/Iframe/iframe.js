@@ -10,14 +10,14 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/iframe', {
-  title: __( 'Responsive iframe', 'iip-gutenblocks' ),
-  description: __( 'Insert responsive component', 'iip-gutenblocks' ),
+  title: __( 'Responsive iframe', 'gpalab-gutenblocks' ),
+  description: __( 'Insert responsive component', 'gpalab-gutenblocks' ),
   category: 'embed',
   icon: 'editor-code',
   keywords: [
-    __( 'iframe', 'iip-gutenblocks' ),
-    __( 'embed', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' ),
+    __( 'iframe', 'gpalab-gutenblocks' ),
+    __( 'embed', 'gpalab-gutenblocks' ),
+    __( 'gpa', 'gpalab-gutenblocks' ),
   ],
   attributes,
   edit( props ) {

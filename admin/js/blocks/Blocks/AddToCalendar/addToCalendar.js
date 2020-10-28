@@ -10,14 +10,14 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/add-to-calendar', {
-  title: __( 'Add to Calendar', 'iip-gutenblocks' ),
-  description: __( 'Inserts add to calendar button', 'iip-gutenblocks' ),
+  title: __( 'Add to Calendar', 'gpalab-gutenblocks' ),
+  description: __( 'Inserts add to calendar button', 'gpalab-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'calendar-alt',
   keywords: [
-    __( 'interactive', 'iip-gutenblocks' ),
-    __( 'calendar', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' ),
+    __( 'interactive', 'gpalab-gutenblocks' ),
+    __( 'calendar', 'gpalab-gutenblocks' ),
+    __( 'gpa', 'gpalab-gutenblocks' ),
   ],
   attributes,
   edit( props ) {

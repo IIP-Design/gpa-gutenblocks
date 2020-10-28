@@ -9,14 +9,14 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/chatroll', {
-  title: __( 'Chatroll', 'iip-gutenblocks' ),
-  description: __( 'Insert chatroll component', 'iip-gutenblocks' ),
+  title: __( 'Chatroll', 'gpalab-gutenblocks' ),
+  description: __( 'Insert chatroll component', 'gpalab-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'testimonial',
   keywords: [
-    __( 'interactive', 'iip-gutenblocks' ),
-    __( 'chat', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' ),
+    __( 'interactive', 'gpalab-gutenblocks' ),
+    __( 'chat', 'gpalab-gutenblocks' ),
+    __( 'gpa', 'gpalab-gutenblocks' ),
   ],
   attributes,
   edit( props ) {

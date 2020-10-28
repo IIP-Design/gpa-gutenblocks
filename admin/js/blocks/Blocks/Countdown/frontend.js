@@ -24,25 +24,25 @@ const CountdownFrontend = ( {
         <div>
           <span className="days" />
           <div className="smalltext">
-            { __( 'Days', 'iip-gutenblocks' ) }
+            { __( 'Days', 'gpalab-gutenblocks' ) }
           </div>
         </div>
         <div>
           <span className="hours" />
           <div className="smalltext">
-            { __( 'Hours', 'iip-gutenblocks' ) }
+            { __( 'Hours', 'gpalab-gutenblocks' ) }
           </div>
         </div>
         <div>
           <span className="minutes" />
           <div className="smalltext">
-            { __( 'Minutes', 'iip-gutenblocks' ) }
+            { __( 'Minutes', 'gpalab-gutenblocks' ) }
           </div>
         </div>
         <div>
           <span className="seconds" />
           <div className="smalltext">
-            { __( 'Seconds', 'iip-gutenblocks' ) }
+            { __( 'Seconds', 'gpalab-gutenblocks' ) }
           </div>
         </div>
       </div>

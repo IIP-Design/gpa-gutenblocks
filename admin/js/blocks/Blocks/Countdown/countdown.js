@@ -10,14 +10,14 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'iip-gut/countdown', {
-  title: __( 'Countdown', 'iip-gutenblocks' ),
-  description: __( 'Insert configurable countdown component', 'iip-gutenblocks' ),
+  title: __( 'Countdown', 'gpalab-gutenblocks' ),
+  description: __( 'Insert configurable countdown component', 'gpalab-gutenblocks' ),
   category: 'iip_custom_blocks',
   icon: 'clock',
   keywords: [
-    __( 'interactive', 'iip-gutenblocks' ),
-    __( 'timer', 'iip-gutenblocks' ),
-    __( 'iip', 'iip-gutenblocks' ),
+    __( 'interactive', 'gpalab-gutenblocks' ),
+    __( 'timer', 'gpalab-gutenblocks' ),
+    __( 'gpa', 'gpalab-gutenblocks' ),
   ],
   attributes,
   edit( props ) {
