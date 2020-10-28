@@ -44,10 +44,10 @@ export const attributes = {
   timezone: {
     type: 'object',
     'default': {
-      abbreviation: 'EST',
-      commonName: 'Eastern Standard Time',
-      gmtOffset: '-05:00',
-      value: 'US/Eastern',
+      abbreviation: 'UTC',
+      commonName: 'UTC',
+      gmtOffset: '+00:00',
+      value: 'Etc/GMT',
     },
   },
   title: {
