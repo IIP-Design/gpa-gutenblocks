@@ -65,8 +65,8 @@ module.exports.versionBump = () => {
 
   // Sets the new version in hook registration
   replace( {
-    regex: `version = '${version}'`,
-    replacement: `version = '${newVersion}'`,
+    regex: `version     = ${version}'`,
+    replacement: `version     = ${newVersion}'`,
     paths: ['./includes/class-lab-gutenblocks.php'],
   } );
 

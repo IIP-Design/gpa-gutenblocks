@@ -3,7 +3,7 @@
  * Plugin Name: GPA Gutenblocks
  * Plugin URI: https://github.com/IIP-Design/gpa-gutenblocks
  * Description: Plugin providing custom content blocks for the WordPress Gutenberg editor
- * Version: v1.1.2
+ * Version: v1.2.0
  * Author: U.S. Department of State, Bureau of Global Public Affairs Digital Lab <gpa-lab@america.gov>
  * Text Domain: gpalab-gutenblocks
  * License: GNU General Public License v2.0
