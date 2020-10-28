@@ -33,7 +33,7 @@
         "abbreviation": "AKST",
         "commonName": "Alaska Standard Time",
         "gmtOffset": "-09:00",
-        "value": "US/Alaska"
+        "value": "America/Anchorage"
       }
     },
     {
@@ -51,7 +51,7 @@
         "abbreviation": "MST",
         "commonName": "Mountain Standard Time",
         "gmtOffset": "-07:00",
-        "value": "US/Mountain"
+        "value": "America/Denver"
       }
     },
     {
@@ -60,7 +60,7 @@
         "abbreviation": "CST (US)",
         "commonName": "Central Standard Time",
         "gmtOffset": "-06:00",
-        "value": "US/Central"
+        "value": "America/Chicago"
       }
     },
     {
@@ -69,7 +69,7 @@
         "abbreviation": "EST",
         "commonName": "Eastern Standard Time",
         "gmtOffset": "-05:00",
-        "value": "US/Eastern"
+        "value": "America/New_York"
       }
     },
     {
@@ -78,7 +78,7 @@
         "abbreviation": "AST (America)",
         "commonName": "Atlantic Standard Time",
         "gmtOffset": "-04:00",
-        "value": "Canada/Atlantic"
+        "value": "America/Halifax"
       }
     },
     {
@@ -87,7 +87,7 @@
         "abbreviation": "NST",
         "commonName": "Newfoundland Standard Time",
         "gmtOffset": "-03:30",
-        "value": "Canada/Newfoundland"
+        "value": "America/St_Johns"
       }
     },
     {
@@ -118,12 +118,12 @@
       }
     },
     {
-      "name": "Greenwich Mean Time",
+      "name": "UTC",
       "properties" : {
         "abbreviation": "UTC",
-        "commonName": "Greenwich Mean Time",
+        "commonName": "UTC",
         "gmtOffset": "+00:00",
-        "value": "Etc/Greenwich"
+        "value": "Etc/GMT"
       }
     },
     {
@@ -186,7 +186,7 @@
         "abbreviation": "IST",
         "commonName": "India Standard Time",
         "gmtOffset": "+05:30",
-        "value": "Asia/Calcutta"
+        "value": "Asia/Kolkata"
       }
     },
     {
@@ -195,7 +195,7 @@
         "abbreviation": "NPT",
         "commonName": "Nepal Time",
         "gmtOffset": "+05:45",
-        "value": "Asia/Katmandu"
+        "value": "Asia/Kathmandu"
       }
     },
     {
@@ -213,7 +213,7 @@
         "abbreviation": "MMT",
         "commonName": "Myanmar Time",
         "gmtOffset": "+06:30",
-        "value": "Asia/Rangoon"
+        "value": "Asia/Yangon"
       }
     },
     {
