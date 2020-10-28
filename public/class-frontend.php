@@ -4,18 +4,38 @@
  *
  * @package LAB_Gutenblocks\Frontend
  */
+
 namespace LAB_Gutenblocks;
 
+/**
+ * Enqueue frontend scripts and styles.
+ *
+ * @package LAB_Gutenblocks\Frontend
+ */
 class Frontend {
 
-  public function enqueue_iip_gutenblocks_frontend() {
+  /**
+   * Initializes the class with the plugin name and version.
+   *
+   * @param string $plugin     The plugin name.
+   * @param string $version    The plugin version number.
+   */
+  public function __construct( $plugin, $version ) {
+    $this->plugin  = $plugin;
+    $this->version = $version;
+  }
+
+  /**
+   * Register .
+   */
+  public function enqueue_gutenblocks_frontend() {
     global $post;
 
     wp_enqueue_script(
       'gpalab-gutenblocks-frontend-js',
       IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactiveFront.min.js',
       array( 'wp-element' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-interactiveFront.min.js' ),
+      $this->version,
       true
     );
 
@@ -23,7 +43,7 @@ class Frontend {
       'gpalab-gut-interactive-js',
       IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-front.min.js',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-front.min.js' ),
+      $this->version,
       true
     );
 

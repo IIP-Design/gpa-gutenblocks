@@ -67,16 +67,14 @@ module.exports.versionBump = () => {
   replace( {
     regex: `version = '${version}'`,
     replacement: `version = '${newVersion}'`,
-    paths: ['./includes/class-iip-gutenblocks.php'],
+    paths: ['./includes/class-lab-gutenblocks.php'],
   } );
 
   // Sets the new version in the main, admin, and frontend package.json files
   replace( {
     regex: `"version": "${version}"`,
     replacement: `"version": "${newVersion}"`,
-    paths: [
-      './package.json', './admin/js/package.json', './public/blocks/package.json',
-    ],
+    paths: ['./package.json'],
   } );
 
   // Commit version bump and tag the branch

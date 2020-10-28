@@ -12,7 +12,9 @@
   "scripts": {
     "build": "webpack --config config/webpack.config.js --mode production",
     "dev": "webpack --config config/webpack.config.js --watch --mode development",
-    "lint": "eslint --ext .js --quiet ./",
+    "lint": "npm run lint:JS && npm run lint:PHP",
+    "lint:JS": "eslint --ext .js --quiet ./",
+    "lint:PHP": "./vendor/bin/phpcs ./",
     "version": "node -e 'require(\"./version.js\").versionBump()'"
   },
   "devDependencies": {

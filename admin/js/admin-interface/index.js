@@ -5,7 +5,7 @@ import './admin-page.scss';
 const { wp } = window;
 const { render } = wp.element;
 
-const attachTo = document.getElementById( 'iip-gutenblocks-admin' );
+const attachTo = document.getElementById( 'gpalab-gutenblocks-admin' );
 
 if ( attachTo ) {
   render( <AdminPage />, attachTo );

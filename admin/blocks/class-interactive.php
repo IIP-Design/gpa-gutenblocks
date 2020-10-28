@@ -7,10 +7,26 @@
 
 namespace LAB_Gutenblocks;
 
+/**
+ * Register custom Gutenberg blocks for the Interactive team.
+ *
+ * @package LAB_Gutenblocks\Interactive
+ */
 class Interactive {
 
   /**
-   * Registers all the custom Gutenberg blocks
+   * Initializes the class with the plugin name and version.
+   *
+   * @param string $plugin     The plugin name.
+   * @param string $version    The plugin version number.
+   */
+  public function __construct( $plugin, $version ) {
+    $this->plugin  = $plugin;
+    $this->version = $version;
+  }
+
+  /**
+   * Registers all the custom Interactive Gutenberg blocks
    */
   public function register_interactive_blocks() {
 
@@ -23,7 +39,7 @@ class Interactive {
       'gpalab-gut-interactive-admin-js',
       IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-interactive.min.js' ),
+      $this->version,
       true
     );
 
@@ -31,7 +47,7 @@ class Interactive {
       'gpalab-gut-interactive-css',
       IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.css',
       array(),
-      filemtime( IIP_GUTENBLOCKS_DIR . 'dist/gpalab-gut-interactive.min.css' )
+      $this->version
     );
 
     register_block_type(
@@ -44,6 +60,9 @@ class Interactive {
     );
   }
 
+  /**
+   * Registers custom meta data.
+   */
   public function register_custom_meta() {
     register_meta(
       'post',
@@ -56,6 +75,12 @@ class Interactive {
     );
   }
 
+  /**
+   * Adds a custom category to the Gutenberg block listing.
+   *
+   * @param array  $categories  List of block categories.
+   * @param object $post        WordPress post object.
+   */
   public function register_custom_block_category( $categories, $post ) {
     $type = $post->post_type;
 
@@ -68,7 +93,7 @@ class Interactive {
       array(
         array(
           'slug'  => 'iip_custom_blocks',
-          'title' => __( 'GPA/LAB Custom Blocks', 'iip-gutenblocks' ),
+          'title' => __( 'GPA/LAB Custom Blocks', 'gpalab-gutenblocks' ),
         ),
       )
     );

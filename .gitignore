@@ -9,6 +9,3 @@
 node_modules/
 npm-debug.log*
 vendor/
-
-#Development Build
-admin/js/dist/iip-gutenblocks-admin.js

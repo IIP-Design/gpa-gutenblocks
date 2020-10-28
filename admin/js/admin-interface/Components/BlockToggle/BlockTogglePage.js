@@ -63,7 +63,7 @@ class BlockTogglePage extends Component {
             );
           } ) }
           <AdminBottomBar
-            action="iip_gut_save"
+            action="gpa_gut_save"
             data={ makeArrObj( blockSettings ) }
             label="Save Selection"
           />
