@@ -46,7 +46,7 @@ export const attributes = {
     'default': {
       abbreviation: 'UTC',
       commonName: 'UTC',
-      gmtOffset: '+00:00',
+      utcOffset: '+00:00',
       value: 'Etc/GMT',
     },
   },

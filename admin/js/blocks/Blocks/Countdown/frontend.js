@@ -15,11 +15,11 @@ const CountdownFrontend = ( {
     role="button"
     tabIndex={ 0 }
   >
-    <input type="hidden" id="countdatetime" value={ `${date}${timezone.gmtOffset}` } />
+    <input type="hidden" id="countdatetime" value={ `${date}${timezone.utcOffset}` } />
     <div id="clockwrap">
       <div id="clockdiv" style={ { width: `${width}px` } }>
         { ( text === 'true' ) && (
-          <h1>{ convertUtcString( `${date}${timezone.gmtOffset}`, 'en-US' ) }</h1>
+          <h1>{ convertUtcString( `${date}${timezone.utcOffset}`, 'en-US' ) }</h1>
         ) }
         <div>
           <span className="days" />

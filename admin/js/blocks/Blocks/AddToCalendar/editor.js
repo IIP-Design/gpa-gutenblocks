@@ -127,7 +127,7 @@ const AddToCalEditor = ( {
         >
           { zones.map( zone => (
             <option key={ zone.name } value={ JSON.stringify( zone.properties ) }>
-              { `${zone.name} (GMT${zone.properties.gmtOffset})` }
+              { `${zone.name} (UTC${zone.properties.utcOffset})` }
             </option>
           ) ) }
         </select>

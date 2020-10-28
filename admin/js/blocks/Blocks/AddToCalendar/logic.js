@@ -3,7 +3,7 @@ import { getEndDate } from '../../utils/time';
 
 export const setEventMeta = ( date, description, duration, location, timezone, title ) => {
   const startDatetime = stripSpecialChars( `${date}` );
-  const endDatetime = stripSpecialChars( getEndDate( date, duration.min, timezone.gmtOffset ) );
+  const endDatetime = stripSpecialChars( getEndDate( date, duration.min, timezone.utcOffset ) );
 
   const event = {
     description,
