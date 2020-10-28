@@ -1,5 +1,5 @@
 {
-  "name": "gpalab/lab-gutenblocks",
+  "name": "gpalab/gpa-gutenblocks",
   "type": "wordpress-plugin",
   "description" : "Plugin providing custom content blocks for the WordPress Gutenberg editor",
   "authors": [
