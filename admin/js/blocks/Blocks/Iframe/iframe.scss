@@ -1,5 +1,4 @@
 .iip-gut {
-
   &-responsive-container {
     position: relative;
     overflow: hidden;
@@ -18,11 +17,11 @@
 
     // Optional styling
     &.outline {
-      border: 1px solid #CCCCCC;
+      border: 1px solid #cccccc;
     }
-    
+
     &.shadow {
-      box-shadow: 1px 2px 1px rgba(0, 0, 0, .2);
+      box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
     }
   }
 

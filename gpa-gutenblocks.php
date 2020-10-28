@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: IIP Gutenblocks
- * Plugin URI: https://github.com/IIP-Design/iip-gutenblocks
+ * Plugin Name: GPA Gutenblocks
+ * Plugin URI: https://github.com/IIP-Design/gpa-gutenblocks
  * Description: Plugin providing custom content blocks for the WordPress Gutenberg editor
  * Version: v1.1.2
  * Author: U.S. Department of State, Bureau of Global Public Affairs Digital Lab <gpa-lab@america.gov>
@@ -18,8 +18,8 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Define constants.
-define( 'IIP_GUTENBLOCKS_DIR', plugin_dir_path( dirname( __FILE__ ) ) . 'iip-gutenblocks/' );
-define( 'IIP_GUTENBLOCKS_URL', plugin_dir_url( dirname( __FILE__ ) ) . 'iip-gutenblocks/' );
+define( 'GPALAB_GUTENBLOCKS_DIR', plugin_dir_path( dirname( __FILE__ ) ) . 'gpa-gutenblocks/' );
+define( 'GPALAB_GUTENBLOCKS_URL', plugin_dir_url( dirname( __FILE__ ) ) . 'gpa-gutenblocks/' );
 
 // Imports LAB_Gutenblocks class.
 require plugin_dir_path( __FILE__ ) . 'includes/class-lab-gutenblocks.php';

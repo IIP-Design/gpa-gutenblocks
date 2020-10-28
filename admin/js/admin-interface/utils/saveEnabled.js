@@ -1,5 +1,5 @@
-const { ajaxUrl } = window.iipGutenblocks || '';
-const { iipGutNonce } = window.iipGutenblocks || '';
+const { ajaxUrl } = window.gpaGutenblocks || '';
+const { gpaGutNonce } = window.gpaGutenblocks || '';
 const $ = window.jQuery;
 
 export const saveWithAjax = ( action, dataObj ) => {
@@ -8,7 +8,7 @@ export const saveWithAjax = ( action, dataObj ) => {
   const data = {
     action,
     payload,
-    security: iipGutNonce,
+    security: gpaGutNonce,
   };
 
   const success = res => {

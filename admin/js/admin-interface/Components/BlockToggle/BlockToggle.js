@@ -13,7 +13,7 @@ const BlockToggle = ( {
   const { icon } = blockType[group][reference] || {};
 
   return (
-    <div className="iip-gut-block-toggle">
+    <div className="gpalab-gut-block-toggle">
       <Consumer>
         { context => {
           const item = context.blockSettings[groupIndex][group][blockIndex];
@@ -21,7 +21,7 @@ const BlockToggle = ( {
 
           return (
             <div
-              className={ `iip-gut-block-toggle-item ${isEnabled}` }
+              className={ `gpalab-gut-block-toggle-item ${isEnabled}` }
               onClick={ () => { context.toggleBlock( blockIndex, group, groupIndex, reference ); } }
               onKeyUp={ () => { context.toggleBlock( blockIndex, group, groupIndex, reference ); } }
               role="button"

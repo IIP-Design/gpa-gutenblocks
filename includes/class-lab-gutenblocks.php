@@ -53,7 +53,7 @@ class LAB_Gutenblocks {
    * @since    0.0.1
    */
   public function __construct() {
-    $this->plugin_name = 'iip-gutenblocks';
+    $this->plugin_name = 'GPA Lab Gutenblocks';
     $this->version     = 'v1.1.2';
     $this->load_dependencies();
     $this->define_admin_hooks();

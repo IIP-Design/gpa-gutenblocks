@@ -1,4 +1,4 @@
-const iipGutToggleClasses = ( className, element ) => {
+const gpaGutToggleClasses = ( className, element ) => {
   if ( element.classList.contains( className ) ) {
     element.classList.remove( className );
   } else {
@@ -6,7 +6,7 @@ const iipGutToggleClasses = ( className, element ) => {
   }
 };
 
-const iipGutToggleDisplay = element => {
+const gpaGutToggleDisplay = element => {
   if ( element.style.display === 'none' ) {
     element.style.display = 'inline';
   } else {
@@ -19,15 +19,15 @@ const toggleChatroll = () => {
   const minimize = document.querySelector( '.iip-chatroll-minimize' );
   const iframe = document.querySelector( '.iip-chatroll-iframe' );
 
-  iipGutToggleClasses( 'reduced', topbar );
-  iipGutToggleClasses( 'minized', minimize );
-  iipGutToggleDisplay( iframe );
+  gpaGutToggleClasses( 'reduced', topbar );
+  gpaGutToggleClasses( 'minized', minimize );
+  gpaGutToggleDisplay( iframe );
 };
 
 export const handleChatroll = () => {
-  const iipChatroll = document.querySelector( '.iip-chatroll' );
+  const chatroll = document.querySelector( '.iip-chatroll' );
 
-  if ( iipChatroll ) {
-    iipChatroll.addEventListener( 'click', toggleChatroll );
+  if ( chatroll ) {
+    chatroll.addEventListener( 'click', toggleChatroll );
   }
 };

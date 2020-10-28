@@ -5,7 +5,7 @@ const { wp } = window;
 const { Button } = wp.components;
 
 const AdminBottomBar = ( { action, data, label } ) => (
-  <div className="iip-gut-floating-save">
+  <div className="gpalab-gut-floating-save">
     <form action={ action } method="post">
       <Button
         isLarge

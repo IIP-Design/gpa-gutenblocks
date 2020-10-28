@@ -7,7 +7,7 @@
 <file>./admin</file>
 <file>./includes</file>
 <file>./public</file>
-<file>./iip-gutenblocks.php</file>
+<file>./gpa-gutenblocks.php</file>
 
 <!-- Exclude empty index.php files from testing. -->
 <exclude-pattern>*/vendor</exclude-pattern>

@@ -48,7 +48,7 @@ class BlockTogglePage extends Component {
     const { blockSettings } = this.state;
 
     return (
-      <div className="iip-gut-block-toggle-page">
+      <div className="gpalab-gut-block-toggle-page">
         <Provider value={ this.state }>
           { blockSettings.map( ( group, groupIndex ) => {
             const groupName = Object.keys( group )[0];

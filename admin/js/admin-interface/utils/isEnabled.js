@@ -1,6 +1,6 @@
 import { makeObjArr } from './dataManipulation';
 
-const { enabledBlocks } = window.iipGutenblocks || {};
+const { enabledBlocks } = window.gpaGutenblocks || {};
 
 const allEnabled = [
   {

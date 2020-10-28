@@ -9,10 +9,14 @@ const { wp } = window;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
+/**
+ * The block type name not updated from iip-gut to gpalab-gut
+ * in order to maintain backwards compatibility.
+ */
 registerBlockType( 'iip-gut/add-to-calendar', {
   title: __( 'Add to Calendar', 'gpalab-gutenblocks' ),
   description: __( 'Inserts add to calendar button', 'gpalab-gutenblocks' ),
-  category: 'iip_custom_blocks',
+  category: 'gpa_custom_blocks',
   icon: 'calendar-alt',
   keywords: [
     __( 'interactive', 'gpalab-gutenblocks' ),

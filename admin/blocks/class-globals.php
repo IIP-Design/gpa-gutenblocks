@@ -31,7 +31,7 @@ class Globals {
   public function register_dequeue_blocks() {
     wp_enqueue_script(
       'remove-gutenberg-blocks',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-blockSettings.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-blockSettings.min.js',
       array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
       $this->version,
       true

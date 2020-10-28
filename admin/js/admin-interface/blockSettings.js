@@ -2,7 +2,7 @@ import defaultBlocks from './utils/defaultBlocks.json';
 
 const { wp } = window;
 const { unregisterBlockType } = wp.blocks;
-const { enabledBlocks } = window.iipGutenblocks || {};
+const { enabledBlocks } = window.gpaGutenblocks || {};
 const { blockType } = defaultBlocks;
 
 const getHandle = ( group, reference ) => {

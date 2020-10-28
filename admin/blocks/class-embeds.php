@@ -37,7 +37,7 @@ class Embeds {
 
     wp_register_script(
       'gpalab-gut-embeds-admin-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.js',
       array( 'wp-blocks', 'wp-editor', 'wp-element', 'wp-i18n' ),
       $this->version,
       true
@@ -45,11 +45,15 @@ class Embeds {
 
     wp_register_style(
       'gpalab-gut-embeds-css',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.css',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-embeds.min.css',
       array(),
       $this->version
     );
 
+    /**
+     * The block type name not updated from iip-gut to gpalab-gut
+     * in order to maintain backwards compatibility.
+     */
     register_block_type(
       'iip-gut/embeds',
       array(

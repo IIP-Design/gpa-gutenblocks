@@ -37,7 +37,7 @@ class Interactive {
 
     wp_register_script(
       'gpalab-gut-interactive-admin-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.js',
       array( 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element' ),
       $this->version,
       true
@@ -45,11 +45,15 @@ class Interactive {
 
     wp_register_style(
       'gpalab-gut-interactive-css',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.css',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactive.min.css',
       array(),
       $this->version
     );
 
+    /**
+     * The block type name not updated from iip-gut to gpalab-gut
+     * in order to maintain backwards compatibility.
+     */
     register_block_type(
       'iip-gut/interactive',
       array(
@@ -61,7 +65,10 @@ class Interactive {
   }
 
   /**
-   * Registers custom meta data.
+   * Registers custom meta key.
+   *
+   * The key name not updated from iip_gut_atc_event to gpalab_gut_atc_event
+   * in order to maintain backwards compatibility.
    */
   public function register_custom_meta() {
     register_meta(
@@ -92,7 +99,7 @@ class Interactive {
       $categories,
       array(
         array(
-          'slug'  => 'iip_custom_blocks',
+          'slug'  => 'gpa_custom_blocks',
           'title' => __( 'GPA/LAB Custom Blocks', 'gpalab-gutenblocks' ),
         ),
       )

@@ -5,9 +5,9 @@ import chatroll from './assets/chatroll-logo.png';
 const { wp } = window;
 const { InspectorControls } = wp.editor;
 const { Fragment } = wp.element;
-const { pluginUrl } = window.iipGutenblocks;
+const { pluginUrl } = window.gpaGutenblocks;
 
-const logoSrc = `${pluginUrl}admin/js/dist${chatroll}`;
+const logoSrc = `${pluginUrl}/dist${chatroll}`;
 
 const ChatrollEditor = ( {
   alignment, domain, height, id, name, offsetX, offsetY, title, width, updateValue,

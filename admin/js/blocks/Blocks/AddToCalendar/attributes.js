@@ -31,7 +31,7 @@ export const attributes = {
   event: {
     type: 'string',
     source: 'meta',
-    meta: 'iip_gut_atc_event',
+    meta: 'iip_gut_atc_event', // Legacy meta option not renamed to maintain backwards compatibility
   },
   isOpen: {
     type: 'boolean',

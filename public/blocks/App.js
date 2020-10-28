@@ -1,6 +1,6 @@
 import { AddToCalendarDropdown } from './AddToCalendar';
 
-const { addToCal } = window.iipGutenblocks;
+const { addToCal } = window.gpaGutenblocks;
 
 const App = () => (
   <AddToCalendarDropdown

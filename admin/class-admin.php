@@ -33,7 +33,7 @@ class Admin {
       __( 'GPA/LAB Gutenblocks', 'gpalab-gutenblocks' ),
       __( 'GPA/LAB  Gutenblocks', 'gpalab-gutenblocks' ),
       'activate_plugins',
-      'options-iip-gutenblocks',
+      'options-gpalab-gutenblocks',
       array( $this, 'load_admin_page' )
     );
   }
@@ -51,7 +51,7 @@ class Admin {
   public function enqueue_admin_page() {
     wp_enqueue_script(
       'gutenberg-admin-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-admin.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-admin.min.js',
       array( 'wp-components', 'wp-element' ),
       $this->version,
       true
@@ -59,7 +59,7 @@ class Admin {
 
     wp_enqueue_style(
       'gutenberg-admin-css',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-admin.min.css',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-admin.min.css',
       array( 'wp-components' ),
       $this->version
     );
@@ -71,22 +71,26 @@ class Admin {
   public function enqueue_global_variables() {
     wp_enqueue_script(
       'gutenberg-globals-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-globals.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-globals.js',
       array( 'wp-components', 'wp-element' ),
       $this->version,
       true
     );
 
+    /**
+     * The option name iip_gut_enabled_blocks not updated to gpalab-gut...
+     * in order to maintain backwards compatibility.
+     */
     $enabled_blocks = get_option( 'iip_gut_enabled_blocks' ) ? get_option( 'iip_gut_enabled_blocks' ) : '';
 
     wp_localize_script(
       'gutenberg-globals-js',
-      'iipGutenblocks',
+      'gpaGutenblocks',
       array(
         'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
-        'iipGutNonce'   => wp_create_nonce( 'gpa_gut_save' ),
+        'gpaGutNonce'   => wp_create_nonce( 'gpa_gut_save' ),
         'enabledBlocks' => $enabled_blocks,
-        'pluginUrl'     => IIP_GUTENBLOCKS_URL,
+        'pluginUrl'     => GPALAB_GUTENBLOCKS_URL,
       )
     );
   }

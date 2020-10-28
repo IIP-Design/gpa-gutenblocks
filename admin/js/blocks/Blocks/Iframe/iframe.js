@@ -9,6 +9,10 @@ const { wp } = window;
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 
+/**
+ * The block type name not updated from iip-gut to gpalab-gut
+ * in order to maintain backwards compatibility.
+ */
 registerBlockType( 'iip-gut/iframe', {
   title: __( 'Responsive iframe', 'gpalab-gutenblocks' ),
   description: __( 'Insert responsive component', 'gpalab-gutenblocks' ),

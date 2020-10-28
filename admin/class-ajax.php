@@ -27,6 +27,10 @@ class Ajax {
       return;
     }
 
+    /**
+     * The option name iip_gut_enabled_blocks not updated to gpalab-gut...
+     * in order to maintain backwards compatibility.
+     */
     $enabled_blocks = get_option( 'iip_gut_enabled_blocks' );
 
     if ( ! empty( $_POST['payload'] ) ) {

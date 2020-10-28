@@ -1,5 +1,4 @@
-.iip-gut { 
-  
+.iip-gut {
   &-flex-column {
     display: flex;
     flex-direction: column;
@@ -22,7 +21,7 @@
     width: 100%;
 
     &.half {
-      flex-basis: 45%
+      flex-basis: 45%;
     }
   }
 }

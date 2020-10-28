@@ -33,7 +33,7 @@ class Frontend {
 
     wp_enqueue_script(
       'gpalab-gutenblocks-frontend-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactiveFront.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-interactiveFront.min.js',
       array( 'wp-element' ),
       $this->version,
       true
@@ -41,18 +41,22 @@ class Frontend {
 
     wp_enqueue_script(
       'gpalab-gut-interactive-js',
-      IIP_GUTENBLOCKS_URL . 'dist/gpalab-gut-front.min.js',
+      GPALAB_GUTENBLOCKS_URL . 'dist/gpalab-gut-front.min.js',
       array(),
       $this->version,
       true
     );
 
+    /**
+     * The meta value key not updated from iip_gut_atc_event to gpalab...
+     * in order to maintain backwards compatibility.
+     */
     $add_to_cal = get_post_meta( $post->ID, 'iip_gut_atc_event', true );
     $decoded    = json_decode( $add_to_cal, true );
 
     wp_localize_script(
       'gpalab-gutenblocks-frontend-js',
-      'iipGutenblocks',
+      'gpaGutenblocks',
       array(
         'addToCal' => $decoded,
       )
