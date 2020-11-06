@@ -54,7 +54,7 @@ class LAB_Gutenblocks {
    */
   public function __construct() {
     $this->plugin_name = 'GPA Lab Gutenblocks';
-    $this->version     = 'v1.2.1';
+    $this->version     = 'v1.2.2';
     $this->load_dependencies();
     $this->define_admin_hooks();
     $this->define_public_hooks();
