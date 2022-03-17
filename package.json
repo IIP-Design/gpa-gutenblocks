@@ -43,7 +43,7 @@
     "prop-types": "^15.7.2",
     "replace": "^1.2.0",
     "sass-loader": "^10.0.4",
-    "simple-git": "^2.21.0",
+    "simple-git": "^3.3.0",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.1.0"
