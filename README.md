@@ -1,3 +1,7 @@
+# :warning: THIS REPO HAS BEEN ARCHIVED :warning:
+
+This repository contains a custom plugin for WordPress sites formerly under the america.gov domain. Theses sites were transitioned to another team for maintenance in October 2020. As such, this repository has been archived and is no longer being maintained. The code is preserved here as a reference.
+
 # GPA Gutenblocks
 
 This plugin contains a `gpa-gutenblocks.php`, which registers plugin and begins its execution. Additionally, there is an admin class (`admin/class--admin.php`) where all admin hooks are registered and the frontend class (`public/class-frontend.php`) where all public hooks are registered. The includes directory contains the main plugin class (`include/class-lab-gutenblocks.php`), which defines the core functionality of the plugin and the loader file (`include/class-loader.php`), which feeds the admin and public hooks in from their respective classes into the main class file.
